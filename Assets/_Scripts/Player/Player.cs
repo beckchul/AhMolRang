@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -5,8 +6,6 @@ public class Player : MonoBehaviour
     public PlayerController Controller { get; private set; }
     public PlayerMovement Movement { get; private set; }
     public Rigidbody2D Rigidbody2D { get; private set; }
-
-
 
     public CharacterStat Stat { get; private set; }
 
