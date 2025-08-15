@@ -17,6 +17,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     private Stack<MonsterBase> _monsterStack = new();
 
     private WaitForSeconds _wait1Second = new(1f);
+    private Coroutine _waveCoroutine;
 
     [Header("Ellipse Settings")]
     public float maxX = 10f; // X축 최대 반경 (타원의 가로 반지름)
@@ -36,7 +37,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             200 // max size
         );
 
-        StartCoroutine(ProcessWave());
+        _waveCoroutine = StartCoroutine(ProcessWave());
     }
 
     private IEnumerator ProcessWave()
@@ -68,15 +69,15 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             if (boss.Stat.CurrentHP > 0)
             {
                 Debug.Log("Failed to clear boss.");
-                FinishGame();
                 GameManager.Instance.Defeat();
+                FinishGame();
                 yield break;
             }
         }
 
         Debug.Log("All waves completed!");
-        FinishGame();
         GameManager.Instance.Victory();
+        FinishGame();
     }
     
     public void FinishGame()
@@ -86,6 +87,8 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             var monster = _monsterStack.Pop();
             monster.gameObject.SetActive(false);
         }
+
+        StopCoroutine(_waveCoroutine);
     }
 
     private void OnMonsterDead(MonsterBase monster)
