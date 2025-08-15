@@ -46,6 +46,7 @@ public class UIManager : MonoSingleton<UIManager>
     public void ShowSkillSelectUI()
     {
         skillSelectUI.ShowUI();
+        skillSelectUI.SetButton();
     }
 
     public void UpdateSkillListUI()

@@ -78,11 +78,8 @@ public class SkillSelect : MonoBehaviour
     /// <param name="skillInfo"></param>
     public void OnSkillSelect(SkillDataBase skillInfo)
     {
-        // 플레이어 정보에서 스킬 받아오면 처리 후 창 종료
-        Debug.Log("OnSkillSelect");
-
+        SkillManager.Instance.SkillLevelUp(skillInfo.skillId);
         UIManager.Instance.UpdateSkillListUI();
-
         HideUI();
     }
 

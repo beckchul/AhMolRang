@@ -62,12 +62,18 @@ public class SkillManager : MonoSingleton<SkillManager>
         return _skillDataCache[skllId].themeType;
     }
 
+    public void SkillLevelUp(int skillId)
+    {
+        Skills[skillId].UpgradeEfficiency(1);
+    }
+
     public ActiveSkillData GetActiveSkillData(int skillId)
     {
         foreach (var skill in skillData.activeSkills)
         {
             if (skill.skillId == skillId)
             {
+                skill.skillLevel = Skills[skillId].Level;
                 return skill;
             }
         }
@@ -81,6 +87,7 @@ public class SkillManager : MonoSingleton<SkillManager>
         {
             if (skill.skillId == skillId)
             {
+                skill.skillLevel = Skills[skillId].Level;
                 return skill;
             }
         }
