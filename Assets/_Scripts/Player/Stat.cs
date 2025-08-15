@@ -17,7 +17,7 @@ public class Stat
     public void AddModifier(StatModifier modifier) => modifiers.Add(modifier);
     public void RemoveModifier(StatModifier modifier) => modifiers.Remove(modifier);
     public void ClearModifier() => modifiers.Clear();
-    //public List<StatModifier> GetModifierList() => modifiers;
+    public List<StatModifier> GetModifierList() => modifiers;
 
     private float CalculateFinalValue()
     {
