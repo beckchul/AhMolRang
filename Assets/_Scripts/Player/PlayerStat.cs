@@ -29,8 +29,6 @@ public class PlayerStat : CharacterStat
 {
     #region << =========== STAT =========== >>
 
-    public CharacterStat Stat { get; private set; }
-
     //public Stat MaxHPStat { get; private set; }
     public Stat RegenHPStat { get; private set; }
     public Stat AttackDamageStat { get; private set; }
@@ -56,7 +54,7 @@ public class PlayerStat : CharacterStat
     public float RegenHP => RegenHPStat.FinalValue;
     public float AttackDamage => AttackDamageStat.FinalValue;
     public float ProjectileDamage => ProjectileDamageStat.FinalValue;
-    public float ProjectileNum => ProjectileNumStat.FinalValue;
+    public int ProjectileNum => (int)ProjectileNumStat.FinalValue;
     public float ProjectileSpeed => ProjectileSpeedStat.FinalValue;
     public float AreaDamage => AreaDamageStat.FinalValue;
     public float AreaBoundary => AreaBoundaryStat.FinalValue;
@@ -90,16 +88,30 @@ public class PlayerStat : CharacterStat
 
     #endregion
 
+    public PlayerStat() : base()
+    {
+        InitPlayerStat();
+    }
 
     public void InitPlayerStat()
     {
-        Stat = new CharacterStat();
-
-        //MaxHPStat = new Stat((float)Stat.hp);
-        //CurrentHP = MaxHP;
-        //MoveSpeedStat = new Stat(Stat.moveSpeed);
-
-        CoolTimeStat = new Stat(1.0f);
+        RegenHPStat = new Stat(0.0f);
+        AttackDamageStat = new Stat(0.0f);
+        ProjectileDamageStat = new Stat(0.0f);
+        ProjectileNumStat = new Stat(0.0f);
+        ProjectileSpeedStat = new Stat(1.0f);
+        AreaDamageStat = new Stat(0.0f);
+        AreaBoundaryStat = new Stat(0.0f);
+        DotDamageStat = new Stat(0.0f);
+        DotDurationStat = new Stat(0.0f);
+        FinishPercentStat = new Stat(0.0f);
+        CoolTimeStat = new Stat(0.0f);
+        CriticalPerStat = new Stat(0.0f);
+        CriticalDamageStat = new Stat(0.0f);
+        EXPAreaStat = new Stat(0.0f);
+        EXPUpStat = new Stat(0.0f);
+        DefenseStat = new Stat(0.0f);
+        GoldUpStat = new Stat(0.0f);
     }
 
     public int TakeDamage(int damge)
