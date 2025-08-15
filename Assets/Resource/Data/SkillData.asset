@@ -12,24 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5e0314b54e55443a136a05e84ca970, type: 3}
   m_Name: SkillData
   m_EditorClassIdentifier: 
-  skills:
+  activeSkills:
   - skillId: 1001
-    skillType: 0
-    skillPrefab: {fileID: 0}
+    efficiency: 0.3
+    cooldown: 0.2
+    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     skillName: "\uD720\uC708\uB4DC"
+    skillIcon: {fileID: 0}
   - skillId: 1002
-    skillType: 0
-    skillPrefab: {fileID: 0}
+    efficiency: 0.2
+    cooldown: 0.1
+    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     skillName: "\uD5E4\uBE44 \uBA38\uC2E0\uAC74"
+    skillIcon: {fileID: 0}
   - skillId: 1003
-    skillType: 0
-    skillPrefab: {fileID: 0}
+    efficiency: 1
+    cooldown: 3
+    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     skillName: "\uC0AC\uC774\uC624\uB2C9 \uC2A4\uD1B0"
-  - skillId: 1004
-    skillType: 1
-    skillPrefab: {fileID: 0}
+    skillIcon: {fileID: 0}
+  passiveSkills:
+  - skillId: 2001
+    efficiency: 0.2
     skillName: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-  - skillId: 1005
-    skillType: 1
-    skillPrefab: {fileID: 0}
-    skillName: "\uCCB4\uB825 \uC99D\uAC00"
+    skillIcon: {fileID: 0}
+  - skillId: 2002
+    efficiency: 0.2
+    skillName: "\uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
+    skillIcon: {fileID: 0}
