@@ -63,11 +63,6 @@ public class PlayerStat : CharacterStat
     public float GoldUp => GoldUpStat.FinalValue;
     #endregion
 
-    #region << =========== DELEGATE =========== >>
-    public event Action<int> OnTakeDamage;
-    public event Action OnDeath;
-    #endregion
-
     #region << =========== DICTINARY =========== >>
     private readonly Dictionary<StatType, Stat> Dict = new();
     #endregion
@@ -96,18 +91,5 @@ public class PlayerStat : CharacterStat
         EXPUpStat = new Stat(0.0f);
         DefenseStat = new Stat(0.0f);
         GoldUpStat = new Stat(0.0f);
-    }
-
-    public override void TakeDamage(int damge)
-    {
-        base.TakeDamage(damge);
-        OnTakeDamage?.Invoke(damge);
-
-        if (CurrentHP <= 0) Death();
-    }
-
-    public void Death()
-    {
-        OnDeath?.Invoke();
     }
 }

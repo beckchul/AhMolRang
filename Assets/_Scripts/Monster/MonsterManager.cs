@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
@@ -16,6 +17,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     [SerializeField]
     private MonsterBase _monsterPrefab;
     private ObjectPool<MonsterBase> _monsterPool;
+    private Stack<MonsterBase> _monsterStack = new();
 
     private WaitForSeconds _wait1Second = new(1f);
 
@@ -69,14 +71,24 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             if (boss.Stat.CurrentHP > 0)
             {
                 Debug.Log("Failed to clear boss.");
-                _monsterPool.Clear();
+                FinishGame();
                 GameManager.Instance.Defeat();
                 yield break;
             }
         }
 
         Debug.Log("All waves completed!");
+        FinishGame();
         GameManager.Instance.Victory();
+    }
+    
+    public void FinishGame()
+    {
+        while(_monsterStack.Count > 0)
+        {
+            var monster = _monsterStack.Pop();
+            monster.gameObject.SetActive(false);
+        }
     }
 
     private void OnMonsterDead(MonsterBase monster)
@@ -87,6 +99,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     private void OnGetMonster(MonsterBase monster)
     {
         monster.gameObject.SetActive(true);
+        _monsterStack.Push(monster);
     }
 
     private void OnReleaseMonster(MonsterBase monster)
