@@ -10,8 +10,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField]
     private GameObject playerObject;
 
-
-    private void Start()
+    public override void Init()
     {
         PlayerObject = Instantiate(playerObject, Vector2.zero, Quaternion.identity);
 

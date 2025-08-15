@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - PlayerSkill
+  - EnemySkill
+  - Enemy
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - PlayerSkill
   - Enemy
   - EnemySkill
-  - 
+  - Item
   - 
   - 
   - 

@@ -14,6 +14,7 @@ public class SkillDataScriptableObject : ScriptableObject
         public ActiveSkill skillPrefab;
         public string skillName;
         public Sprite skillIcon;
+        public ThemeType themeType;
     }
 
     [Serializable]

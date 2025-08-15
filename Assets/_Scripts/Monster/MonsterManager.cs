@@ -10,9 +10,6 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     [SerializeField]
     private int _waveCount = 5;
 
-    [SerializeField]
-    private Player _target;
-
 
     [SerializeField]
     private MonsterBase _monsterPrefab;
@@ -121,16 +118,16 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     {
         var monster = _monsterPool.Get();
         monster.transform.position = position;
-        monster.Set(onDead, _target);
+        monster.Set(onDead);
 
         return monster;
     }
 
-    public MonsterBase SpawnMonster(Action<MonsterBase> onDead, Vector3 position, int spriteId)
+    public MonsterBase SpawnMonster(Action<MonsterBase> onDead, Vector3 position, ThemeType themeType)
     {
         var monster = _monsterPool.Get();
         monster.transform.position = position;
-        monster.Set(onDead, _target);
+        monster.Set(onDead);
 
         return monster;
     }
@@ -156,6 +153,6 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         float x = Mathf.Cos(angle) * radiusX;
         float y = Mathf.Sin(angle) * radiusY;
 
-        return _target.transform.position + new Vector3(x, y);
+        return PlayerManager.Instance.PlayerScript.transform.position + new Vector3(x, y);
     }
 }
