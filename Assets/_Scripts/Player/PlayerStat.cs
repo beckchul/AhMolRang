@@ -92,4 +92,6 @@ public class PlayerStat : CharacterStat
         DefenseStat = new Stat(0.0f);
         GoldUpStat = new Stat(0.0f);
     }
+
+
 }
