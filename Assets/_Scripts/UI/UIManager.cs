@@ -26,15 +26,16 @@ public class UIManager : MonoSingleton<UIManager>
     [HideInInspector]
     public bool IsPaused = false;
 
-    private void Awake()
+    public override void Init()
     {
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UpdateSkillListUI();
         ShowSkillSelectUI();
+        UpdateSkillListUI();
     }
 
     // Update is called once per frame

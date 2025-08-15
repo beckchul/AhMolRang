@@ -1,37 +1,33 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using static SkillDataScriptableObject;
 
 public class SkillSelectButton : MonoBehaviour
 {
-    public Action<int, int, int> OnClicked;
+    [SerializeField]
+    private Image buttonIcon;
 
-    public int SkillType;
+    [SerializeField]
+    private TMP_Text buttonText;
 
-    public int SkillId;
+    public Action<SkillDataBase> OnClicked;
 
-    public int SkillLevel;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private SkillDataBase skillInfo;
 
     /// <summary>
     /// 버튼 세팅
     /// </summary>
-    /// <param name="skillType"></param>
-    /// <param name="skillId"></param>
-    /// <param name="skillLevel"></param>
-    public void SetButton(int skillType, int skillId, int skillLevel)
+    public void SetButton(SkillDataBase SkillInfo)
     {
-        SkillType = skillType;
-        SkillId = skillId;
-        SkillLevel = skillLevel;
+        skillInfo = SkillInfo;
+        buttonIcon.sprite = skillInfo.skillIcon;
+        buttonText.text = skillInfo.skillName;
     }
 
     public void OnClickButton()
     {
-        OnClicked.Invoke(SkillType, SkillId, SkillLevel);
+        OnClicked.Invoke(skillInfo);
     }
 }

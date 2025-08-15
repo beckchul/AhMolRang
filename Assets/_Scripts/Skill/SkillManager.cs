@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static SkillDataScriptableObject;
 
 public class SkillManager : MonoSingleton<SkillManager>
 {
@@ -59,5 +60,31 @@ public class SkillManager : MonoSingleton<SkillManager>
 
         var skllId = themes.ElementAt(randomIndex);
         return _skillDataCache[skllId].themeType;
+    }
+
+    public ActiveSkillData GetActiveSkillData(int skillId)
+    {
+        foreach (var skill in skillData.activeSkills)
+        {
+            if (skill.skillId == skillId)
+            {
+                return skill;
+            }
+        }
+
+        return null;
+    }
+
+    public PassiveSkillData GetPasiveSkillData(int skillId)
+    {
+        foreach (var skill in skillData.passiveSkills)
+        {
+            if (skill.skillId == skillId)
+            {
+                return skill;
+            }
+        }
+
+        return null;
     }
 }

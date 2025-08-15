@@ -350,9 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28525c230267a0e4998550335c777ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillType: 0
-  SkillId: 0
-  SkillLevel: 0
+  buttonIcon: {fileID: 7967605785472782705}
+  buttonText: {fileID: 7267567277693188444}
 --- !u!114 &475477643348757708
 MonoBehaviour:
   m_ObjectHideFlags: 0

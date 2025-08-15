@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9293e1cd7319464e80fb6b1ccb0f10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 4865009997834448823}
-  text: {fileID: 2980487914955350853}
+  skillImage: {fileID: 4865009997834448823}
+  skillText: {fileID: 2980487914955350853}
 --- !u!1 &4820431020090676628
 GameObject:
   m_ObjectHideFlags: 0

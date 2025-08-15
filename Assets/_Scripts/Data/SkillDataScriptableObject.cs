@@ -6,24 +6,27 @@ using UnityEngine;
 public class SkillDataScriptableObject : ScriptableObject
 {
     [Serializable]
-    public struct ActiveSkillData
+    public class SkillDataBase
     {
         public int skillId;
         public float efficiency;
-        public float cooldown;
-        public ActiveSkill skillPrefab;
         public string skillName;
         public Sprite skillIcon;
+        public SkillType skillType;
+        public int skillLevel;
+    }
+
+    [Serializable]
+    public class ActiveSkillData : SkillDataBase
+    {
+        public float cooldown;
+        public ActiveSkill skillPrefab;
         public ThemeType themeType;
     }
 
     [Serializable]
-    public struct PassiveSkillData
+    public class PassiveSkillData : SkillDataBase
     {
-        public int skillId;
-        public float efficiency;
-        public string skillName;
-        public Sprite skillIcon;
     }
 
     public List<ActiveSkillData> activeSkills;

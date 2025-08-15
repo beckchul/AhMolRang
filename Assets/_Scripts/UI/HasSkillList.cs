@@ -12,42 +12,60 @@ public class HasSkillList : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void UpdateHasSkillList()
     {
-        int ActiveSkillCount = 3;
-
-        foreach(var (activeSkillIcon, index) in activeSkillIcons.Select((value, idx) => (value, idx)))
+        // 전체 아이콘 비활성화
+        foreach (SkillIcon skillIcon in activeSkillIcons)
         {
-            if (index < ActiveSkillCount)
-            {
-                activeSkillIcon.gameObject.SetActive(true);
-            }
-            else
-            {
-                activeSkillIcon.gameObject.SetActive(false);
-            }
+            skillIcon.gameObject.SetActive(false);
         }
 
-        int PasiveSkillCount = 2;
-
-        foreach (var (pasiveSkillIcon, index) in pasiveSkillIcons.Select((value, idx) => (value, idx)))
+        foreach (SkillIcon skillIcon in pasiveSkillIcons)
         {
-            if (index < PasiveSkillCount)
+            skillIcon.gameObject.SetActive(false);
+        }
+
+        // 들고있는 스킬들 아이콘 활성화
+        int activeSkillIndex = 0;
+        int pasiveSkillIndex = 0;
+        var playerSkills = SkillManager.Instance.Skills;
+
+        foreach (var skill in playerSkills)
+        {
+            var skillStatus = skill.Value;
+
+            if (skillStatus.Level == 0)
             {
-                pasiveSkillIcon.gameObject.SetActive(true);
+                continue;
             }
-            else
+
+            var activeSkillData = SkillManager.Instance.GetActiveSkillData(skillStatus.SkillId);
+
+            if (activeSkillData != null)
             {
-                pasiveSkillIcon.gameObject.SetActive(false);
+                activeSkillIcons[activeSkillIndex].gameObject.SetActive(true);
+                activeSkillIcons[activeSkillIndex].UpdateIcon(activeSkillData.skillIcon, activeSkillData.skillLevel);
+
+                activeSkillIndex++;
+            }
+
+            var pasiveSkillData = SkillManager.Instance.GetPasiveSkillData(skillStatus.SkillId);
+
+            if (pasiveSkillData != null)
+            {
+                pasiveSkillIcons[pasiveSkillIndex].gameObject.SetActive(true);
+                pasiveSkillIcons[pasiveSkillIndex].UpdateIcon(pasiveSkillData.skillIcon, pasiveSkillData.skillLevel);
+
+                pasiveSkillIndex++;
             }
         }
     }
