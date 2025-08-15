@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,29 +9,26 @@ public class MonsterBase : MonoBehaviour
 
     public CharacterStat Stat { get; private set; }
 
-    private GameObject _target;
+    private Player _target;
     private Collider2D _collider;
     private bool _isContacting;
+    private Action<MonsterBase> _onDead;
 
-    private void Awake()
-    {
-        Init();
-    }
-
-    private void Init()
+    public void Set(Action<MonsterBase> onDead, Player target)
     {
         Stat = new CharacterStat();
         StartCoroutine(CoTick());
-        _target = GameObject.FindWithTag("Player");
+        _target = target;
         _collider = GetComponent<Collider2D>();
         _isContacting = false;
+        _onDead = onDead;
     }
 
     private IEnumerator CoTick()
     {
         while (Stat.CurrentHP > 0)
         {
-            var tickDuration = Random.Range(0.8f, 1.2f);
+            var tickDuration = UnityEngine.Random.Range(0.8f, 1.2f);
             if (_target != null)
             {
                 yield return StartCoroutine(CoMove(tickDuration));
@@ -40,6 +38,13 @@ public class MonsterBase : MonoBehaviour
                 yield return new WaitForSeconds(tickDuration);
             }
         }
+
+        Die();
+    }
+
+    private void Die()
+    {
+        _onDead?.Invoke(this);
     }
 
     private IEnumerator CoMove(float duration)
@@ -61,7 +66,8 @@ public class MonsterBase : MonoBehaviour
     {
         while (_isContacting)
         {
-            Debug.Log($"{gameObject.name} is contacting with Player, attacking...");
+
+            Debug.Log($"{gameObject.name} attacked Player. HP Left : {_target.Stat.CurrentHP}");
             var delay = AttackDelay / Stat.AttackSpeed;
             yield return new WaitForSeconds(delay);
         }

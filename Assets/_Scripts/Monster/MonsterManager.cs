@@ -1,11 +1,17 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
 public class MonsterManager : MonoSingleton<MonsterManager>
 {
     [SerializeField]
-    private Transform _target;
+    private int _waveCount = 5;
+
+    [SerializeField]
+    private Player _target;
+
 
     [SerializeField]
     private MonsterBase _monsterPrefab;
@@ -36,14 +42,46 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
     private IEnumerator ProcessWave()
     {
-        var waveTime = 360f;
+        var waveTime = 180;
         var elapsedTime = 0;
-        while (elapsedTime < waveTime)
+
+        for (int i = 0; i < _waveCount; ++i)
         {
-            SpawnMonster(GetMonsterPosition(), 0);
-            ++elapsedTime;
-            yield return _wait1Second;
+            while (elapsedTime < waveTime)
+            {
+                SpawnMonster(OnMonsterDead, GetMonsterPosition(), 0);
+                ++elapsedTime;
+                yield return _wait1Second;
+            }
+
+            // BOSS WAVE
+            elapsedTime = 0;
+            var boss = SpawnBoss(OnMonsterDead, GetMonsterPosition(), 0);
+
+            while (elapsedTime < waveTime &&
+                boss.Stat.CurrentHP > 0)
+            {
+                SpawnMonster(OnMonsterDead, GetMonsterPosition(), 0);
+                ++elapsedTime;
+                yield return _wait1Second;
+            }
+
+            if (boss.Stat.CurrentHP > 0)
+            {
+                // 패배 처리
+                Debug.Log("Failed to clear boss.");
+                _monsterPool.Clear();
+                yield break;
+            }
         }
+
+        // 게임 클리어 처리
+        Debug.Log("All waves completed!");
+    }
+
+    private void OnMonsterDead(MonsterBase monster)
+    {
+        _monsterPool.Release(monster);
     }
 
     private void OnGetMonster(MonsterBase monster)
@@ -66,11 +104,22 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         Destroy(monster.gameObject);
     }
 
-    public void SpawnMonster(Vector3 position, int spriteId)
+    public MonsterBase SpawnBoss(Action<MonsterBase> onDead, Vector3 position, int spriteId)
     {
         var monster = _monsterPool.Get();
         monster.transform.position = position;
-        monster.Stat.Reset();
+        monster.Set(onDead, _target);
+
+        return monster;
+    }
+
+    public MonsterBase SpawnMonster(Action<MonsterBase> onDead, Vector3 position, int spriteId)
+    {
+        var monster = _monsterPool.Get();
+        monster.transform.position = position;
+        monster.Set(onDead, _target);
+
+        return monster;
     }
 
     private Vector3 GetMonsterPosition()
@@ -94,6 +143,6 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         float x = Mathf.Cos(angle) * radiusX;
         float y = Mathf.Sin(angle) * radiusY;
 
-        return _target.position + new Vector3(x, y);
+        return _target.transform.position + new Vector3(x, y);
     }
 }
