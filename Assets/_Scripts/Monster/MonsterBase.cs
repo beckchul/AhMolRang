@@ -6,7 +6,8 @@ public class MonsterBase : MonoBehaviour
     [field: SerializeField]
     private float AttackDelay { get; set; } = 1f; // Attack delay in seconds
 
-    private CharacterStat _stat;
+    public CharacterStat Stat { get; private set; }
+
     private GameObject _target;
     private Collider2D _collider;
     private bool _isContacting;
@@ -18,7 +19,7 @@ public class MonsterBase : MonoBehaviour
 
     private void Init()
     {
-        _stat = new CharacterStat();
+        Stat = new CharacterStat();
         StartCoroutine(CoTick());
         _target = GameObject.FindWithTag("Player");
         _collider = GetComponent<Collider2D>();
@@ -27,7 +28,7 @@ public class MonsterBase : MonoBehaviour
 
     private IEnumerator CoTick()
     {
-        while (_stat.hp > 0)
+        while (Stat.hp > 0)
         {
             var tickDuration = Random.Range(0.8f, 1.2f);
             if (_target != null)
@@ -49,7 +50,7 @@ public class MonsterBase : MonoBehaviour
         while (duration > elapsedTime)
         {
             var direction = (_target.transform.position - transform.position).normalized;
-            transform.position += _stat.moveSpeed * Time.deltaTime * direction;
+            transform.position += Stat.moveSpeed * Time.deltaTime * direction;
 
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -61,7 +62,7 @@ public class MonsterBase : MonoBehaviour
         while (_isContacting)
         {
             Debug.Log($"{gameObject.name} is contacting with Player, attacking...");
-            var delay = AttackDelay / _stat.attackSpeed;
+            var delay = AttackDelay / Stat.attackSpeed;
             yield return new WaitForSeconds(delay);
         }
     }

@@ -1,9 +1,7 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-
     private void Awake()
     {
         PreLoad();
