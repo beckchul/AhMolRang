@@ -64,7 +64,7 @@ public class PlayerStat : CharacterStat
     #endregion
 
     #region << =========== DICTINARY =========== >>
-    private readonly Dictionary<StatType, Stat> Dict = new();
+    private readonly Dictionary<StatType, Stat> statDict = new();
     #endregion
 
 
@@ -91,5 +91,35 @@ public class PlayerStat : CharacterStat
         EXPUpStat = new Stat(0.0f);
         DefenseStat = new Stat(0.0f);
         GoldUpStat = new Stat(0.0f);
+
+        statDict.Add(StatType.RegenHP, RegenHPStat);
+        statDict.Add(StatType.ProjectileDamage, ProjectileDamageStat);
+        statDict.Add(StatType.ProjectileNum, ProjectileNumStat);
+        statDict.Add(StatType.ProjectileSpeed, ProjectileSpeedStat);
+        statDict.Add(StatType.AreaDamage, AreaDamageStat);
+        statDict.Add(StatType.AreaBoundary, AreaBoundaryStat);
+        statDict.Add(StatType.DotDamage, DotDamageStat);
+        statDict.Add(StatType.DotDuration, DotDurationStat);
+        statDict.Add(StatType.FinishPercent, FinishPercentStat);
+        statDict.Add(StatType.CoolTime, CoolTimeStat);
+        statDict.Add(StatType.CriticalPer, CriticalPerStat);
+        statDict.Add(StatType.CriticalDamage, CriticalDamageStat);
+        statDict.Add(StatType.EXPArea, EXPAreaStat);
+        statDict.Add(StatType.EXPUp, EXPUpStat);
+        statDict.Add(StatType.Defense, DefenseStat);
+        statDict.Add(StatType.GoldUp, GoldUpStat);
+    }
+
+    public void ChangeStat(StatModifierType statModifierType, StatType statType, float value)
+    {
+        if(statDict.ContainsKey(statType))
+        {
+            StatModifier md = new StatModifier(value, statModifierType);
+            statDict[statType].AddModifier(md);
+        }
+        else
+        {
+            Debug.LogError("PlayerStat -> ChangeStat: statDict.ContainsKey Error");
+        }
     }
 }
