@@ -21,13 +21,6 @@ public class SkillSelect : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnDestroy()
     {
         foreach (SkillSelectButton button in skillSelectButtons)
@@ -38,6 +31,11 @@ public class SkillSelect : MonoBehaviour
 
     public void OnSkillSelect(int skillType, int skillId, int skillLevel)
     {
+        Debug.Log("OnSkillSelect");
+    }
 
+    public void OnClickReroll()
+    {
+        Debug.Log("OnClickReroll");
     }
 }

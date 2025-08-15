@@ -1,9 +1,0 @@
-fileFormatVersion: 2
-guid: ed5591596df551e4c8f4b05ce88a7a07
-AssetOrigin:
-  serializedVersion: 1
-  productId: 2413
-  packageName: 'NGUI: Next-Gen UI'
-  packageVersion: 2025.07.01
-  assetPath: Assets/NGUI/Resources/Shaders/Unlit - Premultiplied Colored.shader
-  uploadId: 768938
