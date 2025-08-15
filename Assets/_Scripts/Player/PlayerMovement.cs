@@ -10,10 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public void Init(Player _player)
     {
         player = _player;
-    }
-
-    private void Start()
-    {
         player.Controller.OnMoveEvent += Move;
     }
 

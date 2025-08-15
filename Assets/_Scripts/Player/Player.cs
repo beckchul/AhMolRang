@@ -9,16 +9,12 @@ public class Player : MonoBehaviour
 
     public PlayerStat Stat { get; private set; }
 
-    private void Awake()
-    {
-        InitPlayer();
-    }
 
     public void InitPlayer()
     {
         Controller = GetComponent<PlayerController>();
         Movement = GetComponent<PlayerMovement>();
-        Rigidbody2D = GetComponent<Rigidbody2D>();
+        Rigidbody2D = GetComponentInChildren<Rigidbody2D>();
 
         Controller.Init(this);
         Movement.Init(this);
@@ -31,8 +27,5 @@ public class Player : MonoBehaviour
         };
 
         Rigidbody2D.gravityScale = 0.0f;
-
-        Controller.Init(this);
-        Movement.Init(this);
     }
 }
