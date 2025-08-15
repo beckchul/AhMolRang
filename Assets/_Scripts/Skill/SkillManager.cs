@@ -7,12 +7,7 @@ public class SkillManager : MonoSingleton<SkillManager>
 
     public Dictionary<int, SkillStatus> Skills = new();
 
-    private void Awake()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
+    public override void Init()
     {
         foreach (var skillData in skillData.activeSkills)
         {
