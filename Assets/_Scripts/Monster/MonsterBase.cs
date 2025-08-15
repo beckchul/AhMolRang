@@ -28,7 +28,7 @@ public class MonsterBase : MonoBehaviour
 
     private IEnumerator CoTick()
     {
-        while (Stat.hp > 0)
+        while (Stat.CurrentHP > 0)
         {
             var tickDuration = Random.Range(0.8f, 1.2f);
             if (_target != null)
@@ -50,7 +50,7 @@ public class MonsterBase : MonoBehaviour
         while (duration > elapsedTime)
         {
             var direction = (_target.transform.position - transform.position).normalized;
-            transform.position += Stat.moveSpeed * Time.deltaTime * direction;
+            transform.position += Stat.MoveSpeed * Time.deltaTime * direction;
 
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -62,7 +62,7 @@ public class MonsterBase : MonoBehaviour
         while (_isContacting)
         {
             Debug.Log($"{gameObject.name} is contacting with Player, attacking...");
-            var delay = AttackDelay / Stat.attackSpeed;
+            var delay = AttackDelay / Stat.AttackSpeed;
             yield return new WaitForSeconds(delay);
         }
     }
