@@ -9,7 +9,7 @@ public class SkillManager : MonoSingleton<SkillManager>
 
     public Dictionary<int, SkillStatus> Skills = new();
 
-    private Dictionary<int, SkillDataScriptableObject.ActiveSkillData> _skillDataCache = new();
+    private Dictionary<int, ActiveSkillData> _skillDataCache = new();
 
     public override void Init()
     {
