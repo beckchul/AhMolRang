@@ -1,8 +1,8 @@
 public class SkillStatus
 {
     public int SkillId { get; }
-    public float Efficiency { get; private set; }
-    public int Level { get; private set; }
+    public float Efficiency { get; protected set; }
+    public int Level { get; protected set; }
 
     public SkillStatus(int skillId, float efficiency)
     {
@@ -12,9 +12,9 @@ public class SkillStatus
     }
 
 
-    public void Upgrade()
+    public void UpgradeEfficiency(float efficiencyBonusRate)
     {
         Level++;
-        // Logic to increase efficiency or cooldown based on level can be added here
+        Efficiency *= efficiencyBonusRate;
     }
 }
