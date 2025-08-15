@@ -24,17 +24,17 @@ public class Stat
         float flatSum = 0f;
         float percentMul = 1f;
 
-        StatModifier constMod = modifiers.Find(m => m.Type == StatType.Const);
+        StatModifier constMod = modifiers.Find(m => m.Type == StatModifierType.Const);
         if (constMod != null) return constMod.Value;
 
         foreach (var mod in modifiers)
         {
             switch (mod.Type)
             {
-                case StatType.Flat:
+                case StatModifierType.Flat:
                     flatSum += mod.Value;
                     break;
-                case StatType.Percent:
+                case StatModifierType.Percent:
                     percentMul *= 1 + (mod.Value / 100f);
                     break;
             }

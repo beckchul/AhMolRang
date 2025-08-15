@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class CharacterStat
 {
-    public int hp;
-    public float moveSpeed;
-    public float attackSpeed; // 1 = 100% 공속, 0.5 = 50% 공속, 2 = 200% 공속
+    public Stat MaxHPStat { get; private set; }
+    public Stat MoveSpeedStat { get; private set; }
+    public Stat AttackSpeedStat { get; private set; }
 
-    private readonly int originalHp;
-    private readonly float originalMoveSpeed;
-    private readonly float originalAttackSpeed;
+    public int MaxHP => (int)MaxHPStat.FinalValue;
+    public float MoveSpeed => MoveSpeedStat.FinalValue;
+    public float AttackSpeed => AttackSpeedStat.FinalValue;
+
+    public int CurrentHP { get; private set; }
+
 
 
     public CharacterStat(
@@ -16,17 +19,21 @@ public class CharacterStat
         float moveSpeed = 1f,
         float attackSpeed = 1f)
     {
-        originalHp = hp;
-        originalMoveSpeed = moveSpeed;
-        originalAttackSpeed = attackSpeed;
+        MaxHPStat = new Stat((float)hp);
+        MoveSpeedStat = new Stat(moveSpeed);
+        AttackSpeedStat = new Stat(attackSpeed);
+
+        CurrentHP = (int)MaxHPStat.BaseValue;
 
         Reset();
     }
 
     public void Reset()
     {
-        hp = originalHp;
-        moveSpeed = originalMoveSpeed;
-        attackSpeed = originalAttackSpeed;
+        MaxHPStat.ClearModifier();
+        MoveSpeedStat.ClearModifier();
+        AttackSpeedStat.ClearModifier();
+
+        CurrentHP = (int)MaxHPStat.BaseValue;
     }
 }
