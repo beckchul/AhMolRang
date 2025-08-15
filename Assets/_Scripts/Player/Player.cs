@@ -16,8 +16,16 @@ public class Player : MonoBehaviour
         Movement = GetComponent<PlayerMovement>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
+        Stat = new CharacterStat();
+
         Rigidbody2D.gravityScale = 0.0f;
 
-        Stat = new CharacterStat();
+        Controller.Init(this);
+        Movement.Init(this);
+    }
+
+    private void Start()
+    {
+        InitPlayer();
     }
 }
