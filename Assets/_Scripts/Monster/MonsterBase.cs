@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class MonsterBase : MonoBehaviour
 {
-    private CharacterStat _stat;
+    [field: SerializeField]
+    private float AttackDelay { get; set; } = 1f; // Attack delay in seconds
+
+    public CharacterStat Stat { get; private set; }
+
     private GameObject _target;
+    private Collider2D _collider;
+    private bool _isContacting;
 
     private void Awake()
     {
@@ -13,14 +19,16 @@ public class MonsterBase : MonoBehaviour
 
     private void Init()
     {
-        _stat = new CharacterStat();
+        Stat = new CharacterStat();
         StartCoroutine(CoTick());
         _target = GameObject.FindWithTag("Player");
+        _collider = GetComponent<Collider2D>();
+        _isContacting = false;
     }
 
-    public IEnumerator CoTick()
+    private IEnumerator CoTick()
     {
-        while(_stat.hp > 0)
+        while (Stat.hp > 0)
         {
             var tickDuration = Random.Range(0.8f, 1.2f);
             if (_target != null)
@@ -34,7 +42,7 @@ public class MonsterBase : MonoBehaviour
         }
     }
 
-    public IEnumerator CoMove(float duration)
+    private IEnumerator CoMove(float duration)
     {
         // Simulate moving towards the target
         var elapsedTime = 0f;
@@ -42,10 +50,37 @@ public class MonsterBase : MonoBehaviour
         while (duration > elapsedTime)
         {
             var direction = (_target.transform.position - transform.position).normalized;
-            transform.position += _stat.moveSpeed * Time.deltaTime * direction;
+            transform.position += Stat.moveSpeed * Time.deltaTime * direction;
 
             elapsedTime += Time.deltaTime;
             yield return null;
+        }
+    }
+
+    private IEnumerator CoProcessContact()
+    {
+        while (_isContacting)
+        {
+            Debug.Log($"{gameObject.name} is contacting with Player, attacking...");
+            var delay = AttackDelay / Stat.attackSpeed;
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            _isContacting = true;
+            StartCoroutine(CoProcessContact());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            _isContacting = false;
         }
     }
 }
