@@ -17,12 +17,6 @@ public class SkillSelectButton : MonoBehaviour
         
     }
 
-    /// <summary>
-    /// 버튼 세팅
-    /// </summary>
-    /// <param name="skillType"></param>
-    /// <param name="skillId"></param>
-    /// <param name="skillLevel"></param>
     public void SetButton(int skillType, int skillId, int skillLevel)
     {
         SkillType = skillType;
