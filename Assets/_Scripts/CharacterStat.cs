@@ -1,7 +1,14 @@
+using System;
 using UnityEngine;
 
 public class CharacterStat
 {
+
+    #region << =========== DELEGATE =========== >>
+    public Action<int> OnTakeDamage;
+    public Action OnDeath;
+    #endregion
+
     public Stat MaxHPStat { get; private set; }
     public Stat MoveSpeedStat { get; private set; }
     public Stat AttackSpeedStat { get; private set; }
@@ -13,8 +20,6 @@ public class CharacterStat
     public float AttackDamage => AttackDamageStat.FinalValue;
 
     public int CurrentHP { get; private set; }
-
-
 
     public CharacterStat(
         int hp = 100,
@@ -43,9 +48,17 @@ public class CharacterStat
         CurrentHP = (int)MaxHPStat.BaseValue;
     }
 
-    public virtual void TakeDamage(int damge)
+    public virtual void TakeDamage(int damage)
     {
-        CurrentHP = CurrentHP - damge <= 0 ? 0 : CurrentHP - damge;
+        OnTakeDamage?.Invoke(damage);
+
+        CurrentHP -= damage;
+        if (CurrentHP <= 0) Death();
+    }
+
+    public void Death()
+    {
+        OnDeath?.Invoke();
     }
 
     public void AddMaxHP(int addValue)

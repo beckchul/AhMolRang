@@ -12,7 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125b9f6e6906d6e4897a443b3c12729c, type: 3}
   m_Name: UIAtlas
   m_EditorClassIdentifier: 
-  material: {fileID: 0}
-  mSprites: []
+  material: {fileID: 2100000, guid: e51ab75721382464887d4fa4bb08868f, type: 2}
+  mSprites:
+  - name: BackGround
+    x: 0
+    y: 1088
+    width: 1536
+    height: 960
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Fade
+    x: 0
+    y: 127
+    width: 1536
+    height: 960
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

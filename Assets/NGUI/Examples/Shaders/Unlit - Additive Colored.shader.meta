@@ -1,9 +1,0 @@
-fileFormatVersion: 2
-guid: 3f21c51d36eed214682950784e00f775
-AssetOrigin:
-  serializedVersion: 1
-  productId: 2413
-  packageName: 'NGUI: Next-Gen UI'
-  packageVersion: 2025.07.01
-  assetPath: Assets/NGUI/Examples/Shaders/Unlit - Additive Colored.shader
-  uploadId: 768938
