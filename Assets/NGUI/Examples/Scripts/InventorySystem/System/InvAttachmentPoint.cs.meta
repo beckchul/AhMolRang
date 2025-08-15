@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2a05a718b5cd2ae4eb90743bca9a1032
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Examples/Scripts/InventorySystem/System/InvAttachmentPoint.cs
+  uploadId: 768938

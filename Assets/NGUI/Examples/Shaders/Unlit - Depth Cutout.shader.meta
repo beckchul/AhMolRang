@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: d1ebcd00c1d17d441abe69a60007327e
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Examples/Shaders/Unlit - Depth Cutout.shader
+  uploadId: 768938

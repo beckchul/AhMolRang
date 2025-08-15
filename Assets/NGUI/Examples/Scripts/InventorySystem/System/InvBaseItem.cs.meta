@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ed0e631b209a1b2429fe081e9717671b
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Examples/Scripts/InventorySystem/System/InvBaseItem.cs
+  uploadId: 768938

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cf6484591c9cb0e409f5c53c6978a95d
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Examples/Scripts/Other/Spin.cs
+  uploadId: 768938

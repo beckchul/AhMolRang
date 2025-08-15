@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d35cd8e39586acb4a842a0c77019d598
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Editor/TweenWidthEditor.cs
+  uploadId: 768938

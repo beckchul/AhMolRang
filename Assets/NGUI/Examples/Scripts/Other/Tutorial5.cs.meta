@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 94cd518a0b2919a42af43f5184cd1c05
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Examples/Scripts/Other/Tutorial5.cs
+  uploadId: 768938

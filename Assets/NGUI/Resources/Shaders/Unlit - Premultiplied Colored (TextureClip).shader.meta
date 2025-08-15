@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 773952d1ab5b7714392cdc5473b20244
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Resources/Shaders/Unlit - Premultiplied Colored (TextureClip).shader
+  uploadId: 768938

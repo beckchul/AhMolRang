@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: e37f44f1a08cf594fb6b3919774527ed
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Resources/Shaders/Unlit - Transparent Colored (Packed) (TextureClip).shader
+  uploadId: 768938

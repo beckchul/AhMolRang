@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c6f11eb0ceeb5e044b3199208e1a99bf
+timeCreated: 1426209398
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Resources/Shaders/Unlit - Transparent Masked 2.shader
+  uploadId: 768938

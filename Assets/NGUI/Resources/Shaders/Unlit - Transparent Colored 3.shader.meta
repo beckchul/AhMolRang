@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 7c0a1aa668787ad42a48d1a535825520
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Resources/Shaders/Unlit - Transparent Colored 3.shader
+  uploadId: 768938

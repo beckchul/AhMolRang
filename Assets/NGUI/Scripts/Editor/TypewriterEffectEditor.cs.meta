@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d00aad4a2618d0c43b705a5834ec944a
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Editor/TypewriterEffectEditor.cs
+  uploadId: 768938

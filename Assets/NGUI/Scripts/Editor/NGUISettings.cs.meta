@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 06fab1249a3cb60469c68b2ee2a0701f
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Editor/NGUISettings.cs
+  uploadId: 768938

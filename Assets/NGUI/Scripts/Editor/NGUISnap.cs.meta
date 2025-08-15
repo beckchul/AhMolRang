@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fa846fbc3d8dc874295406a55de7e200
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Editor/NGUISnap.cs
+  uploadId: 768938

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e772b2bb85dc225499db07c5206af708
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Editor/UITextureInspector.cs
+  uploadId: 768938

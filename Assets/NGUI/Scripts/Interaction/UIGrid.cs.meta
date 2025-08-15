@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 07c4de3b4b6fe9045b059ee627c100df
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Interaction/UIGrid.cs
+  uploadId: 768938

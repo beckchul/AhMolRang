@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 57e428c9b6087304da439ec665b56a2d
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 3
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Interaction/UIPopupList.cs
+  uploadId: 768938

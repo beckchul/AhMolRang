@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f555bda46cc2e6f448cde6a38c0de59b
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/UI/UIInputOnGUI.cs
+  uploadId: 768938

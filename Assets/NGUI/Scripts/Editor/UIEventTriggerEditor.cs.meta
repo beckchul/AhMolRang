@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8342876081aa9364485fc9d21d5f481f
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Editor/UIEventTriggerEditor.cs
+  uploadId: 768938

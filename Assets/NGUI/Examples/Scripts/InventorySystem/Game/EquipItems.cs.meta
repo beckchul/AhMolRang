@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cb5a46fe53751ae41980843a556d012e
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Examples/Scripts/InventorySystem/Game/EquipItems.cs
+  uploadId: 768938

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6c20815eb3063c24290a61b7020a1836
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 23
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2413
+  packageName: 'NGUI: Next-Gen UI'
+  packageVersion: 2025.07.01
+  assetPath: Assets/NGUI/Scripts/Interaction/UISlider.cs
+  uploadId: 768938
