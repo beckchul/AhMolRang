@@ -7,8 +7,12 @@ public class Player : MonoBehaviour
     public PlayerMovement Movement { get; private set; }
     public Rigidbody2D Rigidbody2D { get; private set; }
 
-    public CharacterStat Stat { get; private set; }
+    public PlayerStat Stat { get; private set; }
 
+    private void Awake()
+    {
+        InitPlayer();
+    }
 
     public void InitPlayer()
     {
@@ -16,6 +20,19 @@ public class Player : MonoBehaviour
         Movement = GetComponent<PlayerMovement>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
-        Stat = new CharacterStat();
+        Controller.Init(this);
+        Movement.Init(this);
+
+        Stat = new PlayerStat();
+        Stat.OnDeath = () =>
+        {
+            MonsterManager.Instance.FinishGame();
+            GameManager.Instance.Defeat();
+        };
+
+        Rigidbody2D.gravityScale = 0.0f;
+
+        Controller.Init(this);
+        Movement.Init(this);
     }
 }

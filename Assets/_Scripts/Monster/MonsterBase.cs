@@ -12,7 +12,6 @@ public class MonsterBase : MonoBehaviour
     private Player _target;
     private Collider2D _collider;
     private bool _isContacting;
-    private Action<MonsterBase> _onDead;
 
     public void Set(Action<MonsterBase> onDead, Player target)
     {
@@ -21,7 +20,7 @@ public class MonsterBase : MonoBehaviour
         _target = target;
         _collider = GetComponent<Collider2D>();
         _isContacting = false;
-        _onDead = onDead;
+        Stat.OnDeath = () => onDead?.Invoke(this);
     }
 
     private IEnumerator CoTick()
@@ -38,13 +37,6 @@ public class MonsterBase : MonoBehaviour
                 yield return new WaitForSeconds(tickDuration);
             }
         }
-
-        Die();
-    }
-
-    private void Die()
-    {
-        _onDead?.Invoke(this);
     }
 
     private IEnumerator CoMove(float duration)
@@ -66,7 +58,7 @@ public class MonsterBase : MonoBehaviour
     {
         while (_isContacting)
         {
-
+            _target.Stat.TakeDamage((int)Stat.AttackDamage);
             Debug.Log($"{gameObject.name} attacked Player. HP Left : {_target.Stat.CurrentHP}");
             var delay = AttackDelay / Stat.AttackSpeed;
             yield return new WaitForSeconds(delay);

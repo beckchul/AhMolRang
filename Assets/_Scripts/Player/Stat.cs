@@ -42,28 +42,4 @@ public class Stat
 
         return (BaseValue + flatSum) * percentMul;
     }
-
-    //public string GetCalculationString()
-    //{
-    //    StatModifier constMod = modifiers.Find(m => m.Type == StatType.Const);
-    //    if (constMod != null) return $"{BaseValue} const = {constMod.Value}";
-
-    //    StringBuilder sb = new StringBuilder();
-    //    sb.Append(BaseValue);
-
-    //    foreach (var mod in modifiers)
-    //    {
-    //        if (mod.Type == StatType.Flat)
-    //            sb.Append($" + {mod.Value}");
-    //    }
-    //    foreach (var mod in modifiers)
-    //    {
-    //        if (mod.Type == StatType.Percent)
-    //            sb.Append($" ¡¿ (1 + {mod.Value / 100} )");
-    //    }
-
-    //    sb.Append($" = {FinalValue}");
-
-    //    return sb.ToString();
-    //}
 }
