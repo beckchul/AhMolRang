@@ -1,26 +1,39 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterBase : MonoBehaviour
 {
-    [field: SerializeField]
-    private float AttackDelay { get; set; } = 1f; // Attack delay in seconds
-
+    [SerializeField]
+    private List<GameObject> _themeObjects;
+    private float attackDelay = 1f;
     public CharacterStat Stat { get; private set; }
 
-    private Player _target;
     private Collider2D _collider;
     private bool _isContacting;
 
-    public void Set(Action<MonsterBase> onDead, Player target)
+    public void Set(Action<MonsterBase> onDead)
     {
         Stat = new CharacterStat();
         StartCoroutine(CoTick());
-        _target = target;
         _collider = GetComponent<Collider2D>();
         _isContacting = false;
         Stat.OnDeath = () => onDead?.Invoke(this);
+
+        // Set the theme objects based on the theme type
+        var themeType = SkillManager.Instance.GetRandomTheme();
+        for (int i = 0; i < _themeObjects.Count; i++)
+        {
+            if ((ThemeType)i == themeType)
+            {
+                _themeObjects[i].SetActive(true);
+            }
+            else
+            {
+                _themeObjects[i].SetActive(false);
+            }
+        }
     }
 
     private IEnumerator CoTick()
@@ -28,7 +41,7 @@ public class MonsterBase : MonoBehaviour
         while (Stat.CurrentHP > 0)
         {
             var tickDuration = UnityEngine.Random.Range(0.8f, 1.2f);
-            if (_target != null)
+            if (PlayerManager.Instance.PlayerScript != null)
             {
                 yield return StartCoroutine(CoMove(tickDuration));
             }
@@ -46,7 +59,7 @@ public class MonsterBase : MonoBehaviour
 
         while (duration > elapsedTime)
         {
-            var direction = (_target.transform.position - transform.position).normalized;
+            var direction = (PlayerManager.Instance.PlayerScript.transform.position - transform.position).normalized;
             transform.position += Stat.MoveSpeed * Time.deltaTime * direction;
 
             elapsedTime += Time.deltaTime;
@@ -58,9 +71,10 @@ public class MonsterBase : MonoBehaviour
     {
         while (_isContacting)
         {
-            _target.Stat.TakeDamage((int)Stat.AttackDamage);
-            Debug.Log($"{gameObject.name} attacked Player. HP Left : {_target.Stat.CurrentHP}");
-            var delay = AttackDelay / Stat.AttackSpeed;
+            var target = PlayerManager.Instance.PlayerScript;
+            target.Stat.TakeDamage((int)Stat.AttackDamage);
+            Debug.Log($"{gameObject.name} attacked Player. HP Left : {target.Stat.CurrentHP}");
+            var delay = attackDelay / Stat.AttackSpeed;
             yield return new WaitForSeconds(delay);
         }
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SkillManager : MonoSingleton<SkillManager>
@@ -7,6 +8,8 @@ public class SkillManager : MonoSingleton<SkillManager>
 
     public Dictionary<int, SkillStatus> Skills = new();
 
+    private Dictionary<int, SkillDataScriptableObject.ActiveSkillData> _skillDataCache = new();
+
     public override void Init()
     {
         foreach (var skillData in skillData.activeSkills)
@@ -14,6 +17,7 @@ public class SkillManager : MonoSingleton<SkillManager>
             var skill = new ActiveSkillStatus(
                 skillData.skillId, skillData.efficiency, skillData.cooldown, skillData.skillPrefab);
             Skills.Add(skillData.skillId, skill);
+            _skillDataCache.Add(skillData.skillId, skillData);
         }
 
         foreach (var skillData in skillData.passiveSkills)
@@ -40,5 +44,20 @@ public class SkillManager : MonoSingleton<SkillManager>
         }
 
         return null;
+    }
+
+    public ThemeType GetRandomTheme()
+    {
+        var themes = Skills.Values
+            .Where(x => x.Level > 0 && x is ActiveSkillStatus)
+            .Select(x => x.SkillId);
+        var randomIndex = Random.Range(0, themes.Count());
+        if (themes.Count() == 0)
+        {
+            return default;
+        }
+
+        var skllId = themes.ElementAt(randomIndex);
+        return _skillDataCache[skllId].themeType;
     }
 }

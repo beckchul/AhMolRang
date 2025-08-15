@@ -8,7 +8,7 @@ public class SkillStatus
     {
         SkillId = skillId;
         Efficiency = efficiency;
-        Level = 0;
+        Level = 1;
     }
 
 
