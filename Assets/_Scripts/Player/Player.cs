@@ -25,5 +25,6 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.Defeat();
         };
+        Rigidbody2D.gravityScale = 0.0f;
     }
 }
