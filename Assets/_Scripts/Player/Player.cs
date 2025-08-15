@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
         Movement = GetComponent<PlayerMovement>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
+        Rigidbody2D.gravityScale = 0.0f;
+
         Stat = new CharacterStat();
     }
 }
