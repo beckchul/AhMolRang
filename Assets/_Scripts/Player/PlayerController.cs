@@ -4,27 +4,33 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    //private InputActions input;
+    private PlayerInput input;
+    private Player player;
 
     public event Action<Vector2> OnMoveEvent;
 
 
     protected virtual void OnEnable()
     {
-        //input = new InputActions();
+        input = new PlayerInput();
 
-        //input._2DSideScroller.Move.performed += OnMove;
-        //input._2DSideScroller.Move.canceled += OnStopMove;
+        input.TopView.Move.performed += OnMove;
+        input.TopView.Move.canceled += OnStopMove;
 
-        //input.Enable();
+        input.Enable();
     }
 
     protected virtual void OnDisable()
     {
-        //input._2DSideScroller.Move.performed -= OnMove;
-        //input._2DSideScroller.Move.canceled -= OnStopMove;
+        input.TopView.Move.performed -= OnMove;
+        input.TopView.Move.canceled -= OnStopMove;
 
-        //input.Disable();
+        input.Disable();
+    }
+
+    public void Init(Player _player)
+    {
+        player = _player;
     }
 
     protected virtual void OnMove(InputAction.CallbackContext value)

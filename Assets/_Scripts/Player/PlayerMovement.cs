@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerController controller;
-    private Rigidbody2D rb;
+    private Player player;
 
     private Vector2 movementDirection = Vector2.zero;
 
-    private void Awake()
+
+    public void Init(Player _player)
     {
-        // 나중에 player를 받아와 player에 있는 controller와 rb를 받아와야 한다.
-        controller = GetComponent<PlayerController>();
-        rb = GetComponent<Rigidbody2D>();
+        player = _player;
     }
 
     private void Start()
     {
-        controller.OnMoveEvent += Move;
+        player.Controller.OnMoveEvent += Move;
     }
 
     private void FixedUpdate()
@@ -31,9 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * 5;
+        direction *= player.Stat.MoveSpeed;
 
-        //rb.velocity = direction;
-        rb.linearVelocity = direction;
+        player.Rigidbody2D.linearVelocity = direction;
     }
 }

@@ -20,12 +20,19 @@ public class Player : MonoBehaviour
         Movement = GetComponent<PlayerMovement>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
+        Controller.Init(this);
+        Movement.Init(this);
+
         Stat = new PlayerStat();
         Stat.OnDeath = () =>
         {
             MonsterManager.Instance.FinishGame();
             GameManager.Instance.Defeat();
         };
+
         Rigidbody2D.gravityScale = 0.0f;
+
+        Controller.Init(this);
+        Movement.Init(this);
     }
 }
