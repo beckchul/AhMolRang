@@ -25,7 +25,7 @@ public class CharacterStat
         int hp = 100,
         float moveSpeed = 1f,
         float attackSpeed = 1f,
-        float attackDamage = 10f
+        float attackDamage = 1f
         )
     {
         MaxHPStat = new Stat((float)hp);
