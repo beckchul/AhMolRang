@@ -16,9 +16,8 @@ public class SkillIcon : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateIcon(int skillType, int skillId, int skillLevel)
     {
-        
+        // 스킬 아이콘 및 text 갱신
     }
 }
