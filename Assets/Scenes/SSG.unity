@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &432445932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432445933}
+  - component: {fileID: 432445934}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432445933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432445932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &432445934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432445932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7956e3ba1f0d66940ac411e0f5c95942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &536510850
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a56480dc91f3d4b83fb6c9fcc1b4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waveCount: 5
   _target: {fileID: 1069735348}
   _monsterPrefab: {fileID: 7101063217739837091, guid: 53e9097c265da3140ba0c54f40af66b7, type: 3}
   maxX: 20
@@ -569,3 +614,4 @@ SceneRoots:
   - {fileID: 536510852}
   - {fileID: 1069735348}
   - {fileID: 1322425591}
+  - {fileID: 432445933}

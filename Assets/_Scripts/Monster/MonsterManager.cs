@@ -68,15 +68,15 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
             if (boss.Stat.CurrentHP > 0)
             {
-                // 패배 처리
                 Debug.Log("Failed to clear boss.");
                 _monsterPool.Clear();
+                GameManager.Instance.Defeat();
                 yield break;
             }
         }
 
-        // 게임 클리어 처리
         Debug.Log("All waves completed!");
+        GameManager.Instance.Victory();
     }
 
     private void OnMonsterDead(MonsterBase monster)
