@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 1069735348}
   - component: {fileID: 1069735349}
   - component: {fileID: 1069735350}
+  - component: {fileID: 1069735351}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -418,6 +419,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &1069735351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069735347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd69156f1c80124a86f63edc597355d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1201087106
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waveCount: 5
-  _target: {fileID: 1069735348}
+  _target: {fileID: 1069735351}
   _monsterPrefab: {fileID: 7101063217739837091, guid: 53e9097c265da3140ba0c54f40af66b7, type: 3}
   maxX: 20
   maxY: 13

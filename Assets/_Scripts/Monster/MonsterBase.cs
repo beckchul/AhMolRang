@@ -66,7 +66,7 @@ public class MonsterBase : MonoBehaviour
     {
         while (_isContacting)
         {
-
+            _target.Stat.TakeDamage((int)Stat.AttackDamage);
             Debug.Log($"{gameObject.name} attacked Player. HP Left : {_target.Stat.CurrentHP}");
             var delay = AttackDelay / Stat.AttackSpeed;
             yield return new WaitForSeconds(delay);
