@@ -61,6 +61,9 @@ public class PlayerStat : CharacterStat
     public float EXPUp => EXPUpStat.FinalValue;
     public float Defense => DefenseStat.FinalValue;
     public float GoldUp => GoldUpStat.FinalValue;
+
+    public int MaxEXP { get; private set; }
+    public int CurrentEXP { get; private set; }
     #endregion
 
     #region << =========== DICTINARY =========== >>
@@ -91,6 +94,9 @@ public class PlayerStat : CharacterStat
         EXPUpStat = new Stat(0.0f);
         DefenseStat = new Stat(0.0f);
         GoldUpStat = new Stat(0.0f);
+
+        MaxEXP = 10;
+        CurrentEXP = 0;
 
         statDict.Add(StatType.RegenHP, RegenHPStat);
         statDict.Add(StatType.ProjectileDamage, ProjectileDamageStat);
