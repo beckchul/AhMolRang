@@ -1,5 +1,6 @@
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static SkillDataScriptableObject;
 
@@ -104,19 +105,43 @@ public class SkillSelect : MonoBehaviour
                 break;
             }
 
-            if (skill.skillType == SkillType.Active && SkillManager.Instance.MaxActiveSkillCount > activeSkillCount)
+            if (skill.skillType == SkillType.Active)
             {
-                activeSkillCount++;
-                skillSelectButtons[buttonIndex].SetButton(skill);
+                if (SkillManager.Instance.MaxActiveSkillCount > activeSkillCount || HasSkillCheck(skill.skillId))
+                {
+                    activeSkillCount++;
+                    skillSelectButtons[buttonIndex].SetButton(skill);
+                }
+
             }
-            else if (skill.skillType == SkillType.Passive && SkillManager.Instance.MaxPasiveSkillCount > pasiveSkillCount)
+            else if (skill.skillType == SkillType.Passive)
             {
-                pasiveSkillCount++;
-                skillSelectButtons[buttonIndex].SetButton(skill);
+                if (SkillManager.Instance.MaxPasiveSkillCount > pasiveSkillCount || HasSkillCheck(skill.skillId))
+                {
+                    pasiveSkillCount++;
+                    skillSelectButtons[buttonIndex].SetButton(skill);
+                }
             }
 
             buttonIndex++;
         }
+    }
+
+    private bool HasSkillCheck(int skillId)
+    {
+        var playerSkills = SkillManager.Instance.Skills;
+
+        foreach (var playerSkill in playerSkills)
+        {
+            var skillStatus = playerSkill.Value;
+
+            if (skillStatus.SkillId == skillId)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
