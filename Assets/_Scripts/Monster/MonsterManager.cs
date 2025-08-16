@@ -101,6 +101,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
     private void OnMonsterDead(MonsterBase monster)
     {
+        ExpManager.Instance.DropExp(monster.gameObject.transform.position);
         _monsterPool.Release(monster);
         ExpManager.Instance.DropExp(monster.transform.position);
     }

@@ -96,7 +96,7 @@ public class PlayerStat : CharacterStat
         CoolTimeStat = new Stat(0.0f);
         CriticalPerStat = new Stat(0.0f);
         CriticalDamageStat = new Stat(0.0f);
-        EXPAreaStat = new Stat(0.0f);
+        EXPAreaStat = new Stat(5.0f);
         EXPUpStat = new Stat(0.0f);
         DefenseStat = new Stat(0.0f);
         GoldUpStat = new Stat(0.0f);

@@ -8,6 +8,10 @@ using static SkillDataScriptableObject;
 
 public class SkillManager : MonoSingleton<SkillManager>
 {
+    public readonly int MaxActiveSkillCount = 6;
+
+    public readonly int MaxPasiveSkillCount = 6;
+
     public SkillDataScriptableObject skillData;
 
     public Dictionary<int, SkillStatus> Skills = new();
