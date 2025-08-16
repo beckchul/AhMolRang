@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf53cebd6ca8b21428c3d357251b95c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound_ID_1: 1711
+  sound_ID_2: 1712
   _damageAreaPrefab: {fileID: 2483798754147391418, guid: efd22122eaf84ee409a84243ca5f13a6, type: 3}
   _range: 10
   _radius: 2

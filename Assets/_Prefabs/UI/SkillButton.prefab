@@ -518,7 +518,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 270, y: 440}
+  m_SizeDelta: {x: 315, y: 443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4228540022299057842
 CanvasRenderer:
@@ -618,6 +618,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 7967605785472782705}
   buttonText: {fileID: 7267567277693188444}
+  activeIconBox: {fileID: 4142854719082392211}
+  pasiveIconBox: {fileID: 7669939305660630960}
+  levelTextBox: {fileID: 3888938372395609236}
+  strengthenTextBox: {fileID: 2909496421625466964}
+  skillLabelText: {fileID: 7267567277693188444}
+  levelText: {fileID: 6996541856661234405}
 --- !u!114 &475477643348757708
 MonoBehaviour:
   m_ObjectHideFlags: 0
