@@ -9,13 +9,9 @@ public class MagicClaw : ActiveSkill
     private MagicClawEffect _magicClawEffectPrefab;
     [SerializeField]
     private float _range = 6.0f;
-    [SerializeField]
-    private int channelingSoundID;
-    [SerializeField]
-    private int damageSoundID;
 
-    MonsterBase monster;
-    int damage = 70;
+    private MonsterBase monster;
+    private int damage = 70;
 
     private ObjectPool<MagicClawEffect> _magicClawPool;
 
@@ -41,7 +37,7 @@ public class MagicClaw : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
-                SoundManager.Instance.PlaySFX(channelingSoundID);
+                PlaySound1();
 
                 monster = target;
 
@@ -64,7 +60,7 @@ public class MagicClaw : ActiveSkill
         int value = (int)(damage / 2 + 0.5f);
         monster.Stat.TakeDamage(value);
 
-        SoundManager.Instance.PlaySFX(damageSoundID);
+        PlaySound2();
     }
 
     private void OnMagicClawEffectExpired(MagicClawEffect magicClawEffect)
