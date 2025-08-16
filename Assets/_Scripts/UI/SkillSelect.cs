@@ -107,23 +107,20 @@ public class SkillSelect : MonoBehaviour
 
             if (skill.skillType == SkillType.Active)
             {
-                if (SkillManager.Instance.MaxActiveSkillCount > activeSkillCount || HasSkillCheck(skill.skillId))
+                if (HasSkillCheck(skill.skillId) || SkillManager.Instance.MaxActiveSkillCount > activeSkillCount)
                 {
-                    activeSkillCount++;
                     skillSelectButtons[buttonIndex].SetButton(skill);
+                    buttonIndex++;
                 }
-
             }
             else if (skill.skillType == SkillType.Passive)
             {
-                if (SkillManager.Instance.MaxPasiveSkillCount > pasiveSkillCount || HasSkillCheck(skill.skillId))
+                if (HasSkillCheck(skill.skillId) || SkillManager.Instance.MaxPasiveSkillCount > pasiveSkillCount)
                 {
-                    pasiveSkillCount++;
                     skillSelectButtons[buttonIndex].SetButton(skill);
+                    buttonIndex++;
                 }
             }
-
-            buttonIndex++;
         }
     }
 
@@ -134,6 +131,11 @@ public class SkillSelect : MonoBehaviour
         foreach (var playerSkill in playerSkills)
         {
             var skillStatus = playerSkill.Value;
+
+            if (skillStatus.Level == 0)
+            {
+                continue;
+            }
 
             if (skillStatus.SkillId == skillId)
             {
@@ -171,7 +173,7 @@ public class SkillSelect : MonoBehaviour
         while (n > 1)
         {
             n--;
-            int k = Random.Range(0, n + 1);  // 0부터 N까지의 랜덤 값
+            int k = Random.Range(0, n + 1);
             T value = list[k];
             list[k] = list[n];
             list[n] = value;
