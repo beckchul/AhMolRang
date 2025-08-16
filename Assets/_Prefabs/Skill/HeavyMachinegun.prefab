@@ -51,6 +51,8 @@ MonoBehaviour:
   sound_ID_1: 1411
   sound_ID_2: 1412
   _projectilePrefab: {fileID: 2423663070893369222, guid: 3e9de04f74a24b2478cf72085ba601e7, type: 3}
+  _gun: {fileID: 4600513302185266751}
+  _gunPoint: {fileID: 3592398061642744480}
   _range: 7.5
   _duration: 0.3
 --- !u!1 &4313222056703806162
@@ -109,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 5205415791129561769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.536, y: 0.048, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -132,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4600513302185266751
 Transform:
   m_ObjectHideFlags: 0
@@ -142,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 7921837253855045693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.7, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

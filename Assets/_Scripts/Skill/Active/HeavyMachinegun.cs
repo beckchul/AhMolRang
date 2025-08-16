@@ -7,6 +7,10 @@ public class HeavyMachinegun : ActiveSkill
     [SerializeField]
     private Projectile _projectilePrefab;
     [SerializeField]
+    private Transform _gun;
+    [SerializeField]
+    private Transform _gunPoint;
+    [SerializeField]
     private float _range = 7.5f;
     [SerializeField]
     private float _duration = 0.75f;
@@ -33,6 +37,7 @@ public class HeavyMachinegun : ActiveSkill
             maxSize: 100
         );
 
+        _gun.gameObject.SetActive(true);
         StartCoroutine(CoProcessEffect());
     }
 
@@ -46,9 +51,13 @@ public class HeavyMachinegun : ActiveSkill
                 if (!PlayingSound) PlayAllSound(0.8f);
 
                 var projectile = _projectilePool.Get();
-                projectile.transform.position = transform.position;
+
+                var direction = target.transform.position - transform.position;
+                Projectile.LookAtDirection(direction, _gun);
+
+                projectile.transform.position = _gunPoint.position;
                 projectile.Shoot(
-                    target.transform.position - transform.position,
+                    target.transform.position - _gunPoint.position,
                     damage,
                     _duration,
                     OnProjectileHit,

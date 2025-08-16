@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         this.duration = duration;
         this.onHit = onHit;
         this.onExpired = onExpired;
-        LookAtDirection(direction);
+        LookAtDirection(direction, transform);
 
         gameObject.SetActive(true);
         StartCoroutine(CoTick());
@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void LookAtDirection(Vector2 direction)
+    public static void LookAtDirection(Vector2 direction, Transform transform)
     {
         if (direction == Vector2.zero) return;
 
