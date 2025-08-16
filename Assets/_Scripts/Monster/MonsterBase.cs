@@ -80,6 +80,9 @@ public class MonsterBase : MonoBehaviour
         {
             var target = PlayerManager.Instance.PlayerScript;
             target.Stat.TakeDamage((int)Stat.AttackDamage);
+
+            UIManager.Instance.UpdateHpBar((float)target.Stat.CurrentHP / target.Stat.MaxHP);
+
             Debug.Log($"{gameObject.name} attacked Player. HP Left : {target.Stat.CurrentHP}");
             var delay = attackDelay / Stat.AttackSpeed;
             yield return new WaitForSeconds(delay);

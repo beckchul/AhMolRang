@@ -53,6 +53,9 @@ public class CharacterStat
         OnTakeDamage?.Invoke(damage);
 
         CurrentHP -= damage;
+
+        UIManager.Instance.UpdateHpBar((float)CurrentHP / MaxHP);
+
         if (CurrentHP <= 0) Death();
     }
 

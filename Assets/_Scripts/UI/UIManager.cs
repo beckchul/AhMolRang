@@ -1,8 +1,13 @@
-using System;
 using UnityEngine;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    /// <summary>
+    /// 플레이어 체력바
+    /// </summary>
+    [SerializeField]
+    private SliderBar hpBarUI;
+
     /// <summary>
     /// 웨이브 타이머
     /// </summary>
@@ -13,7 +18,7 @@ public class UIManager : MonoSingleton<UIManager>
     /// 경험치 바
     /// </summary>
     [SerializeField]
-    private ExpBar expBarUI;
+    private SliderBar expBarUI;
 
     /// <summary>
     /// 스킬 선택 창
@@ -39,6 +44,7 @@ public class UIManager : MonoSingleton<UIManager>
     [HideInInspector]
     public bool IsPaused = false;
 
+    private readonly Vector3 HpBarOffset = new Vector3(0, -50f, 0);
 
     public override void Init()
     {
@@ -48,7 +54,7 @@ public class UIManager : MonoSingleton<UIManager>
     void Start()
     {
         PlayerManager.Instance.PlayerScript.Stat.OnLevelUp += ShowSkillSelectUI;
-
+        UpdateHpBar(1f);
         ShowSkillSelectUI();
         UpdateSkillListUI();
     }
@@ -56,6 +62,8 @@ public class UIManager : MonoSingleton<UIManager>
     // Update is called once per frame
     void Update()
     {
+        var screenPos = Camera.main.WorldToScreenPoint(PlayerManager.Instance.PlayerObject.transform.position);
+        hpBarUI.transform.localPosition = screenPos + HpBarOffset + new Vector3(-Screen.width * 0.5f, -Screen.height * 0.5f, 0);
     }
 
     public void ShowSkillSelectUI()
@@ -69,9 +77,19 @@ public class UIManager : MonoSingleton<UIManager>
         hasSkillListUI.UpdateHasSkillList();
     }
 
+    public void UpdateHpBar(float value)
+    {
+        hpBarUI.UpdateSliderBar(value);
+    }
+
     public void UpdateExp()
     {
-        expBarUI.UpdateExpBar();
+        var playerStat = PlayerManager.Instance.PlayerScript.Stat;
+
+        if (playerStat != null)
+        {
+            expBarUI.UpdateSliderBar(Mathf.Clamp01((float)playerStat.CurrentEXP / playerStat.MaxEXP));
+        }
     }
 
     public void UpdateTimer()
