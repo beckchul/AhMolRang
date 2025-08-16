@@ -50,6 +50,6 @@ MonoBehaviour:
   sound_ID_2: 1712
   _damageAreaPrefab: {fileID: 2483798754147391418, guid: efd22122eaf84ee409a84243ca5f13a6, type: 3}
   _range: 10
-  _radius: 2
+  _radius: 2.8
   duration: 3
   tickDelay: 0.5
