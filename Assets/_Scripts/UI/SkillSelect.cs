@@ -33,11 +33,13 @@ public class SkillSelect : MonoBehaviour
     }
     public void ShowUI()
     {
+        Time.timeScale = 0f;
         gameObject.SetActive(true);
     }
 
     public void HideUI()
     {
+        Time.timeScale = 1f;
         gameObject.SetActive(false);
     }
 

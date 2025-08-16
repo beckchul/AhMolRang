@@ -3,6 +3,12 @@ using UnityEngine;
 public class UIManager : MonoSingleton<UIManager>
 {
     /// <summary>
+    /// 경험치 바
+    /// </summary>
+    [SerializeField]
+    private ExpBar expBarUI;
+
+    /// <summary>
     /// 스킬 선택 창
     /// </summary>
     [SerializeField]
@@ -36,6 +42,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         ShowSkillSelectUI();
         UpdateSkillListUI();
+        UpdateExp();
     }
 
     // Update is called once per frame
@@ -52,6 +59,11 @@ public class UIManager : MonoSingleton<UIManager>
     public void UpdateSkillListUI()
     {
         hasSkillListUI.UpdateHasSkillList();
+    }
+
+    public void UpdateExp()
+    {
+        expBarUI.UpdateExpBar();
     }
 
     /// <summary>
