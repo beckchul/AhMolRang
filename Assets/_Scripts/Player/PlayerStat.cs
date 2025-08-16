@@ -77,7 +77,7 @@ public class PlayerStat : CharacterStat
     #endregion
 
 
-    public PlayerStat() : base()
+    public PlayerStat() : base(100, 2)
     {
         InitPlayerStat();
     }

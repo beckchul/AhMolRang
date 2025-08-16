@@ -28,5 +28,7 @@ public class Player : MonoBehaviour
         };
 
         Rigidbody2D.gravityScale = 0.0f;
+        var camera = Camera.main.GetComponent<AttachableCamera>();
+        camera.AttachTo(transform);
     }
 }

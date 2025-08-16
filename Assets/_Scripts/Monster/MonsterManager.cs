@@ -16,7 +16,9 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     private ObjectPool<MonsterBase> _monsterPool;
     private HashSet<MonsterBase> _activeMonsters = new();
 
-    private WaitForSeconds _wait1Second = new(1f);
+    [SerializeField]
+    private float _spawnDelay = 0.5f;
+    private WaitForSeconds _waitForSpawnDelay;
     private Coroutine _waveCoroutine;
 
     public MonsterBase CurrentBoss;
@@ -25,7 +27,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     public int BossExpMax = 100;
     public int WaveTime = 180;
     public int BossWaveTime = 30;
-    public int ElapsedTime = 0;
+    public float ElapsedTime = 0f;
 
     [Header("Ellipse Settings")]
     public float maxX = 10f; // X축 최대 반경 (타원의 가로 반지름)
@@ -50,15 +52,17 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
     private IEnumerator ProcessWave()
     {
+        _waitForSpawnDelay = new WaitForSeconds(_spawnDelay);
+
         for (int i = 0; i < _waveCount; ++i)
         {
             Debug.Log($"Wave {i} started!");
             while (ElapsedTime < WaveTime)
             {
                 SpawnMonster(OnMonsterDead, GetMonsterPosition());
-                ++ElapsedTime;
+                ElapsedTime += _spawnDelay;
                 UIManager.Instance.UpdateTimer();
-                yield return _wait1Second;
+                yield return _waitForSpawnDelay;
             }
 
             // BOSS WAVE
@@ -69,9 +73,9 @@ public class MonsterManager : MonoSingleton<MonsterManager>
                 CurrentBoss.Stat.CurrentHP > 0)
             {
                 SpawnMonster(OnMonsterDead, GetMonsterPosition());
-                ++ElapsedTime;
+                ElapsedTime += _spawnDelay;
                 UIManager.Instance.UpdateTimer();
-                yield return _wait1Second;
+                yield return _waitForSpawnDelay;
             }
 
             if (CurrentBoss.Stat.CurrentHP > 0)
