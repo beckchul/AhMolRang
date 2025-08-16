@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaCollider: {fileID: 3954506453314687971}
+  animator: {fileID: 3369372229413147773}
   delay: 2
   speed: 3
 --- !u!1001 &4535137946067485146
@@ -298,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2728099148998391246, guid: f3f7781afd52343efb1aea675aa2e0b6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6587131218187452201, guid: f3f7781afd52343efb1aea675aa2e0b6, type: 3}
       propertyPath: m_LocalPosition.x

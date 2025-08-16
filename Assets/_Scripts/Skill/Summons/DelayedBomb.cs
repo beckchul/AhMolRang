@@ -7,6 +7,8 @@ public class DelayedBomb : MonoBehaviour
     [SerializeField]
     private CircleCollider2D areaCollider;
     [SerializeField]
+    private Animator animator;
+    [SerializeField]
     private float delay = 2f;
     [SerializeField]
     private float speed = 3f;
@@ -71,6 +73,7 @@ public class DelayedBomb : MonoBehaviour
     {
         var elapsedTime = 0f;
         var estimatedTime = Vector3.Distance(position, targetPosition) / speed;
+        animator.speed = 1 / estimatedTime;
         while (elapsedTime < estimatedTime)
         {
             transform.position = Vector3.Lerp(position, targetPosition, elapsedTime / estimatedTime);
