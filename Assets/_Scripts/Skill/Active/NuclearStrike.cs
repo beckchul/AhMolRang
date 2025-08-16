@@ -47,6 +47,7 @@ public class NuclearStrike : ActiveSkill
             var target = MonsterManager.Instance.GetMonsterWithHighestHP(transform.position, _range);
             if (target)
             {
+                PlaySound1();
                 var pos = target.transform.position;
                 _indicator.transform.position = pos;
                 _indicator.SetActive(true);
@@ -74,6 +75,7 @@ public class NuclearStrike : ActiveSkill
 
     private void OnAreaHit(DamageArea projectile)
     {
+        PlaySound2();
     }
 
     private void OnAreaExpired(DamageArea projectile)

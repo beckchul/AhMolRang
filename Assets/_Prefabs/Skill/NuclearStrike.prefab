@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 100
   damage: 5000
-  sound_ID_1: 0
-  sound_ID_2: 0
+  sound_ID_1: 1722
+  sound_ID_2: 1723
   _damageAreaPrefab: {fileID: 2483798754147391418, guid: 88905af5d0ce56b4ea81f7ed632fb586, type: 3}
   _indicator: {fileID: 7756520037869762464}
   _range: 10
