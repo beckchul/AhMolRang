@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 1321_Maple_Genesis_Cast
   m_EditorClassIdentifier: 
   ID: 1321
-  AudioClip: {fileID: 8300000, guid: 69e515eb232e5446fb5431ebd2bbd39c, type: 3}
+  AudioClip: {fileID: 8300000, guid: 1be9a8dd2fbae4b61b96f9ae24beae7d, type: 3}
   masterVolume: 1
   Loop: 0

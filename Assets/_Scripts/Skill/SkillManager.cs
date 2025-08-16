@@ -70,9 +70,9 @@ public class SkillManager : MonoSingleton<SkillManager>
 
         if (skillStatus is ActiveSkillStatus activeSkillStatus)
         {
+            var skill = _skillObjects[skillId];
             if (activeSkillStatus.Level == 1)
             {
-                var skill = _skillObjects[skillId];
                 skill.Init(
                     skillId,
                     activeSkillStatus.Level);
@@ -86,6 +86,10 @@ public class SkillManager : MonoSingleton<SkillManager>
                         break;
                     }
                 }
+            }
+            else
+            {
+                skill.Upgrade();
             }
         }
     }

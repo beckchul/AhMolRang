@@ -32,6 +32,7 @@ public class ActiveSkill : MonoBehaviour, ISkill
 
     public virtual void Upgrade()
     {
+        ++level;
     }
 
     public virtual void StartLifeCycle()
@@ -48,6 +49,12 @@ public class ActiveSkill : MonoBehaviour, ISkill
     protected virtual void PlaySound2(float volume = 1.0f, float pitch = 1.0f)
     {
         SoundManager.Instance.PlaySFX(sound_ID_2, volume, pitch);
+        PlayingSound = true;
+    }
+
+    protected virtual void PlaySound(int soundId, float volume = 1.0f, float pitch = 1.0f)
+    {
+        SoundManager.Instance.PlaySFX(soundId, volume, pitch);
         PlayingSound = true;
     }
 
