@@ -14,13 +14,15 @@ public class AngryBird : ActiveSkill
     private ObjectPool<PierceProjectile> _projectilePool;
 
     [SerializeField]
-    private int sound_ID_3;
+    private int sound_ID_3_Shot;
     [SerializeField]
-    private int sound_ID_4;
+    private int sound_ID_4_Fly;
     [SerializeField]
-    private int sound_ID_5;
+    private int sound_ID_5_Fly;
     [SerializeField]
-    private int sound_ID_6;
+    private int sound_ID_6_Fly;
+    [SerializeField]
+    private int sound_ID_7_Charge;
 
 
     private void Awake()
@@ -38,6 +40,7 @@ public class AngryBird : ActiveSkill
             maxSize: 100
         );
 
+        SoundManager.Instance.PlaySFX(sound_ID_7_Charge);
         StartCoroutine(CoProcessEffect());
     }
 
@@ -48,7 +51,8 @@ public class AngryBird : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
-                RandomPlaySound();
+                RandomPlayShotSound(0.8f);
+                RandomPlayFlySound(0.8f);
                 var projectile = _projectilePool.Get();
                 projectile.transform.position = transform.position;
                 projectile.PierceShoot(
@@ -57,6 +61,8 @@ public class AngryBird : ActiveSkill
                     OnProjectileHit,
                     OnProjectileExpired
                 );
+                SoundManager.Instance.PlaySFX(sound_ID_7_Charge);
+                //StartCoroutine(CoProcessEffect());
                 yield return new WaitForSeconds(Cooldown);
             }
             else
@@ -72,6 +78,7 @@ public class AngryBird : ActiveSkill
 
     private void OnProjectileExpired(PierceProjectile projectile)
     {
+        SoundManager.Instance.PlaySFX(sound_ID_7_Charge);
         _projectilePool.Release(projectile);
     }
 
@@ -95,9 +102,9 @@ public class AngryBird : ActiveSkill
         Destroy(projectile.gameObject);
     }
 
-    private void RandomPlaySound()
+    private void RandomPlayShotSound(float volume = 1.0f)
     {
-        int ranNum = Random.Range(1, 7);
+        int ranNum = Random.Range(1, 4);
         switch (ranNum)
         {
             case 1:
@@ -107,16 +114,26 @@ public class AngryBird : ActiveSkill
                 PlaySound2();
                 break;
             case 3:
-                SoundManager.Instance.PlaySFX(sound_ID_3);
+                SoundManager.Instance.PlaySFX(sound_ID_3_Shot);
                 break;
-            case 4:
-                SoundManager.Instance.PlaySFX(sound_ID_4);
+            default:
                 break;
-            case 5:
-                SoundManager.Instance.PlaySFX(sound_ID_5);
+        }
+    }
+
+    private void RandomPlayFlySound(float volume = 1.0f)
+    {
+        int ranNum = Random.Range(1, 4);
+        switch (ranNum)
+        {
+            case 1:
+                SoundManager.Instance.PlaySFX(sound_ID_4_Fly);
                 break;
-            case 6:
-                SoundManager.Instance.PlaySFX(sound_ID_6);
+            case 2:
+                SoundManager.Instance.PlaySFX(sound_ID_5_Fly);
+                break;
+            case 3:
+                SoundManager.Instance.PlaySFX(sound_ID_6_Fly);
                 break;
             default:
                 break;
