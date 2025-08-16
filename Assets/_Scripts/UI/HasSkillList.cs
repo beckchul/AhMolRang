@@ -49,7 +49,7 @@ public class HasSkillList : MonoBehaviour
             }
 
             var activeSkillStatus = SkillManager.Instance.GetActiveSkillStatus(skillStatus.SkillId);
-            var icon = SkillManager.Instance.GetSkillIcon(skillStatus.SkillId);
+            var icon = SkillManager.Instance.GetSkillData(skillStatus.SkillId).skillIcon;
 
             if (activeSkillStatus != null)
             {

@@ -97,17 +97,17 @@ public class SkillManager : MonoSingleton<SkillManager>
         return null;
     }
 
-    public Sprite GetSkillIcon(int skillId)
+    public SkillDataBase GetSkillData(int skillId)
     {
         if (_activeSkillDataCache.TryGetValue(skillId, out var activeSkillData))
         {
-            return activeSkillData.skillIcon;
+            return activeSkillData;
         }
         else if (_passiveSkillDataCache.TryGetValue(skillId, out var passiveSkillData))
         {
-            return passiveSkillData.skillIcon;
+            return passiveSkillData;
         }
-        Debug.LogWarning($"Skill icon for skill ID {skillId} not found.");
+        Debug.LogWarning($"Skill data for skill ID {skillId} not found.");
         return null;
     }
 }

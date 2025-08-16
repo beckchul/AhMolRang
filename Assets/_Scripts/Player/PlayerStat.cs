@@ -143,7 +143,7 @@ public class PlayerStat : CharacterStat
 
         if(CurrentEXP >= MaxEXP)
         {
-            if(CurrentLevel + 1 <= MaxLevel) LevelUp();
+            if(CurrentLevel++ <= MaxLevel) LevelUp();
             else CurrentEXP = MaxEXP;
         }
 
