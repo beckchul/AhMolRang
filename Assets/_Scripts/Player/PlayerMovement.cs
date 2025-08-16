@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyMovement(Vector2 direction)
     {
         transform.position += (Vector3)direction * Time.deltaTime * player.Stat.MoveSpeed;
+        Vector3 pos = transform.position;
+        if (pos.x >= 23.0f) pos.x = 23.0f;
+        if (pos.x <= -23.0f) pos.x = -23.0f;
+        if (pos.y >= 23.0f) pos.y = 23.0f;
+        if (pos.y <= -23.0f) pos.y = -23.0f;
+        transform.position = pos;
 
         if (direction.x < 0) FlipPlayer(true);
         else FlipPlayer(false);
