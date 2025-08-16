@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -8,12 +9,16 @@ public class MagicClaw : ActiveSkill
     private MagicClawEffect _magicClawEffectPrefab;
     [SerializeField]
     private float _range = 6.0f;
+    [SerializeField]
+    private int channelingSoundID;
+    [SerializeField]
+    private int damageSoundID;
+
+    MonsterBase monster;
+    int damage = 70;
 
     private ObjectPool<MagicClawEffect> _magicClawPool;
 
-    private void Awake()
-    {
-    }
 
     public override void StartLifeCycle()
     {
@@ -36,13 +41,19 @@ public class MagicClaw : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
+                SoundManager.Instance.PlaySFX(channelingSoundID);
+
+                monster = target;
+
                 var magicClawEffect = _magicClawPool.Get();
                 magicClawEffect.transform.position = target.transform.position;
-                magicClawEffect.Shoot(70, target, OnMagicClawEffectHit, OnMagicClawEffectExpired);
+                StartCoroutine(Attack_Coroutine(magicClawEffect));
                 yield return new WaitForSeconds(Cooldown);
             }
             else
             {
+                monster = null;
+
                 yield return null;
             }
         }
@@ -50,7 +61,10 @@ public class MagicClaw : ActiveSkill
 
     private void OnMagicClawEffectHit(MagicClawEffect magicClawEffect)
     {
-        _magicClawPool.Release(magicClawEffect);
+        int value = (int)(damage / 2 + 0.5f);
+        monster.Stat.TakeDamage(value);
+
+        SoundManager.Instance.PlaySFX(damageSoundID);
     }
 
     private void OnMagicClawEffectExpired(MagicClawEffect magicClawEffect)
@@ -76,5 +90,11 @@ public class MagicClaw : ActiveSkill
     private void OnDestroyMagicClawEffect(MagicClawEffect magicClawEffect)
     {
         Destroy(magicClawEffect.gameObject);
+    }
+
+    IEnumerator Attack_Coroutine(MagicClawEffect effect)
+    {
+        yield return new WaitForSeconds(0.5f);
+        effect.Shoot(monster, OnMagicClawEffectHit, OnMagicClawEffectExpired);
     }
 }

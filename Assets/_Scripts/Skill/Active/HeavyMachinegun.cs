@@ -10,6 +10,8 @@ public class HeavyMachinegun : ActiveSkill
     private float _range = 7.5f;
     [SerializeField]
     private float _duration = 0.75f;
+    [SerializeField]
+    private int soundID;
 
     private ObjectPool<Projectile> _projectilePool;
 
