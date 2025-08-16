@@ -16,8 +16,6 @@ public class AngryBird : ActiveSkill
     [SerializeField]
     private int redDamage = 100;
 
-    private ObjectPool<PierceProjectile> _projectilePool;
-
     [SerializeField]
     private int sound_ID_3_Shot;
     [SerializeField]
@@ -28,7 +26,6 @@ public class AngryBird : ActiveSkill
     private int sound_ID_6_Fly;
     [SerializeField]
     private int sound_ID_7_Charge;
-    private int _randomIndex;
 
     private void Awake()
     {
@@ -37,14 +34,6 @@ public class AngryBird : ActiveSkill
     public override void StartLifeCycle()
     {
         base.StartLifeCycle();
-        _projectilePool = new ObjectPool<PierceProjectile>(
-            CreateProjectile,
-            OnGetProjectile,
-            OnReleaseProjectile,
-            OnDestroyProjectile,
-            maxSize: 100
-        );
-
         SoundManager.Instance.PlaySFX(sound_ID_7_Charge);
         StartCoroutine(CoProcessEffect());
     }
@@ -56,11 +45,14 @@ public class AngryBird : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
-                var damage = _randomIndex == 0 ? this.damage :
-                    (_randomIndex == 1 ? yellowDamage : redDamage);
                 RandomPlayShotSound(0.8f);
                 RandomPlayFlySound(0.8f);
-                var projectile = _projectilePool.Get();
+
+                var randomIndex = Random.Range(0, _projectilePrefab.Length);
+                var damage = randomIndex == 0 ? this.damage :
+                    (randomIndex == 1 ? yellowDamage : redDamage);
+
+                var projectile = Instantiate(_projectilePrefab[randomIndex], transform.position, Quaternion.identity);
                 projectile.transform.position = transform.position;
                 projectile.PierceShoot(
                     target.transform.position - transform.position,
@@ -87,28 +79,6 @@ public class AngryBird : ActiveSkill
     private void OnProjectileExpired(PierceProjectile projectile)
     {
         SoundManager.Instance.PlaySFX(sound_ID_7_Charge);
-        _projectilePool.Release(projectile);
-    }
-
-    private PierceProjectile CreateProjectile()
-    {
-        var randomIndex = Random.Range(0, _projectilePrefab.Length);
-        _randomIndex = randomIndex;
-        return Instantiate(_projectilePrefab[randomIndex], transform.position, Quaternion.identity);
-    }
-
-    private void OnGetProjectile(PierceProjectile projectile)
-    {
-        projectile.gameObject.SetActive(false);
-    }
-
-    private void OnReleaseProjectile(PierceProjectile projectile)
-    {
-        projectile.gameObject.SetActive(false);
-    }
-
-    private void OnDestroyProjectile(PierceProjectile projectile)
-    {
         Destroy(projectile.gameObject);
     }
 
