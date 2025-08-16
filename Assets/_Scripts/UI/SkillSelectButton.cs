@@ -30,20 +30,23 @@ public class SkillSelectButton : MonoBehaviour
     [SerializeField]
     private TMP_Text levelText;
 
-    public Action<SkillDataBase> OnClicked;
+    public Action<int> OnClicked;
 
-    private SkillDataBase skillInfo;
+    private int skillId;
 
     /// <summary>
     /// 버튼 세팅
     /// </summary>
-    public void SetButton(SkillDataBase SkillInfo)
+    public void SetButton(SkillStatus skillStatus)
     {
-        skillInfo = SkillInfo;
-        buttonIcon.sprite = skillInfo.skillIcon;
-        buttonText.text = skillInfo.skillName;
+        skillId = skillStatus.SkillId;
 
-        if (skillInfo.skillType == SkillType.Active)
+        var skillData = SkillManager.Instance.GetSkillData(skillStatus.SkillId);
+
+        buttonIcon.sprite = skillData.skillIcon;
+        buttonText.text = skillData.skillName;
+
+        if (skillData.skillType == SkillType.Active)
         {
             activeIconBox.SetActive(true);
             pasiveIconBox.SetActive(false);
@@ -54,7 +57,7 @@ public class SkillSelectButton : MonoBehaviour
             pasiveIconBox.SetActive(true);
         }
 
-        if (skillInfo.skillLevel >= 5)
+        if (skillData.skillLevel >= 5)
         {
             levelTextBox.SetActive(false);
             strengthenTextBox.SetActive(true);
@@ -64,12 +67,12 @@ public class SkillSelectButton : MonoBehaviour
             levelTextBox.SetActive(true);
             strengthenTextBox.SetActive(false);
 
-            levelText.text = "Lv." + skillInfo.skillLevel.ToString();
+            levelText.text = "Lv." + (skillStatus.Level + 1).ToString();
         }
     }
 
     public void OnClickButton()
     {
-        OnClicked.Invoke(skillInfo);
+        OnClicked.Invoke(skillId);
     }
 }

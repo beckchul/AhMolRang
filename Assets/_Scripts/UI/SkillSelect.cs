@@ -1,8 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static SkillDataScriptableObject;
 
 public class SkillSelect : MonoBehaviour
 {
@@ -89,17 +88,12 @@ public class SkillSelect : MonoBehaviour
         }
 
         // 스킬 리스트에서 가져온 후 처리
-        var skillData = SkillManager.Instance.skillData;
-        List<SkillDataBase> skillList = new();
+        var skillData = SkillManager.Instance.Skills;
+        List<SkillStatus> skillList = new();
 
         if (skillData != null)
         {
-            foreach (SkillDataBase data in skillData.activeSkills)
-            {
-                skillList.Add(data);
-            }
-
-            foreach (SkillDataBase data in skillData.passiveSkills)
+            foreach (SkillStatus data in skillData.Values)
             {
                 skillList.Add(data);
             }
@@ -116,17 +110,19 @@ public class SkillSelect : MonoBehaviour
                 break;
             }
 
-            if (skill.skillType == SkillType.Active)
+            var curSkillData = SkillManager.Instance.GetSkillData(skill.SkillId);
+
+            if (curSkillData.skillType == SkillType.Active)
             {
-                if (HasSkillCheck(skill.skillId) || SkillManager.Instance.MaxActiveSkillCount > activeSkillCount)
+                if (HasSkillCheck(skill.SkillId) || SkillManager.Instance.MaxActiveSkillCount > activeSkillCount)
                 {
                     skillSelectButtons[buttonIndex].SetButton(skill);
                     buttonIndex++;
                 }
             }
-            else if (skill.skillType == SkillType.Passive)
+            else if (curSkillData.skillType == SkillType.Passive)
             {
-                if (HasSkillCheck(skill.skillId) || SkillManager.Instance.MaxPasiveSkillCount > pasiveSkillCount)
+                if (HasSkillCheck(skill.SkillId) || SkillManager.Instance.MaxPasiveSkillCount > pasiveSkillCount)
                 {
                     skillSelectButtons[buttonIndex].SetButton(skill);
                     buttonIndex++;
@@ -161,9 +157,9 @@ public class SkillSelect : MonoBehaviour
     /// 스킬 선택
     /// </summary>
     /// <param name="skillInfo"></param>
-    public void OnSkillSelect(SkillDataBase skillInfo)
+    public void OnSkillSelect(int skillId)
     {
-        SkillManager.Instance.SkillLevelUp(skillInfo.skillId);
+        SkillManager.Instance.SkillLevelUp(skillId);
         UIManager.Instance.UpdateSkillListUI();
         HideUI();
     }
@@ -184,7 +180,7 @@ public class SkillSelect : MonoBehaviour
         while (n > 1)
         {
             n--;
-            int k = Random.Range(0, n + 1);
+            int k = UnityEngine.Random.Range(0, n + 1);
             T value = list[k];
             list[k] = list[n];
             list[n] = value;
