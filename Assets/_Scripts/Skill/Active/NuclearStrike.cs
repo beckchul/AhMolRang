@@ -54,6 +54,8 @@ public class NuclearStrike : ActiveSkill
                 yield return new WaitForSeconds(firstDelay);
                 yield return new WaitForSeconds(1.5f);
                 _indicator.SetActive(false);
+                PlaySound2();
+
                 var area = _damageAreaPool.Get();
                 area.Summon(
                     pos,
@@ -75,7 +77,6 @@ public class NuclearStrike : ActiveSkill
 
     private void OnAreaHit(DamageArea projectile)
     {
-        PlaySound2();
     }
 
     private void OnAreaExpired(DamageArea projectile)

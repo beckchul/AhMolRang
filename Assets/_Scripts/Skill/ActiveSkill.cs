@@ -47,7 +47,6 @@ public class ActiveSkill : MonoBehaviour, ISkill
 
     protected virtual void PlaySound2(float volume = 1.0f, float pitch = 1.0f)
     {
-        SoundManager.Instance.PlaySFX(sound_ID_1, volume, pitch);
         SoundManager.Instance.PlaySFX(sound_ID_2, volume, pitch);
         PlayingSound = true;
     }
