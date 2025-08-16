@@ -17,7 +17,7 @@ public class ExpBar : MonoBehaviour
 
         if (playerStat != null)
         {
-            sliderBar.value = Mathf.Clamp01(playerStat.CurrentEXP / playerStat.MaxEXP);
+            sliderBar.value = Mathf.Clamp01((float)playerStat.CurrentEXP / playerStat.MaxEXP);
         }
     }
 }
