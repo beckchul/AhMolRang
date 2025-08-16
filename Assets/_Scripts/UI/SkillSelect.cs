@@ -48,9 +48,36 @@ public class SkillSelect : MonoBehaviour
     /// </summary>
     public void SetButton()
     {
+        int activeSkillCount = 0;
+        int pasiveSkillCount = 0;
+        var playerSkills = SkillManager.Instance.Skills;
+
+        foreach (var skill in playerSkills)
+        {
+            var skillStatus = skill.Value;
+
+            if (skillStatus.Level == 0)
+            {
+                continue;
+            }
+
+            var activeSkillData = SkillManager.Instance.GetActiveSkillData(skillStatus.SkillId);
+
+            if (activeSkillData != null)
+            {
+                activeSkillCount++;
+            }
+
+            var pasiveSkillData = SkillManager.Instance.GetPasiveSkillData(skillStatus.SkillId);
+
+            if (pasiveSkillData != null)
+            {
+                pasiveSkillCount++;
+            }
+        }
+
         // 스킬 리스트에서 가져온 후 처리
         var skillData = SkillManager.Instance.skillData;
-        var playerSkills = SkillManager.Instance.Skills;
         List<SkillDataBase> skillList = new();
 
         if (skillData != null)
@@ -68,9 +95,27 @@ public class SkillSelect : MonoBehaviour
 
         ShuffleList(skillList);
 
-        foreach (var (button, index) in skillSelectButtons.Select((value, idx) => (value, idx)))
+        int buttonIndex = 0;
+
+        foreach (var (skill, index) in skillList.Select((value, idx) => (value, idx)))
         {
-            button.SetButton(skillList[index]);
+            if (buttonIndex >= skillSelectButtons.Length)
+            {
+                break;
+            }
+
+            if (skill.skillType == SkillType.Active && SkillManager.Instance.MaxActiveSkillCount > activeSkillCount)
+            {
+                activeSkillCount++;
+                skillSelectButtons[buttonIndex].SetButton(skill);
+            }
+            else if (skill.skillType == SkillType.Passive && SkillManager.Instance.MaxPasiveSkillCount > pasiveSkillCount)
+            {
+                pasiveSkillCount++;
+                skillSelectButtons[buttonIndex].SetButton(skill);
+            }
+
+            buttonIndex++;
         }
     }
 

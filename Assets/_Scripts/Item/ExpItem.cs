@@ -14,7 +14,7 @@ public class ExpItem : MonoBehaviour
     private ExpItemState state = ExpItemState.None;
 
     private const int   expValue = 1;
-    private const float consumeSpeed = 100f;
+    private const float consumeSpeed = 3.0f;
     private const float getDistance = 1.0f;
 
     private void Start()
@@ -59,9 +59,9 @@ public class ExpItem : MonoBehaviour
         }
         else
         {
-            var dir = (transform.position - findTarget.position).normalized;
+            var dir = (findTarget.position - transform.position).normalized;
 
-            transform.position += dir * consumeSpeed * Time.timeScale;
+            transform.position += dir * consumeSpeed * Time.deltaTime;
         }
     }
 }
