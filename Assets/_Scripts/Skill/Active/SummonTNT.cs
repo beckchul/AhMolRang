@@ -7,6 +7,8 @@ public class SummonTNT: ActiveSkill
     [SerializeField]
     private DelayedBomb _bombPrefab;
     [SerializeField]
+    private GameObject _explosionPrefab;
+    [SerializeField]
     private float _range = 8f;
     [SerializeField]
     private float _detectRange = 1.5f;
@@ -15,15 +17,16 @@ public class SummonTNT: ActiveSkill
     [SerializeField]
     private float _radius = 2f;
 
+    [SerializeField]
+    private float _explosionTime = 2f;
+
+    private WaitForSeconds _waitForExplosion;
     private ObjectPool<DelayedBomb> _bombPool;
+    private ObjectPool<GameObject> _tntExplosionPool;
 
     private void Awake()
     {
-    }
-
-    public override void StartLifeCycle()
-    {
-        base.StartLifeCycle();
+        _waitForExplosion = new WaitForSeconds(_explosionTime);
         _bombPool = new ObjectPool<DelayedBomb>(
             CreateProjectile,
             OnGetBomb,
@@ -31,8 +34,25 @@ public class SummonTNT: ActiveSkill
             OnDestroyBomb,
             maxSize: 100
         );
+        _tntExplosionPool = new ObjectPool<GameObject>(
+            () => Instantiate(_explosionPrefab, transform.position, Quaternion.identity),
+            explosion => explosion.SetActive(false),
+            explosion => explosion.SetActive(false),
+            explosion => Destroy(explosion),
+            maxSize: 100
+        );
+    }
 
+    public override void StartLifeCycle()
+    {
+        base.StartLifeCycle();
         StartCoroutine(CoProcessEffect());
+    }
+
+    public IEnumerator CoExplode(GameObject explosion)
+    {
+        yield return _waitForExplosion;
+        _tntExplosionPool.Release(explosion);
     }
 
     public IEnumerator CoProcessEffect()
@@ -62,6 +82,11 @@ public class SummonTNT: ActiveSkill
     private void OnBombHit(DelayedBomb projectile)
     {
         _bombPool.Release(projectile);
+        var explosion = _tntExplosionPool.Get();
+        explosion.transform.position = projectile.transform.position;
+        explosion.SetActive(true);
+        StartCoroutine(CoExplode(explosion));
+
     }
 
     private void OnBombExpired(DelayedBomb projectile)
