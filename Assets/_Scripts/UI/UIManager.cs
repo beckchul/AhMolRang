@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UIManager : MonoSingleton<UIManager>
@@ -32,17 +33,18 @@ public class UIManager : MonoSingleton<UIManager>
     [HideInInspector]
     public bool IsPaused = false;
 
+
     public override void Init()
     {
-
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PlayerManager.Instance.PlayerScript.Stat.OnLevelUp += ShowSkillSelectUI;
+
         ShowSkillSelectUI();
         UpdateSkillListUI();
-        UpdateExp();
     }
 
     // Update is called once per frame
@@ -84,5 +86,10 @@ public class UIManager : MonoSingleton<UIManager>
         Time.timeScale = 1f;
         IsPaused = true;
         pause.SetActive(false);
+    }
+
+    public void Finish()
+    {
+        PlayerManager.Instance.PlayerScript.Stat.OnLevelUp -= ShowSkillSelectUI;
     }
 }

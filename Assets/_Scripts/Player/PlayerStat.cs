@@ -146,6 +146,8 @@ public class PlayerStat : CharacterStat
             if(CurrentLevel + 1 <= MaxLevel) LevelUp();
             else CurrentEXP = MaxEXP;
         }
+
+        UIManager.Instance.UpdateExp();
     }
 
     public void LevelUp()

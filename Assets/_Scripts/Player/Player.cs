@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
         {
             MonsterManager.Instance.FinishGame();
             GameManager.Instance.Defeat();
+            UIManager.Instance.Finish();
         };
 
         Rigidbody2D.gravityScale = 0.0f;
