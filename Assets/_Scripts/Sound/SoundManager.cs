@@ -51,7 +51,8 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         if (sfxsDict[id].Loop)
         {
-            AddAndPlayAudioSourceDictionary(id, volume, pitch);
+            if(volume == 1.0f) AddAndPlayAudioSourceDictionary(id, sfxsDict[id].masterVolume, pitch);
+            else AddAndPlayAudioSourceDictionary(id, volume, pitch);
         }
         else
         {
