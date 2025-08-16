@@ -14,7 +14,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     [SerializeField]
     private MonsterBase _monsterPrefab;
     private ObjectPool<MonsterBase> _monsterPool;
-    private Stack<MonsterBase> _monsterStack = new();
+    private HashSet<MonsterBase> _activeMonsters = new();
 
     private WaitForSeconds _wait1Second = new(1f);
     private Coroutine _waveCoroutine;
@@ -82,28 +82,30 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     
     public void FinishGame()
     {
-        while(_monsterStack.Count > 0)
+        foreach (var monster in _activeMonsters)
         {
-            var monster = _monsterStack.Pop();
             monster.gameObject.SetActive(false);
+            _monsterPool.Release(monster);
         }
 
+        _activeMonsters.Clear();
         StopCoroutine(_waveCoroutine);
     }
 
     private void OnMonsterDead(MonsterBase monster)
     {
-        monster.gameObject.SetActive(false);
+        _monsterPool.Release(monster);
     }
 
     private void OnGetMonster(MonsterBase monster)
     {
-        monster.gameObject.SetActive(true);
-        _monsterStack.Push(monster);
+        _activeMonsters.Add(monster);
+        monster.gameObject.SetActive(false);
     }
 
     private void OnReleaseMonster(MonsterBase monster)
     {
+        _activeMonsters.Remove(monster);
         monster.gameObject.SetActive(false);
     }
 

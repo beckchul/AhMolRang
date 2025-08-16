@@ -38,6 +38,7 @@ public class MonsterBase : MonoBehaviour
             }
         }
 
+        gameObject.SetActive(true);
         StartCoroutine(CoTick());
     }
 
