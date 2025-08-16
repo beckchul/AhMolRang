@@ -12,6 +12,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public override void Init()
     {
+        base.Init();
+
         PlayerObject = Instantiate(playerObject, Vector2.zero, Quaternion.identity);
 
         if (PlayerObject.TryGetComponent<Player>(out PlayerScript))

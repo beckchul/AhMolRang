@@ -1,37 +1,8 @@
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum GameType
-{
-    None = 0,
-    Diablo,
-    MetalSlug,
-    StarCraft,
-    StreetFighter,
-    TecmoWorldCup,
-    MineCraft,
-    DNF,
-    MapleStory,
-    AngryBird,
-    OverWatch,
-    Getamped,
-    WarCraft
-}
-
-public enum SFXType
-{
-    Skill = 0,
-    Damaged,
-    ETC
-}
-
-[System.Serializable]
-public class SoundEffectEntry
-{
-    //public EffectSoundType soundType;
-    public AudioClip clip;
-}
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
@@ -39,14 +10,11 @@ public class SoundManager : MonoSingleton<SoundManager>
     private const string bgmName = "BGM";
     private const string masterName = "Master";
 
-    public enum BGMType
-    {
-        Stage = 0
-    }
-
     //audio clip 담을 수 있는 배열
-    [SerializeField] private AudioClip[] bgms;
-    [SerializeField] private AudioClip[] sfxs;
+    [SerializeField] private SoundDataScriptableObject[] bgms;
+    [SerializeField] private SoundDataScriptableObject[] sfxs;
+    private Dictionary<int, SoundDataScriptableObject> bgmsDict = new();
+    private Dictionary<int, SoundDataScriptableObject> sfxsDict = new();
 
     //플레이하는 AudioSource
     [Header("Audio Sources")]
@@ -56,10 +24,23 @@ public class SoundManager : MonoSingleton<SoundManager>
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
 
-
-    public void PlayBGM(BGMType bgmType)
+    public override void Init()
     {
-        audioBgm.clip = bgms[(int)bgmType];
+        base.Init();
+
+        foreach (var bgm in bgms)
+        {
+            bgmsDict.Add(bgm.ID, bgm);
+        }
+        foreach (var sfx in sfxs)
+        {
+            bgmsDict.Add(sfx.ID, sfx);
+        }
+    }
+
+    public void PlayBGM(int id)
+    {
+        audioBgm.clip = bgmsDict[id].AudioClip;
         audioBgm.Play();
     }
 
@@ -68,10 +49,10 @@ public class SoundManager : MonoSingleton<SoundManager>
         audioBgm.Stop();
     }
 
-    public void PlaySFX(SFXType sfxType, float volume = 1.0f, float pitch = 1.0f)
+    public void PlaySFX(int id, float volume = 1.0f, float pitch = 1.0f)
     {
         audioSfx.pitch = pitch;
-        audioSfx.PlayOneShot(sfxs[(int)sfxType], volume);
+        audioSfx.PlayOneShot(sfxsDict[id].AudioClip, volume);
     }
 
     public void StopSFX()

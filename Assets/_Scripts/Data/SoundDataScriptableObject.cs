@@ -6,9 +6,8 @@ using UnityEngine;
 public class SoundDataScriptableObject : ScriptableObject
 {
     [Header("Sound Info")]
-    public GameType GameType;
-    public SFXType SFXType;
-    public List<AudioClip> AudioClipList;
+    public int ID;
+    public AudioClip AudioClip;
     [Range(0.0001f, 1.0f)]
     public float masterVolume;
 }
