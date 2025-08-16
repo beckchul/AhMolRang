@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaCollider: {fileID: 3954506453314687971}
+  animator: {fileID: 3369372229413147773}
   delay: 2
   speed: 3
 --- !u!1001 &4535137946067485146

@@ -39,26 +39,23 @@ public class SummonTNT: ActiveSkill
     {
         while (gameObject.activeSelf)
         {
-            var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
-            if (target)
-            {
-                var bomb = _bombPool.Get();
-                bomb.Summon(
-                    transform.position,
-                    target.transform.position,
-                    200,
-                    _duration,
-                    _radius,
-                    _detectRange,
-                    OnBombHit,
-                    OnBombExpired
-                );
-                yield return new WaitForSeconds(Cooldown);
-            }
-            else
-            {
-                yield return null;
-            }
+            var rndX = Random.Range(-_range, _range);
+            var rndY = Random.Range(-_range, _range);
+            Debug.Log($"SummonTNT: Random position offset: ({rndX}, {rndY})");
+            var targetPosition = transform.position + new Vector3(rndX, rndY);
+
+            var bomb = _bombPool.Get();
+            bomb.Summon(
+                transform.position,
+                targetPosition,
+                200,
+                _duration,
+                _radius,
+                _detectRange,
+                OnBombHit,
+                OnBombExpired
+            );
+            yield return new WaitForSeconds(Cooldown);
         }
     }
 
