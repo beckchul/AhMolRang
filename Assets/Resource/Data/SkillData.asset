@@ -49,4 +49,13 @@ MonoBehaviour:
     cooldown: 4
     skillPrefab: {fileID: -6939459266884536820, guid: 5d826cae17f527447abf2f8acba777de, type: 3}
     themeType: 5
+  - skillId: 1005
+    efficiency: 0.3
+    skillName: "\uB9E4\uC9C1\uD074\uB85C"
+    skillIcon: {fileID: 21300000, guid: 194487f1b5ecc0749b5fa4b3841b0083, type: 3}
+    skillType: 0
+    skillLevel: 1
+    cooldown: 1
+    skillPrefab: {fileID: 1263087082980380516, guid: 590c6102c667dc943a0535fcaa122eae, type: 3}
+    themeType: 4
   passiveSkills: []

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public PlayerController Controller { get; private set; }
     public PlayerMovement Movement { get; private set; }
     public Rigidbody2D Rigidbody2D { get; private set; }
+    public CharacterState State { get; private set; }
 
     public PlayerStat Stat { get; private set; }
 
@@ -30,5 +31,8 @@ public class Player : MonoBehaviour
         Rigidbody2D.gravityScale = 0.0f;
         var camera = Camera.main.GetComponent<AttachableCamera>();
         camera.AttachTo(transform);
+
+        State = gameObject.AddComponent<CharacterState>();
+        State.InitState(Stat);
     }
 }

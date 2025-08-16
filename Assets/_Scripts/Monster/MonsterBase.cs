@@ -9,6 +9,7 @@ public class MonsterBase : MonoBehaviour
     private List<GameObject> _themeObjects;
     private float attackDelay = 1f;
     public CharacterStat Stat { get; private set; }
+    public CharacterState State { get; private set; }
 
     private Collider2D _collider;
     private bool _isContacting;
@@ -43,6 +44,9 @@ public class MonsterBase : MonoBehaviour
 
         gameObject.SetActive(true);
         StartCoroutine(CoTick());
+
+        State = gameObject.AddComponent<CharacterState>();
+        State.InitState(Stat);
     }
 
     private IEnumerator CoTick()
