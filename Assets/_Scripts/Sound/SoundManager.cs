@@ -2,16 +2,38 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundManager : MonoSingleton<SkillManager>
+public enum GameType
 {
+    Diablo = 0,
+    MetalSlug,
+    StarCraft,
+    StreetFighter,
+    TecmoWorldCup,
+    MineCraft,
+    DNF,
+    MapleStory,
+    AngryBird,
+    OverWatch,
+    Getamped,
+    WarCraft
+}
+
+public enum SFXType
+{
+    Skill = 0,
+    Damaged,
+    ETC
+}
+
+public class SoundManager : MonoSingleton<SoundManager>
+{
+    private const string sfxName = "SFX";
+    private const string bgmName = "BGM";
+    private const string masterName = "Master";
+
     public enum BGMType
     {
         Stage = 0
-    }
-
-    public enum SFXType
-    {
-
     }
 
     //audio clip 담을 수 있는 배열
@@ -52,22 +74,21 @@ public class SoundManager : MonoSingleton<SkillManager>
     // 볼륨 조정
     public void SetMasterVolume(float volume)
     {
-        audioMixer.SetFloat("MasterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20);
+        audioMixer.SetFloat(masterName, Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20);
     }
 
     public void SetBGMVolume(float volume)
     {
-        audioMixer.SetFloat("BGMVolume", Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20);
+        audioMixer.SetFloat(bgmName, Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20);
     }
 
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20);
+        audioMixer.SetFloat(sfxName, Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20);
     }
 
-    // 음소거 예시
     public void MuteAll(bool isMuted)
     {
-        audioMixer.SetFloat("MasterVolume", isMuted ? -80f : 0f); // -80dB는 거의 무음
+        audioMixer.SetFloat(masterName, isMuted ? -80f : 0f);
     }
 }

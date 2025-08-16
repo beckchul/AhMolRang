@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
         player.Controller.OnMoveEvent += Move;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         ApplyMovement(movementDirection);
     }
@@ -25,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction *= player.Stat.MoveSpeed;
-
-        player.Rigidbody2D.linearVelocity = direction;
+        transform.position += (Vector3)direction * Time.deltaTime * player.Stat.MoveSpeed;
     }
 }
