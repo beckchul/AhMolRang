@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -30,8 +31,11 @@ public class SoundManager : MonoSingleton<SoundManager>
         sfxs = Resources.LoadAll<SoundDataScriptableObject>("ResourcesData/Sounds");
         foreach (var sfx in sfxs)
         {
-            bgmsDict.Add(sfx.ID, sfx);
+            if(!sfxsDict.ContainsKey(sfx.ID)) sfxsDict.Add(sfx.ID, sfx); ;
         }
+
+        Vector3 vec = Instantiate(audioSfx).transform.position;
+        Debug.Log($"{vec}");
     }
 
     public void PlayBGM(int id)
@@ -49,6 +53,8 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         audioSfx.pitch = pitch;
         audioSfx.PlayOneShot(sfxsDict[id].AudioClip, volume);
+
+
     }
 
     public void StopSFX()
