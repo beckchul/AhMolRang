@@ -38,6 +38,7 @@ public class Hadouken : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
+                PlaySound1();
                 var projectile = _projectilePool.Get();
                 projectile.transform.position = transform.position;
                 projectile.PierceShoot(
