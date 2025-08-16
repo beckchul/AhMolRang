@@ -1505,6 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4887394cf0501204490f3bcf207f3551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveText: {fileID: 2007322110028802439}
   hpBarUI: {fileID: 9138039829134750979}
   waveTimerUI: {fileID: 5958729050914528710}
   expBarUI: {fileID: 8650118724451470729}

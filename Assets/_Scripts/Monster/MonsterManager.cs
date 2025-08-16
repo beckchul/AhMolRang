@@ -58,6 +58,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         for (int i = 0; i < _waveCount; ++i)
         {
             Debug.Log($"Wave {i} started!");
+            UIManager.Instance.waveText.text = $"Wave {i + 1}";
             ElapsedTime = 0;
             IsBossWave = false;
             while (ElapsedTime < WaveTime)
