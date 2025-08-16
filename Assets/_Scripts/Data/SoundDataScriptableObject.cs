@@ -10,4 +10,5 @@ public class SoundDataScriptableObject : ScriptableObject
     public AudioClip AudioClip;
     [Range(0.0001f, 1.0f)]
     public float masterVolume = 1.0f;
+    public bool Loop = false;
 }

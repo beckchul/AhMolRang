@@ -28,4 +28,9 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position += (Vector3)direction * Time.deltaTime * player.Stat.MoveSpeed;
     }
+
+    private void FlipPlayer()
+    {
+        //player.
+    }
 }
