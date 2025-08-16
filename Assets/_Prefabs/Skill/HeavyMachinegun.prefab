@@ -49,6 +49,8 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 2423663070893369222, guid: 3e9de04f74a24b2478cf72085ba601e7, type: 3}
   _range: 7.5
   _duration: 0.3
+  shot1SoundID: 1411
+  shot2SoundID: 1412
 --- !u!1 &4313222056703806162
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,10 +98,15 @@ public class SoundManager : MonoSingleton<SoundManager>
     // About AudioSource Dictionary
     private void AddAndPlayAudioSourceDictionary(int id, float volume, float pitch)
     {
-        if(audioSfxDict.ContainsKey(id)) audioSfxDict.Add(id, Instantiate(audioSfx));
+        if (!audioSfxDict.ContainsKey(id))
+        {
+            audioSfxDict.Add(id, Instantiate(audioSfx));
+            audioSfxDict[id].clip = sfxsDict[id].AudioClip;
+            audioSfxDict[id].loop = true;
+            audioSfxDict[id].pitch = pitch;
+            audioSfxDict[id].volume = volume;
+        }
 
-        audioSfxDict[id].pitch = pitch;
-        audioSfxDict[id].volume = volume;
         audioSfxDict[id].Play();
     }
 

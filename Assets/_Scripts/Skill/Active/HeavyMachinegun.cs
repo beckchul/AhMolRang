@@ -11,12 +11,25 @@ public class HeavyMachinegun : ActiveSkill
     [SerializeField]
     private float _duration = 0.75f;
     [SerializeField]
-    private int soundID;
+    private int shot1SoundID;
+    [SerializeField]
+    private int shot2SoundID;
+
+    private bool detected = false;
 
     private ObjectPool<Projectile> _projectilePool;
 
     private void Awake()
     {
+    }
+
+    private void Update()
+    {
+        if (Time.timeScale < 0.1f)
+        {
+            SoundManager.Instance.StopSFX(shot2SoundID);
+            detected = false;
+        }
     }
 
     public override void StartLifeCycle()
@@ -40,6 +53,13 @@ public class HeavyMachinegun : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
+                if (!detected)
+                {
+                    detected = true;
+                    SoundManager.Instance.PlaySFX(shot1SoundID);
+                    SoundManager.Instance.PlaySFX(shot2SoundID);
+                }
+
                 var projectile = _projectilePool.Get();
                 projectile.transform.position = transform.position;
                 projectile.Shoot(
@@ -53,6 +73,8 @@ public class HeavyMachinegun : ActiveSkill
             }
             else
             {
+                detected = false;
+                SoundManager.Instance.StopSFX(shot2SoundID);
                 yield return null;
             }
         }
