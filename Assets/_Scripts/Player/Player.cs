@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public PlayerMovement Movement { get; private set; }
     public Rigidbody2D Rigidbody2D { get; private set; }
     public CharacterState State { get; private set; }
+    public SpriteRenderer SpriteRenderer { get; private set; }
 
     public PlayerStat Stat { get; private set; }
 
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
         Controller = GetComponent<PlayerController>();
         Movement = GetComponent<PlayerMovement>();
         Rigidbody2D = GetComponentInChildren<Rigidbody2D>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         Controller.Init(this);
         Movement.Init(this);
