@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f772f1b0727ab4a86b2c8ad55837ebd2
+guid: ad19eaeaba3394e4f9777b186ddcc045
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,67 +110,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hadouken_0
+      name: Yellow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.83, y: 0.49}
+      pivot: {x: 0.51, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3019ba62fde3149898d0ffb30a2f3644
-      internalID: 1749652093
+      spriteID: f930d81b337ef42a59fd2a2ebf157554
+      internalID: -1910155190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hadouken_1
+      name: Yellow_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 256
         y: 0
-        width: 64
-        height: 64
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.83, y: 0.49}
+      pivot: {x: 0.51, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b8db9789b2e54bd499c1551cf682078
-      internalID: 653980966
+      spriteID: 3c2e79e17b93744bebfcc26d9182ac61
+      internalID: 716701519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hadouken_2
+      name: Yellow_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 512
         y: 0
-        width: 64
-        height: 64
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.83, y: 0.49}
+      pivot: {x: 0.51, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25289a62fc96647c28f73be74399bfaf
-      internalID: 1513677299
+      spriteID: a61a8daf6ad3e45cc86d14921083aa79
+      internalID: 614050585
       vertices: []
       indices: 
       edges: []
@@ -179,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1e53b99734b28427bb5d1bb5195d0bfb
+    spriteID: 51226ce267cb44c719b3e2d19718bc60
     internalID: 0
     vertices: []
     indices: 
@@ -189,9 +189,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hadouken_0: 1749652093
-      Hadouken_1: 653980966
-      Hadouken_2: 1513677299
+      Yellow_0: -1910155190
+      Yellow_1: 716701519
+      Yellow_2: 614050585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
