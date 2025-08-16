@@ -67,4 +67,13 @@ MonoBehaviour:
     cooldown: 7
     skillPrefab: {fileID: 7666676558129277422, guid: 445dc8c458d53fc4ba00ab095a6fc706, type: 3}
     themeType: 9
+  - skillId: 1007
+    efficiency: 0.3
+    skillName: TNT
+    skillIcon: {fileID: 531583274, guid: 5cf68dbf5e44147f7aeea043ccb6ece4, type: 3}
+    skillType: 0
+    skillLevel: 1
+    cooldown: 4
+    skillPrefab: {fileID: 7597102215524574906, guid: ed00f492bf743fb4fa65e748846366c2, type: 3}
+    themeType: 8
   passiveSkills: []

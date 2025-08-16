@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8443675425700933861}
-  - component: {fileID: -6939459266884536820}
+  - component: {fileID: 7597102215524574906}
   m_Layer: 7
-  m_Name: Hadouken
+  m_Name: SummonTNT
   m_TagString: PlayerSkill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6939459266884536820
+--- !u!114 &7597102215524574906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3077510006396654739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87818bb89b4e5a74abd61dbd20fde3c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 48d528ac86ad64a4daf801c262d2b5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 8845585324173466704, guid: 44363571bec88a94b8b4fbb87dc6e304, type: 3}
-  _range: 6
-  _duration: 1
+  _bombPrefab: {fileID: 9133144196860554454, guid: a87cd3b96a767f94ca979563b77597f6, type: 3}
+  _range: 8
+  _detectRange: 1.5
+  _duration: 15
+  _radius: 2

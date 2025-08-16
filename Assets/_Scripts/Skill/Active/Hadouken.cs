@@ -5,13 +5,13 @@ using UnityEngine.Pool;
 public class Hadouken : ActiveSkill
 {
     [SerializeField]
-    private Projectile _projectilePrefab;
+    private PierceProjectile _projectilePrefab;
     [SerializeField]
     private float _range = 7.5f;
     [SerializeField]
     private float _duration = 0.75f;
 
-    private ObjectPool<Projectile> _projectilePool;
+    private ObjectPool<PierceProjectile> _projectilePool;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class Hadouken : ActiveSkill
     public override void StartLifeCycle()
     {
         base.StartLifeCycle();
-        _projectilePool = new ObjectPool<Projectile>(
+        _projectilePool = new ObjectPool<PierceProjectile>(
             CreateProjectile,
             OnGetProjectile,
             OnReleaseProjectile,
@@ -40,9 +40,8 @@ public class Hadouken : ActiveSkill
             {
                 var projectile = _projectilePool.Get();
                 projectile.transform.position = transform.position;
-                projectile.Shoot(
+                projectile.PierceShoot(
                     target.transform.position - transform.position,
-                    200,
                     _duration,
                     OnProjectileHit,
                     OnProjectileExpired
@@ -56,32 +55,31 @@ public class Hadouken : ActiveSkill
         }
     }
 
-    private void OnProjectileHit(Projectile projectile)
+    private void OnProjectileHit(PierceProjectile projectile)
+    {
+    }
+
+    private void OnProjectileExpired(PierceProjectile projectile)
     {
         _projectilePool.Release(projectile);
     }
 
-    private void OnProjectileExpired(Projectile projectile)
-    {
-        _projectilePool.Release(projectile);
-    }
-
-    private Projectile CreateProjectile()
+    private PierceProjectile CreateProjectile()
     {
         return Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
     }
 
-    private void OnGetProjectile(Projectile projectile)
+    private void OnGetProjectile(PierceProjectile projectile)
     {
         projectile.gameObject.SetActive(false);
     }
 
-    private void OnReleaseProjectile(Projectile projectile)
+    private void OnReleaseProjectile(PierceProjectile projectile)
     {
         projectile.gameObject.SetActive(false);
     }
 
-    private void OnDestroyProjectile(Projectile projectile)
+    private void OnDestroyProjectile(PierceProjectile projectile)
     {
         Destroy(projectile.gameObject);
     }
