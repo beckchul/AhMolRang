@@ -15,31 +15,41 @@ MonoBehaviour:
   activeSkills:
   - skillId: 1001
     efficiency: 0.3
-    cooldown: 0.2
-    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     skillName: "\uD720\uC708\uB4DC"
     skillIcon: {fileID: 0}
+    skillType: 0
+    skillLevel: 0
+    cooldown: 0
+    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     themeType: 0
   - skillId: 1002
     efficiency: 0.2
-    cooldown: 0.1
-    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     skillName: "\uD5E4\uBE44 \uBA38\uC2E0\uAC74"
     skillIcon: {fileID: 0}
+    skillType: 0
+    skillLevel: 0
+    cooldown: 0.1
+    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     themeType: 1
   - skillId: 1003
     efficiency: 1
-    cooldown: 3
-    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     skillName: "\uC0AC\uC774\uC624\uB2C9 \uC2A4\uD1B0"
     skillIcon: {fileID: 0}
+    skillType: 0
+    skillLevel: 1
+    cooldown: 3
+    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     themeType: 0
   passiveSkills:
   - skillId: 2001
     efficiency: 0.2
     skillName: "\uACF5\uACA9\uB825 \uC99D\uAC00"
     skillIcon: {fileID: 0}
+    skillType: 0
+    skillLevel: 0
   - skillId: 2002
     efficiency: 0.2
     skillName: "\uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
     skillIcon: {fileID: 0}
+    skillType: 0
+    skillLevel: 0

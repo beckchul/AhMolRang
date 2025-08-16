@@ -11,7 +11,6 @@ public class SkillStatus
         Level = 0;
     }
 
-
     public void UpgradeEfficiency(float efficiencyBonusRate)
     {
         Level++;

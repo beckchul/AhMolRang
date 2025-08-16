@@ -12,24 +12,26 @@ public class ActiveSkill : MonoBehaviour, ISkill
     public float Cooldown => cooldown;
     public int Level => level;
 
+    protected const int MonsterLayerMask = 1 << 8;
     public SkillType SkillType => SkillType.Active;
 
-    public void Init(
+    public virtual void Init(
         int skillId,
+        int level,
         float efficiency,
         float cooldown)
     {
         this.skillId = skillId;
+        this.level = level;
         this.efficiency = efficiency;
         this.cooldown = cooldown;
-        level = 0;
     }
 
-    public void Upgrade()
+    public virtual void Upgrade()
     {
     }
 
-    public void Use()
+    public virtual void Use()
     {
     }
 }
