@@ -5,23 +5,24 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    private float duration = 0.75f;
-    [SerializeField]
     private float speed = 10f;
     private int damage;
 
     private Vector3 direction;
     private Action<Projectile> onHit;
     private Action<Projectile> onExpired;
+    private float duration;
 
     public void Shoot(
         Vector3 direction,
         int damage,
+        float duration,
         Action<Projectile> onHit,
         Action<Projectile> onExpired)
     {
         this.direction = direction.normalized;
         this.damage = damage;
+        this.duration = duration;
         this.onHit = onHit;
         this.onExpired = onExpired;
         LookAtDirection(direction);

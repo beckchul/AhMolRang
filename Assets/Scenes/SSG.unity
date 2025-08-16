@@ -275,6 +275,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6629054968803602949, guid: e3c32b8ace6c5db499476d0baaef083b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7952592604121270168, guid: e3c32b8ace6c5db499476d0baaef083b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -685,8 +689,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -822,6 +826,7 @@ MonoBehaviour:
   _monsterPrefab: {fileID: 7101063217739837091, guid: 53e9097c265da3140ba0c54f40af66b7, type: 3}
   _spawnDelay: 0.5
   CurrentBoss: {fileID: 0}
+  IsBossWave: 0
   BossExpMin: 30
   BossExpMax: 100
   WaveTime: 90

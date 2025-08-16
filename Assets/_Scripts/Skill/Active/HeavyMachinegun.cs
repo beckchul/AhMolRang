@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class HeavyMachinegun: ActiveSkill
+public class HeavyMachinegun : ActiveSkill
 {
     [SerializeField]
     private Projectile _projectilePrefab;
@@ -43,6 +43,7 @@ public class HeavyMachinegun: ActiveSkill
                 projectile.Shoot(
                     target.transform.position - transform.position,
                     50,
+                    _duration,
                     OnProjectileHit,
                     OnProjectileExpired
                 );

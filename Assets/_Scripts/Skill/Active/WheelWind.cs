@@ -24,7 +24,7 @@ public class WheelWind : ActiveSkill
     {
         while (gameObject.activeSelf)
         {
-            var colliders = Physics2D.OverlapCircleAll(transform.position, _collider.radius, MonsterLayerMask);
+            var colliders = Physics2D.OverlapCircleAll(transform.position, _collider.radius, LayerMask.GetMask("Enemy"));
             foreach (var collider in colliders)
             {
                 if (collider.TryGetComponent(out MonsterBase monster))

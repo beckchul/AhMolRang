@@ -1143,11 +1143,11 @@ Transform:
   m_Children:
   - {fileID: 6733769191141971803}
   - {fileID: 6322905769099103440}
+  - {fileID: 5451639326974013644}
   - {fileID: 5832568277725915647}
   - {fileID: 5229701318924493789}
   - {fileID: 9012320867727540099}
   - {fileID: 2730091490189271010}
-  - {fileID: 5451639326974013644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7101063217739837091
@@ -1165,6 +1165,11 @@ MonoBehaviour:
   _themeObjects:
   - {fileID: 7818383376084830150}
   - {fileID: 5165975336850386243}
+  - {fileID: 8431073319812357698}
+  - {fileID: 6187765915981804765}
+  - {fileID: 7665208205341026479}
+  - {fileID: 8585586537213954871}
+  - {fileID: 9115298455971933590}
 --- !u!58 &2650210983660142814
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1418,7 +1423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6733769191141971803
 Transform:
   m_ObjectHideFlags: 0
@@ -1450,7 +1455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5451639326974013644
 Transform:
   m_ObjectHideFlags: 0

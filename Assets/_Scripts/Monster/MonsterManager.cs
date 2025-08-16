@@ -205,4 +205,24 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         }
         return nearestMonster;
     }
+
+    public MonsterBase GetRandomMonster(Vector3 position, float limit)
+    {
+        List<MonsterBase> candidates = new List<MonsterBase>();
+        foreach (var monster in _activeMonsters)
+        {
+            float distance = Vector3.Distance(position, monster.transform.position);
+            if (distance < limit)
+            {
+                candidates.Add(monster);
+            }
+        }
+        if (candidates.Count == 0)
+        {
+            return null;
+        }
+
+        int randomIndex = Random.Range(0, candidates.Count);
+        return candidates[randomIndex];
+    }
 }
