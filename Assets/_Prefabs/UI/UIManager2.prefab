@@ -1144,6 +1144,8 @@ MonoBehaviour:
   skillSelectUI: {fileID: 4810763704288930328}
   hasSkillListUI: {fileID: 4303079415031955977}
   pause: {fileID: 4807157814650043030}
+  levelText: {fileID: 451537461036856976}
+  bossHpBarUI: {fileID: 7799879221396519652}
   IsPaused: 0
 --- !u!114 &615680868846355942
 MonoBehaviour:

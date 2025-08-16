@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 135c5c98d08e763428fe2b7e77558d37
+timeCreated: 1513534760
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 104003
+  packageName: Hit & Slashes Vol.1
+  packageVersion: 1.0
+  assetPath: Assets/Hit & Slashes Vol.1/Demo Scene/ButtonAnimation.cs
+  uploadId: 220407

@@ -13,6 +13,16 @@ public class AngryBird : ActiveSkill
 
     private ObjectPool<PierceProjectile> _projectilePool;
 
+    [SerializeField]
+    private int sound_ID_3;
+    [SerializeField]
+    private int sound_ID_4;
+    [SerializeField]
+    private int sound_ID_5;
+    [SerializeField]
+    private int sound_ID_6;
+
+
     private void Awake()
     {
     }
@@ -82,5 +92,10 @@ public class AngryBird : ActiveSkill
     private void OnDestroyProjectile(PierceProjectile projectile)
     {
         Destroy(projectile.gameObject);
+    }
+
+    private void RandomPlaySound()
+    {
+
     }
 }
