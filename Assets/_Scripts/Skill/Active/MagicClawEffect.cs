@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class MagicClawEffect : MonoBehaviour
 {
-    private int damage;
-    private MonsterBase monster;
-
     private Action<MagicClawEffect> onHit;
     private Action<MagicClawEffect> onExpired;
 
-    public void Shoot(int damage, MonsterBase monster, Action<MagicClawEffect> onHit, Action<MagicClawEffect> onExpired)
+    private MonsterBase monster;
+
+    private void Update()
     {
-        this.damage = damage;
+        if(monster != null)
+        {
+            Vector3 pos = monster.transform.position;
+            pos += new Vector3(0.0f, 0.5f);
+            transform.position = pos;
+        }
+    }
+
+    public void Shoot(MonsterBase monster, Action<MagicClawEffect> onHit, Action<MagicClawEffect> onExpired)
+    {
+        this.monster = monster;
         this.onHit = onHit;
         this.onExpired = onExpired;
-        this.monster = monster;
 
         gameObject.SetActive(true);
     }
 
     public void DamageEvent()
     {
-        int value = (int)(damage / 2 + 0.5f);
-        monster.Stat.TakeDamage(value);
         onHit?.Invoke(this);
     }
 

@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _magicClawEffectPrefab: {fileID: 241249729258705868, guid: a31f02fa05ef2824ab61fa36439f193e, type: 3}
   _range: 6
+  channelingSoundID: 1311
+  damageSoundID: 1312
