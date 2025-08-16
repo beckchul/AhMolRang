@@ -62,8 +62,6 @@ public class UIManager : MonoSingleton<UIManager>
     // Update is called once per frame
     void Update()
     {
-        var screenPos = Camera.main.WorldToScreenPoint(PlayerManager.Instance.PlayerObject.transform.position);
-        hpBarUI.transform.localPosition = screenPos + HpBarOffset + new Vector3(-Screen.width * 0.5f, -Screen.height * 0.5f, 0);
     }
 
     public void ShowSkillSelectUI()
