@@ -12,17 +12,20 @@ public class MonsterBase : MonoBehaviour
 
     private Collider2D _collider;
     private bool _isContacting;
+    private List<SpriteRenderer> _spriteRenderers;
+    private int _themeIndex;
 
     public void Set(Action<MonsterBase> onDead)
     {
         Stat = new CharacterStat();
-        StartCoroutine(CoTick());
         _collider = GetComponent<Collider2D>();
         _isContacting = false;
         Stat.OnDeath = () => onDead?.Invoke(this);
 
         // Set the theme objects based on the theme type
+        _spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         var themeType = SkillManager.Instance.GetRandomTheme();
+        _themeIndex = (int)themeType;
         for (int i = 0; i < _themeObjects.Count; i++)
         {
             if ((ThemeType)i == themeType)
@@ -34,6 +37,8 @@ public class MonsterBase : MonoBehaviour
                 _themeObjects[i].SetActive(false);
             }
         }
+
+        StartCoroutine(CoTick());
     }
 
     private IEnumerator CoTick()
@@ -61,6 +66,7 @@ public class MonsterBase : MonoBehaviour
         {
             var direction = (PlayerManager.Instance.PlayerScript.transform.position - transform.position).normalized;
             transform.position += Stat.MoveSpeed * Time.deltaTime * direction;
+            _spriteRenderers[_themeIndex].flipX = direction.x > 0;
 
             elapsedTime += Time.deltaTime;
             yield return null;

@@ -49,7 +49,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         {
             while (elapsedTime < waveTime)
             {
-                SpawnMonster(OnMonsterDead, GetMonsterPosition(), 0);
+                SpawnMonster(OnMonsterDead, GetMonsterPosition());
                 ++elapsedTime;
                 yield return _wait1Second;
             }
@@ -61,7 +61,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             while (elapsedTime < waveTime &&
                 boss.Stat.CurrentHP > 0)
             {
-                SpawnMonster(OnMonsterDead, GetMonsterPosition(), 0);
+                SpawnMonster(OnMonsterDead, GetMonsterPosition());
                 ++elapsedTime;
                 yield return _wait1Second;
             }
@@ -93,7 +93,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
     private void OnMonsterDead(MonsterBase monster)
     {
-        _monsterPool.Release(monster);
+        monster.gameObject.SetActive(false);
     }
 
     private void OnGetMonster(MonsterBase monster)
@@ -126,7 +126,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         return monster;
     }
 
-    public MonsterBase SpawnMonster(Action<MonsterBase> onDead, Vector3 position, ThemeType themeType)
+    public MonsterBase SpawnMonster(Action<MonsterBase> onDead, Vector3 position)
     {
         var monster = _monsterPool.Get();
         monster.transform.position = position;

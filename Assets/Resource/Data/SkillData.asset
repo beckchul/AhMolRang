@@ -19,8 +19,8 @@ MonoBehaviour:
     skillIcon: {fileID: 21300000, guid: da372b3cf9b45514abd5e09ed6dbdf83, type: 3}
     skillType: 0
     skillLevel: 1
-    cooldown: 0.2
-    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
+    cooldown: 1
+    skillPrefab: {fileID: 4727670817506536907, guid: 4e22bdae41185e04d80a448b6bc1c60a, type: 3}
     themeType: 0
   - skillId: 1002
     efficiency: 0.2
