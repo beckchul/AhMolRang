@@ -104,7 +104,6 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
     private void OnMonsterDead(MonsterBase monster)
     {
-        ExpManager.Instance.DropExp(monster.gameObject.transform.position);
         _monsterPool.Release(monster);
         ExpManager.Instance.DropExp(monster.transform.position);
     }
@@ -185,5 +184,21 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         float y = Mathf.Sin(angle) * radiusY;
 
         return PlayerManager.Instance.PlayerScript.transform.position + new Vector3(x, y);
+    }
+
+    public MonsterBase GetNearestMonster(Vector3 position, float limit)
+    {
+        MonsterBase nearestMonster = null;
+        float nearestDistance = limit;
+        foreach (var monster in _activeMonsters)
+        {
+            float distance = Vector3.Distance(position, monster.transform.position);
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestMonster = monster;
+            }
+        }
+        return nearestMonster;
     }
 }

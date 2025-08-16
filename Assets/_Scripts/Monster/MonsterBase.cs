@@ -22,12 +22,12 @@ public class MonsterBase : MonoBehaviour
         _isContacting = false;
         Stat.OnDeath = () => onDead?.Invoke(this);
 
-        // Set the theme objects based on the theme type
-        _spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
+        _spriteRenderers = new List<SpriteRenderer>();
         var themeType = SkillManager.Instance.GetRandomTheme();
         _themeIndex = (int)themeType;
         for (int i = 0; i < _themeObjects.Count; i++)
         {
+            _spriteRenderers.Add(_themeObjects[i].GetComponentInChildren<SpriteRenderer>());
             if ((ThemeType)i == themeType)
             {
                 _themeObjects[i].SetActive(true);
