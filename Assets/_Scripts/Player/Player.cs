@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D Rigidbody2D { get; private set; }
     public CharacterState State { get; private set; }
     public SpriteRenderer SpriteRenderer { get; private set; }
+    public BoxCollider2D BoxCollider { get; private set; }
 
     public PlayerStat Stat { get; private set; }
 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
         Movement = GetComponent<PlayerMovement>();
         Rigidbody2D = GetComponentInChildren<Rigidbody2D>();
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        BoxCollider = GetComponentInChildren<BoxCollider2D>();
 
         Controller.Init(this);
         Movement.Init(this);
