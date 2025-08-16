@@ -9,5 +9,5 @@ public class SoundDataScriptableObject : ScriptableObject
     public int ID;
     public AudioClip AudioClip;
     [Range(0.0001f, 1.0f)]
-    public float masterVolume;
+    public float masterVolume = 1.0f;
 }
