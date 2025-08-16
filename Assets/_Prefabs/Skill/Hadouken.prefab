@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87818bb89b4e5a74abd61dbd20fde3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound_ID_1: 1802
+  sound_ID_2: 0
   _projectilePrefab: {fileID: 8845585324173466704, guid: 44363571bec88a94b8b4fbb87dc6e304, type: 3}
   _range: 6
   _duration: 1
