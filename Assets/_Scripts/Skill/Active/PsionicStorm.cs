@@ -42,6 +42,7 @@ public class PsionicStorm : ActiveSkill
             var target = MonsterManager.Instance.GetRandomMonster(transform.position, _range);
             if (target)
             {
+                RandomPlaySound();
                 var area = _damageAreaPool.Get();
                 area.Summon(
                     target.transform.position,
@@ -88,5 +89,13 @@ public class PsionicStorm : ActiveSkill
     private void OnDestroyArea(DamageArea projectile)
     {
         Destroy(projectile.gameObject);
+    }
+
+    private void RandomPlaySound()
+    {
+        int ran = Random.Range(1, 3);
+
+        if (ran == 1) PlaySound1(0.7f);
+        else PlaySound2(0.7f);
     }
 }
