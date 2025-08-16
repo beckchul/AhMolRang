@@ -49,6 +49,8 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     public void PlaySFX(int id, float volume = 1.0f, float pitch = 1.0f)
     {
+        if (!sfxsDict.ContainsKey(id)) return;
+
         if (sfxsDict[id].Loop)
         {
             AddAndPlayAudioSourceDictionary(id, volume, pitch);
