@@ -28,6 +28,17 @@ public class MagicClaw : ActiveSkill
 
     private ObjectPool<MagicClawEffect> _magicClawPool;
 
+    public override void Upgrade()
+    {
+        base.Upgrade();
+
+        if (Level == 6) // Upgrade to genesis
+        {
+            cooldown *= 7.5f;
+            damage *= 5;
+            _range *= 2f;
+        }
+    }
 
     public override void StartLifeCycle()
     {

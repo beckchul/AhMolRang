@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeSkills:
   - skillId: 1001
-    skillName: "\uD720\uC708\uB4DC"
+    skillName: "\uD720 \uC708\uB4DC"
     skillIcon: {fileID: 21300000, guid: b4cd321f960a84ab1a53e874e4db8b8c, type: 3}
     skillType: 0
     skillLevel: 1
@@ -22,7 +22,7 @@ MonoBehaviour:
     themeType: 0
     SoundID: 1101
   - skillId: 1002
-    skillName: "\uD5E4\uBE44 \uBA38\uC2E0\uAC74"
+    skillName: "\uD5E4\uBE44 \uBA38\uC2E0\uAC74!"
     skillIcon: {fileID: 21300000, guid: 74f18de7d6d204326a1c9f9e338cbfd2, type: 3}
     skillType: 0
     skillLevel: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
     themeType: 2
     SoundID: 1701
   - skillId: 1004
-    skillName: "\uD30C\uB3D9\uAD8C"
+    skillName: "\uC544\uB3C4\uAC90!"
     skillIcon: {fileID: 21300000, guid: 91116c7c89200498f899eade9da94376, type: 3}
     skillType: 0
     skillLevel: 1
@@ -46,7 +46,7 @@ MonoBehaviour:
     themeType: 5
     SoundID: 1801
   - skillId: 1005
-    skillName: "\uB9E4\uC9C1\uD074\uB85C"
+    skillName: "\uB9E4\uC9C1 \uD074\uB85C\\n(\uAC1C\uAD6C\uB9BC)"
     skillIcon: {fileID: 21300000, guid: ed06174ea363f4e6c849e1e720d54921, type: 3}
     skillType: 0
     skillLevel: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
     themeType: 4
     SoundID: 1301
   - skillId: 1006
-    skillName: "\uC575\uADF8\uB9AC\uBC84\uB4DC"
+    skillName: "\uC575\uADF8\uB9AC \uBC84\uB4DC"
     skillIcon: {fileID: 21300000, guid: 9d555efd5edc64e29baacd972ee54a56, type: 3}
     skillType: 0
     skillLevel: 1
@@ -62,7 +62,7 @@ MonoBehaviour:
     themeType: 9
     SoundID: 1001
   - skillId: 1007
-    skillName: TNT
+    skillName: "TNT \uD14C\uB7EC"
     skillIcon: {fileID: 21300000, guid: f7112e577b4454829b0103af4887e22f, type: 3}
     skillType: 0
     skillLevel: 1
@@ -70,7 +70,7 @@ MonoBehaviour:
     themeType: 8
     SoundID: 1501
   - skillId: 1008
-    skillName: "\uD575 \uACF5\uACA9"
+    skillName: "\uD575 \uACF5\uACA9\uC774 \uAC10\uC9C0\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
     skillIcon: {fileID: 21300000, guid: 2b561e68865c742fd9ce4208c6eb3ea1, type: 3}
     skillType: 0
     skillLevel: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
     themeType: 2
     SoundID: 1721
   - skillId: 1009
-    skillName: "\uC2F1\uAC00"
+    skillName: "\uC2F1\uAC00!"
     skillIcon: {fileID: 21300000, guid: e0c6347459cae47aea6347a520d9327f, type: 3}
     skillType: 0
     skillLevel: 1
