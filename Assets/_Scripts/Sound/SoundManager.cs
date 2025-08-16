@@ -4,7 +4,8 @@ using UnityEngine.Audio;
 
 public enum GameType
 {
-    Diablo = 0,
+    None = 0,
+    Diablo,
     MetalSlug,
     StarCraft,
     StreetFighter,
@@ -23,6 +24,13 @@ public enum SFXType
     Skill = 0,
     Damaged,
     ETC
+}
+
+[System.Serializable]
+public class SoundEffectEntry
+{
+    //public EffectSoundType soundType;
+    public AudioClip clip;
 }
 
 public class SoundManager : MonoSingleton<SoundManager>
