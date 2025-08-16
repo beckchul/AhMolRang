@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23ed881aeadfca498efbfe6207e9ef3, type: 3}
+  m_Name: 1741_StarCraft_Zergling_death
+  m_EditorClassIdentifier: 
+  ID: 1732
+  AudioClip: {fileID: 8300000, guid: 3baa9405a5da64e0aaba1696137b6572, type: 3}
+  masterVolume: 1
+  Loop: 0
