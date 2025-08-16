@@ -10,12 +10,12 @@ public class Projectile : MonoBehaviour
     private float speed = 10f;
     private int damage;
 
-    private Vector2 direction;
+    private Vector3 direction;
     private Action<Projectile> onHit;
     private Action<Projectile> onExpired;
 
     public void Shoot(
-        Vector2 direction,
+        Vector3 direction,
         int damage,
         Action<Projectile> onHit,
         Action<Projectile> onExpired)
@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
         this.onHit = onHit;
         this.onExpired = onExpired;
+        LookAtDirection(direction);
 
         gameObject.SetActive(true);
         StartCoroutine(CoTick());
@@ -34,7 +35,7 @@ public class Projectile : MonoBehaviour
         var elapsedTime = 0f;
         while (duration > elapsedTime)
         {
-            transform.Translate(direction * speed * Time.deltaTime);
+            transform.position += speed * Time.deltaTime * direction;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -52,5 +53,13 @@ public class Projectile : MonoBehaviour
             monster.Stat.TakeDamage(damage);
             onHit?.Invoke(this);
         }
+    }
+
+    public void LookAtDirection(Vector2 direction)
+    {
+        if (direction == Vector2.zero) return;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }

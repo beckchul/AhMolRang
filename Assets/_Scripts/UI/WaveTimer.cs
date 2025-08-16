@@ -8,7 +8,9 @@ public class WaveTimer : MonoBehaviour
    
     public void UpdateTimer()
     {
-        int sec = Mathf.Max(MonsterManager.Instance.WaveTime - (int)MonsterManager.Instance.ElapsedTime, 0);
+        var waveTime = MonsterManager.Instance.IsBossWave ? 
+            MonsterManager.Instance.BossWaveTime : MonsterManager.Instance.WaveTime;
+        int sec = Mathf.Max(waveTime - (int)MonsterManager.Instance.ElapsedTime, 0);
         int min = sec / 60;
         sec = sec % 60;
 

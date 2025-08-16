@@ -23,6 +23,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
     public MonsterBase CurrentBoss;
 
+    public bool IsBossWave = false;
     public int BossExpMin = 30;
     public int BossExpMax = 100;
     public int WaveTime = 180;
@@ -57,6 +58,8 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         for (int i = 0; i < _waveCount; ++i)
         {
             Debug.Log($"Wave {i} started!");
+            ElapsedTime = 0;
+            IsBossWave = false;
             while (ElapsedTime < WaveTime)
             {
                 SpawnMonster(OnMonsterDead, GetMonsterPosition());
@@ -68,6 +71,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             // BOSS WAVE
             ElapsedTime = 0;
             CurrentBoss = SpawnBoss(OnBossDead, GetMonsterPosition(), 0);
+            IsBossWave = true;
 
             while (ElapsedTime < BossWaveTime &&
                 CurrentBoss.Stat.CurrentHP > 0)
