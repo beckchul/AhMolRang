@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f772f1b0727ab4a86b2c8ad55837ebd2
+guid: 127fd9a7501bd4da8965fdf21fe29e33
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,67 +110,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hadouken_0
+      name: Red_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.83, y: 0.49}
+      pivot: {x: 0.54, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3019ba62fde3149898d0ffb30a2f3644
-      internalID: 1749652093
+      spriteID: 96c8c70fc45a34974a9bf8d4e21f41ec
+      internalID: -751485757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hadouken_1
+      name: Red_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 256
         y: 0
-        width: 64
-        height: 64
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.83, y: 0.49}
+      pivot: {x: 0.54, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b8db9789b2e54bd499c1551cf682078
-      internalID: 653980966
+      spriteID: 14540b852386c40048c6db3f4ead308e
+      internalID: 1512746479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hadouken_2
+      name: Red_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 512
         y: 0
-        width: 64
-        height: 64
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.83, y: 0.49}
+      pivot: {x: 0.54, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25289a62fc96647c28f73be74399bfaf
-      internalID: 1513677299
+      spriteID: 84edd139d89c54061bb6ef0008bf361f
+      internalID: 168272656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.54, y: 0.42}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8b4a62af9774886bdb3cf9ceb3ee6a
+      internalID: -955702569
       vertices: []
       indices: 
       edges: []
@@ -179,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1e53b99734b28427bb5d1bb5195d0bfb
+    spriteID: aaf286917f4804313b47e4fded29377c
     internalID: 0
     vertices: []
     indices: 
@@ -189,9 +211,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hadouken_0: 1749652093
-      Hadouken_1: 653980966
-      Hadouken_2: 1513677299
+      Red_0: -751485757
+      Red_1: 1512746479
+      Red_2: 168272656
+      Red_3: -955702569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
