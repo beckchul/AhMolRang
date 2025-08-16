@@ -62,14 +62,14 @@ public class SkillSelect : MonoBehaviour
                 continue;
             }
 
-            var activeSkillData = SkillManager.Instance.GetActiveSkillData(skillStatus.SkillId);
+            var activeSkillData = SkillManager.Instance.GetActiveSkillStatus(skillStatus.SkillId);
 
             if (activeSkillData != null)
             {
                 activeSkillCount++;
             }
 
-            var pasiveSkillData = SkillManager.Instance.GetPasiveSkillData(skillStatus.SkillId);
+            var pasiveSkillData = SkillManager.Instance.GetPasiveSkillStatus(skillStatus.SkillId);
 
             if (pasiveSkillData != null)
             {

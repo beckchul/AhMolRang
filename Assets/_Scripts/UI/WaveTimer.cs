@@ -14,6 +14,8 @@ public class WaveTimer : MonoBehaviour
         int min = sec / 60;
         sec = sec % 60;
 
-        timerText.text = min.ToString() + " : " + sec.ToString();
+        string secStr = sec < 10 ? "0" + sec.ToString() : sec.ToString();
+
+        timerText.text = min.ToString() + " : " + secStr;
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoSingleton<UIManager>
@@ -39,6 +40,18 @@ public class UIManager : MonoSingleton<UIManager>
     private GameObject pause;
 
     /// <summary>
+    /// 레벨 Text
+    /// </summary>
+    [SerializeField]
+    private TMP_Text levelText;
+
+    /// <summary>
+    /// 보스 체력바
+    /// </summary>
+    [SerializeField]
+    private SliderBar bossHpBarUI;
+
+    /// <summary>
     /// 일시 정지 체크용
     /// </summary>
     [HideInInspector]
@@ -68,6 +81,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         skillSelectUI.ShowUI();
         skillSelectUI.SetButton();
+        levelText.text = "만 " + PlayerManager.Instance.PlayerScript.Stat.CurrentLevel.ToString() + "세";
     }
 
     public void UpdateSkillListUI()
@@ -95,6 +109,16 @@ public class UIManager : MonoSingleton<UIManager>
         waveTimerUI.UpdateTimer();
     }
 
+    public void SetActiveBossHpBar(bool isActive)
+    {
+        bossHpBarUI.gameObject.SetActive(isActive);
+    }
+
+    public void UpdateBossHpBar(float value)
+    {
+        bossHpBarUI.UpdateSliderBar(value);
+    }
+    
     /// <summary>
     /// 일시 정지 버튼
     /// </summary>
