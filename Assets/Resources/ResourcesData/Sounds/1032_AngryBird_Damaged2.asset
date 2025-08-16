@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23ed881aeadfca498efbfe6207e9ef3, type: 3}
   m_Name: 1032_AngryBird_Damaged2
   m_EditorClassIdentifier: 
-  ID: 1031
+  ID: 1032
   AudioClip: {fileID: 8300000, guid: 40005fe62bf024afe90faff8f0cdd94a, type: 3}
   masterVolume: 1
+  Loop: 0
