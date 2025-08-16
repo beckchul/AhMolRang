@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Projectile : MonoBehaviour
 {
@@ -20,6 +21,13 @@ public class Projectile : MonoBehaviour
         Action<Projectile> onHit,
         Action<Projectile> onExpired)
     {
+
+        var rndX = Random.Range(-0.1f, 0.1f);
+        var rndY = Random.Range(-0.1f, 0.1f);
+        var rndDirection = new Vector3(rndX, rndY);
+
+        direction = (direction.normalized + rndDirection);
+
         this.direction = direction.normalized;
         this.damage = damage;
         this.duration = duration;
@@ -53,6 +61,7 @@ public class Projectile : MonoBehaviour
         {
             monster.Stat.TakeDamage(damage);
             onHit?.Invoke(this);
+            onHit = null;
         }
     }
 

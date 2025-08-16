@@ -45,7 +45,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             OnDestroyMonster,
             false, // collection check
             50, // initial capacity
-            200 // max size
+            1000 // max size
         );
 
         _waveCoroutine = StartCoroutine(ProcessWave());

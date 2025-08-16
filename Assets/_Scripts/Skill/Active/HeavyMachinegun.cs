@@ -42,7 +42,7 @@ public class HeavyMachinegun : ActiveSkill
                 projectile.transform.position = transform.position;
                 projectile.Shoot(
                     target.transform.position - transform.position,
-                    50,
+                    15,
                     _duration,
                     OnProjectileHit,
                     OnProjectileExpired

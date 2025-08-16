@@ -50,6 +50,8 @@ public class CharacterStat
 
     public virtual void TakeDamage(int damage)
     {
+        if (CurrentHP <= 0) return;
+
         OnTakeDamage?.Invoke(damage);
 
         CurrentHP -= damage;
