@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d503a3b4d562648da9f9bbd010ddd850
+guid: a22cf581d521749d5949229f1a0c9c31
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,111 +110,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CowKing_0
+      name: 1_4_king_pig_sprite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53305af065884406993ad79ede88dee1
-      internalID: 1914679127
+      spriteID: d13d2cf108f7742eab38c54f7d094595
+      internalID: -1105718076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CowKing_1
+      name: 1_4_king_pig_sprite_1
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f2481c28d87b4ab8b5b52441d15ad53
-      internalID: -1630807735
+      spriteID: c4b412d1bb77e423bafe3ac81a631edb
+      internalID: 658746225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CowKing_2
+      name: 1_4_king_pig_sprite_2
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463e0ab9c673e440da3a4e4ec4a1354a
-      internalID: 601127677
+      spriteID: 2982cbec5fd3c4529ae47008f6dd400f
+      internalID: 321708445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CowKing_3
+      name: 1_4_king_pig_sprite_3
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4d3c18eb14b94da9827a8cee805cd06
-      internalID: -68903321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CowKing_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e289a0c8e6b19459fa5eb2bd5d483304
-      internalID: -273776802
+      spriteID: c2b1ec32d19a24cb680ec97ebdae0890
+      internalID: 1915203828
       vertices: []
       indices: 
       edges: []
@@ -223,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 484f0eaad0f8d42e2b95dac53640c99e
+    spriteID: f60974d6eb3484ff592e4a568987d918
     internalID: 0
     vertices: []
     indices: 
@@ -233,11 +211,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CowKing_0: 1914679127
-      CowKing_1: -1630807735
-      CowKing_2: 601127677
-      CowKing_3: -68903321
-      CowKing_4: -273776802
+      1_4_king_pig_sprite_0: -1105718076
+      1_4_king_pig_sprite_1: 658746225
+      1_4_king_pig_sprite_2: 321708445
+      1_4_king_pig_sprite_3: 1915203828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
