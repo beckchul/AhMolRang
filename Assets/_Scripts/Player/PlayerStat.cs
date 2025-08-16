@@ -68,8 +68,9 @@ public class PlayerStat : CharacterStat
     public int CurrentLevel { get; private set; }
     #endregion
 
-    #region << =========== DICTINARY =========== >>
+    #region << =========== DICTINARY, LIST =========== >>
     private readonly Dictionary<StatType, Stat> statDict = new();
+    private readonly List<int> EXPList;
     #endregion
 
     #region << =========== STAT =========== >>
@@ -77,8 +78,9 @@ public class PlayerStat : CharacterStat
     #endregion
 
 
-    public PlayerStat() : base(100, 2)
+    public PlayerStat(List<int> expList) : base(100, 2)
     {
+        EXPList = expList;
         InitPlayerStat();
     }
 
@@ -101,9 +103,9 @@ public class PlayerStat : CharacterStat
         DefenseStat = new Stat(0.0f);
         GoldUpStat = new Stat(0.0f);
 
-        MaxEXP = 10;
+        MaxEXP = EXPList[0];
         CurrentEXP = 0;
-        MaxLevel = 100;
+        MaxLevel = EXPList.Count;
         CurrentLevel = 1;
 
         statDict.Add(StatType.RegenHP, RegenHPStat);
@@ -153,6 +155,7 @@ public class PlayerStat : CharacterStat
     public void LevelUp()
     {
         CurrentEXP = CurrentEXP - MaxEXP;
+        MaxEXP = EXPList[CurrentLevel - 1];
         OnLevelUp?.Invoke();
     }
 }

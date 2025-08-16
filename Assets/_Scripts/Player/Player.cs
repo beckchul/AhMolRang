@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,6 +13,9 @@ public class Player : MonoBehaviour
 
     public PlayerStat Stat { get; private set; }
 
+    [SerializeField]
+    private PlayerMaxExpScriptableObject expSO;
+
 
     public void InitPlayer()
     {
@@ -24,7 +28,7 @@ public class Player : MonoBehaviour
         Controller.Init(this);
         Movement.Init(this);
 
-        Stat = new PlayerStat();
+        Stat = new PlayerStat(expSO.MaxEXP);
         Stat.OnDeath = () =>
         {
             MonsterManager.Instance.FinishGame();
