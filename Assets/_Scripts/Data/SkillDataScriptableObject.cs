@@ -9,7 +9,6 @@ public class SkillDataScriptableObject : ScriptableObject
     public class SkillDataBase
     {
         public int skillId;
-        public float efficiency;
         public string skillName;
         public Sprite skillIcon;
         public SkillType skillType;

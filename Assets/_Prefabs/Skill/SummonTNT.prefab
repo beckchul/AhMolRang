@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d528ac86ad64a4daf801c262d2b5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 4
+  sound_ID_1: 0
+  sound_ID_2: 0
   _bombPrefab: {fileID: 9133144196860554454, guid: a87cd3b96a767f94ca979563b77597f6, type: 3}
   _explosionPrefab: {fileID: 5591180389519930426, guid: 4649d088ae64d440eb421835797b63db, type: 3}
   _range: 8

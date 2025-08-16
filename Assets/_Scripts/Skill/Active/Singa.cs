@@ -6,7 +6,7 @@ public class Singa : ActiveSkill
     [SerializeField]
     private CircleCollider2D _collider;
     [SerializeField]
-    private Animator _anim;
+    private GameObject _vfx;
 
     private bool firstStart = false;
 
@@ -27,7 +27,7 @@ public class Singa : ActiveSkill
         while (gameObject.activeSelf)
         {
             PlaySound1(0.8f);
-            _anim.Play("Singa");
+            _vfx.SetActive(true);
 
             var colliders = Physics2D.OverlapCircleAll(transform.position, _collider.radius, LayerMask.GetMask("Enemy"));
             foreach (var collider in colliders)
@@ -41,6 +41,7 @@ public class Singa : ActiveSkill
             }
 
             yield return new WaitForSeconds(Cooldown);
+            _vfx.SetActive(false);
         }
     }
 }

@@ -3,7 +3,7 @@ public class ActiveSkillStatus : SkillStatus
     public ActiveSkill SkillPrefab { get; }
     public float Cooldown { get; protected set; }
 
-    public ActiveSkillStatus(int skillId, float efficiency, float cooldown, ActiveSkill skillPrefab) : base(skillId, efficiency)
+    public ActiveSkillStatus(int skillId, float cooldown, ActiveSkill skillPrefab) : base(skillId)
     {
         Cooldown = cooldown;
         SkillPrefab = skillPrefab;

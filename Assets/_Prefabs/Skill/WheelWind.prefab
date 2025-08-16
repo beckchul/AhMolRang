@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2cafcb01b774d4184c603330a19d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 0.5
   sound_ID_1: 1121
   sound_ID_2: 0
   _collider: {fileID: 4520752132745416967}
   _renderer: {fileID: 7058442716702095913}
-  soundID: 0
 --- !u!1 &4313222056703806162
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class SkillManager : MonoSingleton<SkillManager>
         foreach (var skillData in skillData.activeSkills)
         {
             var skill = new ActiveSkillStatus(
-                skillData.skillId, skillData.efficiency, skillData.cooldown, skillData.skillPrefab);
+                skillData.skillId, skillData.cooldown, skillData.skillPrefab);
             Skills.Add(skillData.skillId, skill);
             _activeSkillDataCache.Add(skillData.skillId, skillData);
 
@@ -42,7 +42,7 @@ public class SkillManager : MonoSingleton<SkillManager>
 
         foreach (var skillData in skillData.passiveSkills)
         {
-            var skill = new SkillStatus(skillData.skillId, skillData.efficiency);
+            var skill = new SkillStatus(skillData.skillId);
             Skills.Add(skillData.skillId, skill);
             _passiveSkillDataCache.Add(skillData.skillId, skillData);
         }
@@ -66,7 +66,7 @@ public class SkillManager : MonoSingleton<SkillManager>
     public void SkillLevelUp(int skillId)
     {
         var skillStatus = Skills[skillId];
-        skillStatus.UpgradeEfficiency(1);
+        skillStatus.LevelUp();
 
         if (skillStatus is ActiveSkillStatus activeSkillStatus)
         {
@@ -76,7 +76,6 @@ public class SkillManager : MonoSingleton<SkillManager>
                 skill.Init(
                     skillId,
                     activeSkillStatus.Level,
-                    activeSkillStatus.Efficiency,
                     activeSkillStatus.Cooldown);
                 skill.StartLifeCycle();
             }
