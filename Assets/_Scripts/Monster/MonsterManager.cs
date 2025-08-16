@@ -225,4 +225,20 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         int randomIndex = Random.Range(0, candidates.Count);
         return candidates[randomIndex];
     }
+
+    public MonsterBase GetMonsterWithHighestHP(Vector3 position, float limit)
+    {
+        MonsterBase highestHPMonster = null;
+        float highestHP = 0f;
+        foreach (var monster in _activeMonsters)
+        {
+            float distance = Vector3.Distance(position, monster.transform.position);
+            if (distance < limit && monster.Stat.CurrentHP > highestHP)
+            {
+                highestHP = monster.Stat.CurrentHP;
+                highestHPMonster = monster;
+            }
+        }
+        return highestHPMonster;
+    }
 }
