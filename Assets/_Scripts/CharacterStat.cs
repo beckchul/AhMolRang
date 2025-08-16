@@ -54,8 +54,6 @@ public class CharacterStat
 
         CurrentHP -= damage;
 
-        UIManager.Instance.UpdateHpBar((float)CurrentHP / MaxHP);
-
         if (CurrentHP <= 0) Death();
     }
 
