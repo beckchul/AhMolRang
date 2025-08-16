@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23ed881aeadfca498efbfe6207e9ef3, type: 3}
   m_Name: SoundData
   m_EditorClassIdentifier: 
-  GameType: 0
-  SFXType: 0
-  AudioClipList: []
-  masterVolume: 0
+  ID: 1
+  AudioClip: {fileID: 0}
+  masterVolume: 0.0001
+  Loop: 0
