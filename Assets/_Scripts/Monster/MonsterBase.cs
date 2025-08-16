@@ -25,10 +25,12 @@ public class MonsterBase : MonoBehaviour
         _spriteRenderers = new List<SpriteRenderer>();
         var themeType = SkillManager.Instance.GetRandomTheme();
         _themeIndex = (int)themeType;
+
+        var rnd = UnityEngine.Random.Range(0, _themeObjects.Count);
         for (int i = 0; i < _themeObjects.Count; i++)
         {
             _spriteRenderers.Add(_themeObjects[i].GetComponentInChildren<SpriteRenderer>());
-            if ((ThemeType)i == themeType)
+            if (i == rnd)
             {
                 _themeObjects[i].SetActive(true);
             }
