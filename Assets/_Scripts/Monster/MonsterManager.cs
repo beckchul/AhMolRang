@@ -19,7 +19,12 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     private WaitForSeconds _wait1Second = new(1f);
     private Coroutine _waveCoroutine;
 
-    public int WaveTile = 180;
+    public MonsterBase CurrentBoss;
+
+    public int BossExpMin = 30;
+    public int BossExpMax = 100;
+    public int WaveTime = 180;
+    public int BossWaveTime = 30;
     public int ElapsedTime = 0;
 
     [Header("Ellipse Settings")]
@@ -47,7 +52,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     {
         for (int i = 0; i < _waveCount; ++i)
         {
-            while (ElapsedTime < WaveTile)
+            while (ElapsedTime < WaveTime)
             {
                 SpawnMonster(OnMonsterDead, GetMonsterPosition());
                 ++ElapsedTime;
@@ -57,10 +62,10 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
             // BOSS WAVE
             ElapsedTime = 0;
-            var boss = SpawnBoss(OnMonsterDead, GetMonsterPosition(), 0);
+            CurrentBoss = SpawnBoss(OnBossDead, GetMonsterPosition(), 0);
 
-            while (ElapsedTime < WaveTile &&
-                boss.Stat.CurrentHP > 0)
+            while (ElapsedTime < BossWaveTime &&
+                CurrentBoss.Stat.CurrentHP > 0)
             {
                 SpawnMonster(OnMonsterDead, GetMonsterPosition());
                 ++ElapsedTime;
@@ -68,7 +73,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
                 yield return _wait1Second;
             }
 
-            if (boss.Stat.CurrentHP > 0)
+            if (CurrentBoss.Stat.CurrentHP > 0)
             {
                 Debug.Log("Failed to clear boss.");
                 GameManager.Instance.Defeat();
@@ -97,6 +102,21 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     private void OnMonsterDead(MonsterBase monster)
     {
         _monsterPool.Release(monster);
+        ExpManager.Instance.DropExp(monster.transform.position);
+    }
+
+    private void OnBossDead(MonsterBase monster)
+    {
+        _monsterPool.Release(monster);
+        var amount = Random.Range(BossExpMin, BossExpMax + 1);
+
+        for (int i = 0; i < amount; ++i)
+        {
+            var rndX = Random.Range(-1f, 1f);
+            var rndY = Random.Range(-1f, 1f);
+            var dropPosition = monster.transform.position + new Vector3(rndX, rndY);
+            ExpManager.Instance.DropExp(dropPosition);
+        }
     }
 
     private void OnGetMonster(MonsterBase monster)
