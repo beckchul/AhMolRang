@@ -36,7 +36,7 @@ public class MagicClaw : ActiveSkill
         {
             cooldown *= 7.5f;
             damage *= 5;
-            _range *= 2f;
+            _range *= 1.7f;
         }
     }
 
