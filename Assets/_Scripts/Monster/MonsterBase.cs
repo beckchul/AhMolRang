@@ -15,6 +15,7 @@ public class MonsterBase : MonoBehaviour
     private bool _isContacting;
     private List<SpriteRenderer> _spriteRenderers;
     private int _themeIndex;
+    private MonsterDeadSound monsterDeadSound;
 
     public void Set(Action<MonsterBase> onDead)
     {
@@ -47,6 +48,9 @@ public class MonsterBase : MonoBehaviour
 
         State = gameObject.AddComponent<CharacterState>();
         State.InitState(Stat);
+
+        monsterDeadSound = GetComponentInChildren<MonsterDeadSound>();
+        if(monsterDeadSound != null) Stat.OnDeath += monsterDeadSound.DeadSound;
     }
 
     private IEnumerator CoTick()

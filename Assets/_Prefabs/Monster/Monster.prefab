@@ -1353,6 +1353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5832568277725915647}
+  - component: {fileID: 8035845102912405196}
   m_Layer: 8
   m_Name: Pig
   m_TagString: Untagged
@@ -1376,6 +1377,20 @@ Transform:
   - {fileID: 3997302974159397459}
   m_Father: {fileID: 6439794498210847375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8035845102912405196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6187765915981804765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f850831c4318b4449f873ab4e133c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundIDs: 0704000008040000
+  monster: {fileID: 7101063217739837091}
 --- !u!1 &7665208205341026479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,6 +1432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6733769191141971803}
+  - component: {fileID: 6229461732494672904}
   m_Layer: 8
   m_Name: Cow
   m_TagString: Untagged
@@ -1440,6 +1456,20 @@ Transform:
   - {fileID: 5894553808748728256}
   m_Father: {fileID: 6439794498210847375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6229461732494672904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818383376084830150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f850831c4318b4449f873ab4e133c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundIDs: 6b0400006c0400006d0400006e040000
+  monster: {fileID: 7101063217739837091}
 --- !u!1 &8431073319812357698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,6 +1479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5451639326974013644}
+  - component: {fileID: 6327069539319320182}
   m_Layer: 0
   m_Name: Zergling
   m_TagString: Untagged
@@ -1472,6 +1503,20 @@ Transform:
   - {fileID: 3306655619862434589}
   m_Father: {fileID: 6439794498210847375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6327069539319320182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431073319812357698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f850831c4318b4449f873ab4e133c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundIDs: c4060000
+  monster: {fileID: 7101063217739837091}
 --- !u!1 &8585586537213954871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2730091490189271010}
+  - component: {fileID: 6965390446398331744}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -1734,3 +1780,17 @@ Transform:
   - {fileID: 6310100566057818035}
   m_Father: {fileID: 6439794498210847375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6965390446398331744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115298455971933590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f850831c4318b4449f873ab4e133c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundIDs: f2050000f3050000f4050000
+  monster: {fileID: 7101063217739837091}
