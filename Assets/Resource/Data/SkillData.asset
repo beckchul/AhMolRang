@@ -18,10 +18,19 @@ MonoBehaviour:
     skillName: "\uD720\uC708\uB4DC"
     skillIcon: {fileID: 21300000, guid: da372b3cf9b45514abd5e09ed6dbdf83, type: 3}
     skillType: 0
-    skillLevel: 1
+    skillLevel: 4
     cooldown: 1
     skillPrefab: {fileID: 4727670817506536907, guid: 4e22bdae41185e04d80a448b6bc1c60a, type: 3}
     themeType: 0
+  - skillId: 1002
+    efficiency: 0.3
+    skillName: "\uD5E4\uBE44 \uBA38\uC2E0\uAC74"
+    skillIcon: {fileID: 21300000, guid: 393aaf93d0e0e95448327dc768bda602, type: 3}
+    skillType: 0
+    skillLevel: 4
+    cooldown: 0.25
+    skillPrefab: {fileID: 442137224414974431, guid: 90ab60a4bad1a03498b1ce4ac197c081, type: 3}
+    themeType: 1
   passiveSkills:
   - skillId: 2001
     efficiency: 0.2
@@ -34,4 +43,4 @@ MonoBehaviour:
     skillName: "\uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
     skillIcon: {fileID: 21300000, guid: 28576731b4583ba4d8fb28fe708b5725, type: 3}
     skillType: 0
-    skillLevel: 1
+    skillLevel: 3
