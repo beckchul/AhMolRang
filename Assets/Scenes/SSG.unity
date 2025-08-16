@@ -809,7 +809,7 @@ MonoBehaviour:
   CurrentBoss: {fileID: 0}
   BossExpMin: 30
   BossExpMax: 100
-  WaveTime: 180
+  WaveTime: 2
   BossWaveTime: 30
   ElapsedTime: 0
   maxX: 20
