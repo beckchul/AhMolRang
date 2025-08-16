@@ -71,6 +71,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             // BOSS WAVE
             ElapsedTime = 0;
             CurrentBoss = SpawnBoss(OnBossDead, GetMonsterPosition(), 0);
+            UIManager.Instance.SetActiveBossHpBar(true);
             IsBossWave = true;
 
             while (ElapsedTime < BossWaveTime &&
@@ -79,11 +80,13 @@ public class MonsterManager : MonoSingleton<MonsterManager>
                 SpawnMonster(OnMonsterDead, GetMonsterPosition());
                 ElapsedTime += _spawnDelay;
                 UIManager.Instance.UpdateTimer();
+                UIManager.Instance.UpdateBossHpBar((float)CurrentBoss.Stat.CurrentHP / CurrentBoss.Stat.MaxHP);
                 yield return _waitForSpawnDelay;
             }
 
             if (CurrentBoss.Stat.CurrentHP > 0)
             {
+                UIManager.Instance.SetActiveBossHpBar(false);
                 Debug.Log("Failed to clear boss.");
                 GameManager.Instance.Defeat();
                 FinishGame();
