@@ -1223,13 +1223,14 @@ GameObject:
   - component: {fileID: 1945641127124073751}
   - component: {fileID: 4853821357446228753}
   - component: {fileID: 5522000238506753843}
+  - component: {fileID: 3047762907808202113}
   m_Layer: 5
   m_Name: GameOverUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1945641127124073751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1290,6 +1291,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3047762907808202113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707398016094182632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edde0a8aaff5ea4dbe1bbc5045fcfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defeat: {fileID: 1257225069392778002}
+  victory: {fileID: 7766968331919601408}
+  _resetBtn: {fileID: 1473679376971173846}
 --- !u!1 &2891195152537414398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1513,7 @@ MonoBehaviour:
   pause: {fileID: 4807157814650043030}
   levelText: {fileID: 451537461036856976}
   bossHpBarUI: {fileID: 7799879221396519652}
+  GameOverUI: {fileID: 3047762907808202113}
   IsPaused: 0
 --- !u!114 &615680868846355942
 MonoBehaviour:

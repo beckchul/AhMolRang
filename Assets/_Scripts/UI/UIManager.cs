@@ -51,6 +51,8 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField]
     private SliderBar bossHpBarUI;
 
+    public GameOver GameOverUI;
+
     /// <summary>
     /// 일시 정지 체크용
     /// </summary>
