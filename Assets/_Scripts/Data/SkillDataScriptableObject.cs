@@ -20,6 +20,7 @@ public class SkillDataScriptableObject : ScriptableObject
     {
         public ActiveSkill skillPrefab;
         public ThemeType themeType;
+        public int SoundID;
     }
 
     [Serializable]

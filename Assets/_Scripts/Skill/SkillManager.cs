@@ -77,6 +77,15 @@ public class SkillManager : MonoSingleton<SkillManager>
                     skillId,
                     activeSkillStatus.Level);
                 skill.StartLifeCycle();
+
+                foreach (var activeSkilldata in skillData.activeSkills)
+                {
+                    if(activeSkilldata.skillId == skillId) 
+                    {
+                        SoundManager.Instance.PlaySFX(activeSkilldata.SoundID);
+                        break;
+                    }
+                }
             }
         }
     }
