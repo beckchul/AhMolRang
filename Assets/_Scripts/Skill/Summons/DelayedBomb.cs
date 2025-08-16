@@ -8,7 +8,11 @@ public class DelayedBomb : MonoBehaviour
     private CircleCollider2D areaCollider;
     [SerializeField]
     private float delay = 2f;
+    [SerializeField]
+    private float speed = 3f;
 
+    Vector3 position;
+    Vector3 targetPosition;
     private float duration;
     private float detectRange;
     private int damage;
@@ -18,6 +22,7 @@ public class DelayedBomb : MonoBehaviour
 
     public void Summon(
         Vector3 position,
+        Vector3 targetPosition,
         int damage,
         float duration,
         float radius,
@@ -25,6 +30,9 @@ public class DelayedBomb : MonoBehaviour
         Action<DelayedBomb> onHit,
         Action<DelayedBomb> onExpired)
     {
+        this.position = position;
+        this.targetPosition = targetPosition;
+
         transform.position = position;
         this.damage = damage;
         this.duration = duration;
@@ -39,6 +47,8 @@ public class DelayedBomb : MonoBehaviour
 
     private IEnumerator CoTick()
     {
+        yield return StartCoroutine(CoThrow());
+
         var wait = new WaitForSeconds(delay);
         var elapsedTime = 0f;
         while (duration > elapsedTime)
@@ -55,6 +65,18 @@ public class DelayedBomb : MonoBehaviour
         }
 
         onExpired?.Invoke(this);
+    }
+
+    private IEnumerator CoThrow()
+    {
+        var elapsedTime = 0f;
+        var estimatedTime = Vector3.Distance(position, targetPosition) / speed;
+        while (elapsedTime < estimatedTime)
+        {
+            transform.position = Vector3.Lerp(position, targetPosition, elapsedTime / estimatedTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 
     private void ApplyEffect()

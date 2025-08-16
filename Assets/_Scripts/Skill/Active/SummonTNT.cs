@@ -44,6 +44,7 @@ public class SummonTNT: ActiveSkill
             {
                 var bomb = _bombPool.Get();
                 bomb.Summon(
+                    transform.position,
                     target.transform.position,
                     200,
                     _duration,
