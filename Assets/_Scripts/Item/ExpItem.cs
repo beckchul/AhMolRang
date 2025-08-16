@@ -14,7 +14,7 @@ public class ExpItem : MonoBehaviour
     private ExpItemState state = ExpItemState.None;
 
     private const int   expValue = 1;
-    private const float consumeSpeed = 3.0f;
+    private const float consumeSpeed = 12.0f;
     private const float getDistance = 1.0f;
 
     private void Start()
