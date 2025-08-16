@@ -14,6 +14,8 @@ public class ActiveSkill : MonoBehaviour, ISkill
     [SerializeField]
     protected int sound_ID_2;   // 예비 사운드 ID
 
+    private int _originalDamage;
+
     // 반복 사운드용
     protected bool PlayingSound = false;
 
@@ -28,11 +30,19 @@ public class ActiveSkill : MonoBehaviour, ISkill
     {
         this.skillId = skillId;
         this.level = level;
+        _originalDamage = damage;
     }
 
     public virtual void Upgrade()
     {
         ++level;
+        damage += (int)(_originalDamage * 0.2f);
+
+        if (level % 2 == 0)
+        {
+            cooldown *= 0.85f; // 쿨타임 감소
+            Debug.Log($"Skill {skillId} upgraded to level {level}. Cooldown reduced to {cooldown}");
+        }
     }
 
     public virtual void StartLifeCycle()

@@ -164,7 +164,7 @@ MonoBehaviour:
   _genesisVFX: {fileID: 7767592579184304077}
   _range: 6
   _genesisPillarCount: 15
-  _genesisRadius: 5
+  _genesisRadius: 3.5
   _genesisTime: 1
   _genesisExpireTime: 1.5
   _genesisDelay: 0.5
