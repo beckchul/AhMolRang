@@ -59,6 +59,7 @@ public class SummonTNT: ActiveSkill
     {
         while (gameObject.activeSelf)
         {
+            PlaySound1();
             var rndX = Random.Range(-_range, _range);
             var rndY = Random.Range(-_range, _range);
             Debug.Log($"SummonTNT: Random position offset: ({rndX}, {rndY})");
@@ -81,12 +82,12 @@ public class SummonTNT: ActiveSkill
 
     private void OnBombHit(DelayedBomb projectile)
     {
+        PlaySound2();
         _bombPool.Release(projectile);
         var explosion = _tntExplosionPool.Get();
         explosion.transform.position = projectile.transform.position;
         explosion.SetActive(true);
         StartCoroutine(CoExplode(explosion));
-
     }
 
     private void OnBombExpired(DelayedBomb projectile)
