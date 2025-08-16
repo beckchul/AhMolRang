@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54741de5e350b144ca87f0d0f1e60d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 3
   sound_ID_1: 1012
   sound_ID_2: 1013
   _projectilePrefab:
