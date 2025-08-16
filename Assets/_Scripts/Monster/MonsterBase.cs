@@ -27,6 +27,7 @@ public class MonsterBase : MonoBehaviour
         _themeIndex = (int)themeType;
 
         var rnd = UnityEngine.Random.Range(0, _themeObjects.Count);
+        _themeIndex = rnd;
         for (int i = 0; i < _themeObjects.Count; i++)
         {
             _spriteRenderers.Add(_themeObjects[i].GetComponentInChildren<SpriteRenderer>());

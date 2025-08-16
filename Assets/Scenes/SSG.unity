@@ -824,7 +824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveCount: 5
   _monsterPrefab: {fileID: 7101063217739837091, guid: 53e9097c265da3140ba0c54f40af66b7, type: 3}
-  _spawnDelay: 0.5
+  _spawnDelay: 0.25
   CurrentBoss: {fileID: 0}
   IsBossWave: 0
   BossExpMin: 30
