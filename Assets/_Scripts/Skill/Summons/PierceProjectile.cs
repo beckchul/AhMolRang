@@ -7,7 +7,6 @@ public class PierceProjectile : MonoBehaviour
 {
     [SerializeField]
     private float speed = 10f;
-    [SerializeField]
     private int damage;
 
     private Vector3 direction;
@@ -18,6 +17,7 @@ public class PierceProjectile : MonoBehaviour
 
     public void PierceShoot(
         Vector3 direction,
+        int damage,
         float duration,
         Action<PierceProjectile> onHit,
         Action<PierceProjectile> onExpired)
@@ -26,6 +26,7 @@ public class PierceProjectile : MonoBehaviour
         this.duration = duration;
         this.onHit = onHit;
         this.onExpired = onExpired;
+        this.damage = damage;
         LookAtDirection(direction);
 
         gameObject.SetActive(true);

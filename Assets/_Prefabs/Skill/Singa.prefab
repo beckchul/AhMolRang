@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 4
+  damage: 200
   sound_ID_1: 1901
   sound_ID_2: 0
   _collider: {fileID: 4520752132745416967}

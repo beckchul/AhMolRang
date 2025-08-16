@@ -8,6 +8,8 @@ public class ActiveSkill : MonoBehaviour, ISkill
     [SerializeField]
     protected float cooldown = 1f;
     [SerializeField]
+    protected int damage = 100;
+    [SerializeField]
     protected int sound_ID_1;   // 메인 사운드 ID
     [SerializeField]
     protected int sound_ID_2;   // 예비 사운드 ID
@@ -22,12 +24,10 @@ public class ActiveSkill : MonoBehaviour, ISkill
 
     public virtual void Init(
         int skillId,
-        int level,
-        float cooldown)
+        int level)
     {
         this.skillId = skillId;
         this.level = level;
-        this.cooldown = cooldown;
     }
 
     public virtual void Upgrade()

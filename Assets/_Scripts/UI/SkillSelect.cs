@@ -25,6 +25,17 @@ public class SkillSelect : MonoBehaviour
     {
 
     }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            OnClickReroll();
+        }
+    }
+#endif
+
     private void OnDestroy()
     {
         foreach (SkillSelectButton button in skillSelectButtons)

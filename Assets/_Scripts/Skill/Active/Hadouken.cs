@@ -43,6 +43,7 @@ public class Hadouken : ActiveSkill
                 projectile.transform.position = transform.position;
                 projectile.PierceShoot(
                     target.transform.position - transform.position,
+                    damage,
                     _duration,
                     OnProjectileHit,
                     OnProjectileExpired

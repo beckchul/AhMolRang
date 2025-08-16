@@ -11,6 +11,11 @@ public class AngryBird : ActiveSkill
     [SerializeField]
     private float _duration = 1f;
 
+    [SerializeField]
+    private int yellowDamage = 150;
+    [SerializeField]
+    private int redDamage = 100;
+
     private ObjectPool<PierceProjectile> _projectilePool;
 
     [SerializeField]
@@ -23,7 +28,7 @@ public class AngryBird : ActiveSkill
     private int sound_ID_6_Fly;
     [SerializeField]
     private int sound_ID_7_Charge;
-
+    private int _randomIndex;
 
     private void Awake()
     {
@@ -51,12 +56,15 @@ public class AngryBird : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
+                var damage = _randomIndex == 0 ? this.damage :
+                    (_randomIndex == 1 ? yellowDamage : redDamage);
                 RandomPlayShotSound(0.8f);
                 RandomPlayFlySound(0.8f);
                 var projectile = _projectilePool.Get();
                 projectile.transform.position = transform.position;
                 projectile.PierceShoot(
                     target.transform.position - transform.position,
+                    damage,
                     _duration,
                     OnProjectileHit,
                     OnProjectileExpired
@@ -84,7 +92,9 @@ public class AngryBird : ActiveSkill
 
     private PierceProjectile CreateProjectile()
     {
-        return Instantiate(_projectilePrefab[Random.Range(0, _projectilePrefab.Length)], transform.position, Quaternion.identity);
+        var randomIndex = Random.Range(0, _projectilePrefab.Length);
+        _randomIndex = randomIndex;
+        return Instantiate(_projectilePrefab[randomIndex], transform.position, Quaternion.identity);
     }
 
     private void OnGetProjectile(PierceProjectile projectile)
