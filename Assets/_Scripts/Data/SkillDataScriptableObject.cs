@@ -18,7 +18,6 @@ public class SkillDataScriptableObject : ScriptableObject
     [Serializable]
     public class ActiveSkillData : SkillDataBase
     {
-        public float cooldown;
         public ActiveSkill skillPrefab;
         public ThemeType themeType;
     }

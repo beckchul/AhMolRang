@@ -56,7 +56,7 @@ public class NuclearStrike : ActiveSkill
                 var area = _damageAreaPool.Get();
                 area.Summon(
                     pos,
-                    5000,
+                    damage,
                     duration,
                     _radius,
                     tickDelay,

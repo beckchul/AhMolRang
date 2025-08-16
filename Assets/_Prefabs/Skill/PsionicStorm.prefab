@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 7
+  damage: 70
   sound_ID_1: 1711
   sound_ID_2: 1712
   _damageAreaPrefab: {fileID: 2483798754147391418, guid: efd22122eaf84ee409a84243ca5f13a6, type: 3}

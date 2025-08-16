@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314171c16e10e4c47832d5a4be8e8b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.16
+  cooldown: 0.06
+  damage: 20
   sound_ID_1: 1411
   sound_ID_2: 1412
   _projectilePrefab: {fileID: 2423663070893369222, guid: 3e9de04f74a24b2478cf72085ba601e7, type: 3}

@@ -68,7 +68,7 @@ public class SummonTNT: ActiveSkill
             bomb.Summon(
                 transform.position,
                 targetPosition,
-                200,
+                damage,
                 _duration,
                 _radius,
                 _detectRange,

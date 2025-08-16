@@ -11,7 +11,6 @@ public class MagicClaw : ActiveSkill
     private float _range = 6.0f;
 
     private MonsterBase monster;
-    private int damage = 70;
 
     private ObjectPool<MagicClawEffect> _magicClawPool;
 

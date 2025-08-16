@@ -44,8 +44,7 @@ public class WheelWind : ActiveSkill
                 if (collider.TryGetComponent(out MonsterBase monster))
                 {
                     var stat = monster.Stat;
-                    //int damage = Mathf.RoundToInt(stat.AttackDamage * Efficiency);
-                    stat.TakeDamage(100);
+                    stat.TakeDamage(damage);
                 }
             }
 

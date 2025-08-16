@@ -46,7 +46,7 @@ public class PsionicStorm : ActiveSkill
                 var area = _damageAreaPool.Get();
                 area.Summon(
                     target.transform.position,
-                    70,
+                    damage,
                     duration,
                     _radius,
                     tickDelay,
