@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 
 public class SoundManager : MonoSingleton<SoundManager>
@@ -20,7 +21,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     [Header("Audio Sources")]
     [SerializeField] private AudioSource audioBgm;
     [SerializeField] private AudioSource audioSfx;
-
+    private Dictionary<int, AudioSource> audioSfxDict = new();
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
 
@@ -31,11 +32,8 @@ public class SoundManager : MonoSingleton<SoundManager>
         sfxs = Resources.LoadAll<SoundDataScriptableObject>("ResourcesData/Sounds");
         foreach (var sfx in sfxs)
         {
-            if(!sfxsDict.ContainsKey(sfx.ID)) sfxsDict.Add(sfx.ID, sfx); ;
+            if(!sfxsDict.ContainsKey(sfx.ID)) sfxsDict.Add(sfx.ID, sfx);
         }
-
-        Vector3 vec = Instantiate(audioSfx).transform.position;
-        Debug.Log($"{vec}");
     }
 
     public void PlayBGM(int id)
@@ -51,15 +49,27 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     public void PlaySFX(int id, float volume = 1.0f, float pitch = 1.0f)
     {
-        audioSfx.pitch = pitch;
-        audioSfx.PlayOneShot(sfxsDict[id].AudioClip, volume);
-
-
+        if (sfxsDict[id].Loop)
+        {
+            AddAndPlayAudioSourceDictionary(id, volume, pitch);
+        }
+        else
+        {
+            audioSfx.pitch = pitch;
+            audioSfx.PlayOneShot(sfxsDict[id].AudioClip, volume);
+        }
     }
 
-    public void StopSFX()
+    public void StopSFX(int id)
     {
-        audioSfx.Stop();
+        if (sfxsDict[id].Loop)
+        {
+            StopAudioSourceDictionary(id);
+        }
+        else
+        {
+            audioSfx.Stop();
+        }
     }
 
     // º¼·ý Á¶Á¤
@@ -81,5 +91,20 @@ public class SoundManager : MonoSingleton<SoundManager>
     public void MuteAll(bool isMuted)
     {
         audioMixer.SetFloat(masterName, isMuted ? -80f : 0f);
+    }
+
+    // About AudioSource Dictionary
+    private void AddAndPlayAudioSourceDictionary(int id, float volume, float pitch)
+    {
+        if(audioSfxDict.ContainsKey(id)) audioSfxDict.Add(id, Instantiate(audioSfx));
+
+        audioSfxDict[id].pitch = pitch;
+        audioSfxDict[id].volume = volume;
+        audioSfxDict[id].Play();
+    }
+
+    private void StopAudioSourceDictionary(int id)
+    {
+        if (audioSfxDict.ContainsKey(id)) audioSfxDict[id].Stop();
     }
 }
