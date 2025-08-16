@@ -28,10 +28,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         base.Init();
 
-        foreach (var bgm in bgms)
-        {
-            bgmsDict.Add(bgm.ID, bgm);
-        }
+        sfxs = Resources.LoadAll<SoundDataScriptableObject>("ResourcesData/Sounds");
         foreach (var sfx in sfxs)
         {
             bgmsDict.Add(sfx.ID, sfx);
