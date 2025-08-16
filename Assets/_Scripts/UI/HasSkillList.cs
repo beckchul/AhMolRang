@@ -48,22 +48,23 @@ public class HasSkillList : MonoBehaviour
                 continue;
             }
 
-            var activeSkillData = SkillManager.Instance.GetActiveSkillData(skillStatus.SkillId);
+            var activeSkillStatus = SkillManager.Instance.GetActiveSkillStatus(skillStatus.SkillId);
+            var icon = SkillManager.Instance.GetSkillIcon(skillStatus.SkillId);
 
-            if (activeSkillData != null)
+            if (activeSkillStatus != null)
             {
                 activeSkillIcons[activeSkillIndex].gameObject.SetActive(true);
-                activeSkillIcons[activeSkillIndex].UpdateIcon(activeSkillData.skillIcon, activeSkillData.skillLevel);
+                activeSkillIcons[activeSkillIndex].UpdateIcon(icon, activeSkillStatus.Level);
 
                 activeSkillIndex++;
             }
 
-            var pasiveSkillData = SkillManager.Instance.GetPasiveSkillData(skillStatus.SkillId);
+            var pasiveSkillStatus = SkillManager.Instance.GetPasiveSkillStatus(skillStatus.SkillId);
 
-            if (pasiveSkillData != null)
+            if (pasiveSkillStatus != null)
             {
                 pasiveSkillIcons[pasiveSkillIndex].gameObject.SetActive(true);
-                pasiveSkillIcons[pasiveSkillIndex].UpdateIcon(pasiveSkillData.skillIcon, pasiveSkillData.skillLevel);
+                pasiveSkillIcons[pasiveSkillIndex].UpdateIcon(icon, pasiveSkillStatus.Level);
 
                 pasiveSkillIndex++;
             }

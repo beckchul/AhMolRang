@@ -18,7 +18,7 @@ MonoBehaviour:
     skillName: "\uD720\uC708\uB4DC"
     skillIcon: {fileID: 21300000, guid: b4cd321f960a84ab1a53e874e4db8b8c, type: 3}
     skillType: 0
-    skillLevel: 2
+    skillLevel: 1
     cooldown: 1
     skillPrefab: {fileID: 4727670817506536907, guid: 4e22bdae41185e04d80a448b6bc1c60a, type: 3}
     themeType: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   - skillId: 1007
     efficiency: 0.3
     skillName: TNT
-    skillIcon: {fileID: 531583274, guid: 5cf68dbf5e44147f7aeea043ccb6ece4, type: 3}
+    skillIcon: {fileID: 21300000, guid: f7112e577b4454829b0103af4887e22f, type: 3}
     skillType: 0
     skillLevel: 1
     cooldown: 4
@@ -79,10 +79,19 @@ MonoBehaviour:
   - skillId: 1008
     efficiency: 0.3
     skillName: "\uD575 \uACF5\uACA9"
-    skillIcon: {fileID: 21300000, guid: 0e662535ed84c2641b6b239f746e44c3, type: 3}
+    skillIcon: {fileID: 21300000, guid: 2b561e68865c742fd9ce4208c6eb3ea1, type: 3}
     skillType: 0
     skillLevel: 1
     cooldown: 100
     skillPrefab: {fileID: 1901279167202940282, guid: 630439e3931b11542864cb18974735fd, type: 3}
     themeType: 2
+  - skillId: 1009
+    efficiency: 0.3
+    skillName: "\uC2F1\uAC00"
+    skillIcon: {fileID: 21300000, guid: e0c6347459cae47aea6347a520d9327f, type: 3}
+    skillType: 0
+    skillLevel: 1
+    cooldown: 10
+    skillPrefab: {fileID: 6173101384162431116, guid: 48bf3bb3ba9b89544b7c630acba95f3f, type: 3}
+    themeType: 10
   passiveSkills: []

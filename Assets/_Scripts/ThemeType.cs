@@ -9,5 +9,6 @@ public enum ThemeType
     DungeonFighter,
     GetAmped,
     Minecraft,
-    AngryBirds
+    AngryBirds,
+    TecmoWorldCup
 }

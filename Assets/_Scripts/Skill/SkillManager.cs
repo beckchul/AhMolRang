@@ -17,7 +17,8 @@ public class SkillManager : MonoSingleton<SkillManager>
     public Dictionary<int, SkillStatus> Skills = new();
     private Dictionary<int, ActiveSkill> _skillObjects = new();
 
-    private Dictionary<int, ActiveSkillData> _skillDataCache = new();
+    private Dictionary<int, ActiveSkillData> _activeSkillDataCache = new();
+    private Dictionary<int, PassiveSkillData> _passiveSkillDataCache = new();
 
     public override void Init()
     {
@@ -26,7 +27,7 @@ public class SkillManager : MonoSingleton<SkillManager>
             var skill = new ActiveSkillStatus(
                 skillData.skillId, skillData.efficiency, skillData.cooldown, skillData.skillPrefab);
             Skills.Add(skillData.skillId, skill);
-            _skillDataCache.Add(skillData.skillId, skillData);
+            _activeSkillDataCache.Add(skillData.skillId, skillData);
 
             if (skillData.skillPrefab)
             {
@@ -43,6 +44,7 @@ public class SkillManager : MonoSingleton<SkillManager>
         {
             var skill = new SkillStatus(skillData.skillId, skillData.efficiency);
             Skills.Add(skillData.skillId, skill);
+            _passiveSkillDataCache.Add(skillData.skillId, skillData);
         }
     }
 
@@ -58,7 +60,7 @@ public class SkillManager : MonoSingleton<SkillManager>
         }
 
         var skllId = themes.ElementAt(randomIndex);
-        return _skillDataCache[skllId].themeType;
+        return _activeSkillDataCache[skllId].themeType;
     }
 
     public void SkillLevelUp(int skillId)
@@ -81,31 +83,32 @@ public class SkillManager : MonoSingleton<SkillManager>
         }
     }
 
-    public ActiveSkillData GetActiveSkillData(int skillId)
+    public ActiveSkillStatus GetActiveSkillStatus(int skillId)
     {
-        foreach (var skill in skillData.activeSkills)
+        return Skills[skillId] as ActiveSkillStatus;
+    }
+
+    public SkillStatus GetPasiveSkillStatus(int skillId)
+    {
+        foreach (var skill in skillData.passiveSkills)
         {
-            if (skill.skillId == skillId)
-            {
-                skill.skillLevel = Skills[skillId].Level;
-                return skill;
-            }
+            return Skills[skillId];
         }
 
         return null;
     }
 
-    public PassiveSkillData GetPasiveSkillData(int skillId)
+    public Sprite GetSkillIcon(int skillId)
     {
-        foreach (var skill in skillData.passiveSkills)
+        if (_activeSkillDataCache.TryGetValue(skillId, out var activeSkillData))
         {
-            if (skill.skillId == skillId)
-            {
-                skill.skillLevel = Skills[skillId].Level;
-                return skill;
-            }
+            return activeSkillData.skillIcon;
         }
-
+        else if (_passiveSkillDataCache.TryGetValue(skillId, out var passiveSkillData))
+        {
+            return passiveSkillData.skillIcon;
+        }
+        Debug.LogWarning($"Skill icon for skill ID {skillId} not found.");
         return null;
     }
 }
