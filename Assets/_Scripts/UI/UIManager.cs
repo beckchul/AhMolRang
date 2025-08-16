@@ -4,6 +4,12 @@ using UnityEngine;
 public class UIManager : MonoSingleton<UIManager>
 {
     /// <summary>
+    /// 웨이브 타이머
+    /// </summary>
+    [SerializeField]
+    private WaveTimer waveTimerUI;
+
+    /// <summary>
     /// 경험치 바
     /// </summary>
     [SerializeField]
@@ -66,6 +72,11 @@ public class UIManager : MonoSingleton<UIManager>
     public void UpdateExp()
     {
         expBarUI.UpdateExpBar();
+    }
+
+    public void UpdateTimer()
+    {
+        waveTimerUI.UpdateTimer();
     }
 
     /// <summary>
