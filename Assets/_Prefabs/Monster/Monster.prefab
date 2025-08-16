@@ -1515,7 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f850831c4318b4449f873ab4e133c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundIDs: c4060000
+  soundIDs: cd060000
   monster: {fileID: 7101063217739837091}
 --- !u!1 &8585586537213954871
 GameObject:
