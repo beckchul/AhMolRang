@@ -45,6 +45,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 1927865201
+    locked: 0
+  - name: Shadow
+    uniqueID: 3162680731
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3341184283
+    locked: 0
+  - name: Moveables
+    uniqueID: 57135399
+    locked: 0
+  - name: Weapons
+    uniqueID: 2273461237
+    locked: 0
+  - name: Skills
+    uniqueID: 364912447
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1

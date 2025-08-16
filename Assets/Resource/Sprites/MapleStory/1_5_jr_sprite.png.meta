@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b22b470554494b619103759994132e1
+guid: 12965548eaabe47c1adca7fb658bb874
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,139 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 256
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.43, y: 0.15}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57a47a9f96dff4d9f82f0c9e9d8f2a15
-      internalID: -1710189550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.43, y: 0.15}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01bbe28701b934c7999b455b3600c4fd
-      internalID: 838620774
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.43, y: 0.15}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bba36e1becb743daa4ee18fed5c478e
-      internalID: 67400907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 256
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.43, y: 0.15}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c918d0a9f6bf4801ac9751f9063c2ac
-      internalID: -1731374350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 256
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.43, y: 0.15}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 407d535357349403e8268cac88f9a8e1
-      internalID: 224599151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 256
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.43, y: 0.15}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7374c7a70d224edc89d469f436ce0b8
-      internalID: -4242704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_6
+      name: 1_5_jr_sprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -250,21 +118,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.43, y: 0.15}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fadacdd894421441781f868e9c5556f1
-      internalID: 1104420392
+      spriteID: 2bf6a16a1e4f042909bac21906403904
+      internalID: -1792891117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_7
+      name: 1_5_jr_sprite_1
       rect:
         serializedVersion: 2
         x: 256
@@ -272,21 +140,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.43, y: 0.15}
+      pivot: {x: 0.5, y: 0.19999999}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0ee1800079a74ef9b210c84cb6179a6
-      internalID: 465239088
+      spriteID: a1d959f1a553a46b2a5baa772749ff22
+      internalID: -494399952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_8
+      name: 1_5_jr_sprite_2
       rect:
         serializedVersion: 2
         x: 512
@@ -294,21 +162,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.43, y: 0.15}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46720d2cf95994c9a8f3ef4741c8f2d9
-      internalID: -1290282795
+      spriteID: 07f4b0aa3cb694ec692acf2af1b09af6
+      internalID: -2119005870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_9
+      name: 1_5_jr_sprite_3
       rect:
         serializedVersion: 2
         x: 768
@@ -316,21 +184,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.43, y: 0.15}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21d4c156d54ea4e249aec2dcfac33cc1
-      internalID: 606850300
+      spriteID: fc3aa1991fe8e4455809edccbad68424
+      internalID: 478740392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2_6_diablo_walk_sprite_10
+      name: 1_5_jr_sprite_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -338,15 +206,15 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.43, y: 0.15}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e941255a96e7d4fe5bd6f34de0e3ebe0
-      internalID: -776702832
+      spriteID: 54c74864df02349778bc6f4edb8a6371
+      internalID: -1723134222
       vertices: []
       indices: 
       edges: []
@@ -355,7 +223,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 12a961cbdfa08478ea4dda7e34684de6
+    spriteID: 60529704d2737411f829d685c49a4acd
     internalID: 0
     vertices: []
     indices: 
@@ -365,17 +233,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2_6_diablo_walk_sprite_0: -1710189550
-      2_6_diablo_walk_sprite_1: 838620774
-      2_6_diablo_walk_sprite_10: -776702832
-      2_6_diablo_walk_sprite_2: 67400907
-      2_6_diablo_walk_sprite_3: -1731374350
-      2_6_diablo_walk_sprite_4: 224599151
-      2_6_diablo_walk_sprite_5: -4242704
-      2_6_diablo_walk_sprite_6: 1104420392
-      2_6_diablo_walk_sprite_7: 465239088
-      2_6_diablo_walk_sprite_8: -1290282795
-      2_6_diablo_walk_sprite_9: 606850300
+      1_5_jr_sprite_0: -1792891117
+      1_5_jr_sprite_1: -494399952
+      1_5_jr_sprite_2: -2119005870
+      1_5_jr_sprite_3: 478740392
+      1_5_jr_sprite_4: -1723134222
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
