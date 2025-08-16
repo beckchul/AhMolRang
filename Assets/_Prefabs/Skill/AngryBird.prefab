@@ -46,12 +46,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54741de5e350b144ca87f0d0f1e60d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound_ID_1: 1012
+  sound_ID_2: 1013
   _projectilePrefab:
   - {fileID: -8271159398047802450, guid: 65c1f34cca603ed4d9d1bf23ffa7d0cd, type: 3}
   - {fileID: -8271159398047802450, guid: bdc1d45514ad8234d80ef0d52f0114ef, type: 3}
   - {fileID: -8271159398047802450, guid: a167451a2223abb4b9db88d89fb0d3bc, type: 3}
   _range: 7
   _duration: 1
+  sound_ID_3: 1014
+  sound_ID_4: 1021
+  sound_ID_5: 1022
+  sound_ID_6: 1023
 --- !u!1 &3186410660865457530
 GameObject:
   m_ObjectHideFlags: 0

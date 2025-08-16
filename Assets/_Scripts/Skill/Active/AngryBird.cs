@@ -48,6 +48,7 @@ public class AngryBird : ActiveSkill
             var target = MonsterManager.Instance.GetNearestMonster(transform.position, _range);
             if (target)
             {
+                RandomPlaySound();
                 var projectile = _projectilePool.Get();
                 projectile.transform.position = transform.position;
                 projectile.PierceShoot(
@@ -96,6 +97,29 @@ public class AngryBird : ActiveSkill
 
     private void RandomPlaySound()
     {
-
+        int ranNum = Random.Range(1, 7);
+        switch (ranNum)
+        {
+            case 1:
+                PlaySound1();
+                break;
+            case 2:
+                PlaySound2();
+                break;
+            case 3:
+                SoundManager.Instance.PlaySFX(sound_ID_3);
+                break;
+            case 4:
+                SoundManager.Instance.PlaySFX(sound_ID_4);
+                break;
+            case 5:
+                SoundManager.Instance.PlaySFX(sound_ID_5);
+                break;
+            case 6:
+                SoundManager.Instance.PlaySFX(sound_ID_6);
+                break;
+            default:
+                break;
+        }
     }
 }
