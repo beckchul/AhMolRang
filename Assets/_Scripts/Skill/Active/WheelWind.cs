@@ -3,22 +3,25 @@ using UnityEngine;
 
 public class WheelWind : ActiveSkill
 {
+    [SerializeField]
     private CircleCollider2D _collider;
+    [SerializeField]
+    private SpriteRenderer _renderer;
 
     private void Awake()
     {
-        _collider = GetComponent<CircleCollider2D>();
+        _renderer.enabled = false;
     }
 
-    public override void Use()
+    public override void StartLifeCycle()
     {
+        base.StartLifeCycle();
+        _renderer.enabled = true;
         StartCoroutine(CoProcessEffect());
     }
 
     public IEnumerator CoProcessEffect()
     {
-        var delay = new WaitForSeconds(Cooldown);
-
         while (gameObject.activeSelf)
         {
             var colliders = Physics2D.OverlapCircleAll(transform.position, _collider.radius, MonsterLayerMask);
@@ -27,12 +30,12 @@ public class WheelWind : ActiveSkill
                 if (collider.TryGetComponent(out MonsterBase monster))
                 {
                     var stat = monster.Stat;
-                    int damage = Mathf.RoundToInt(stat.AttackDamage * Efficiency);
-                    stat.TakeDamage(damage);
+                    //int damage = Mathf.RoundToInt(stat.AttackDamage * Efficiency);
+                    stat.TakeDamage(100);
                 }
             }
 
-            yield return delay;
+            yield return new WaitForSeconds(Cooldown);
         }
     }
 }

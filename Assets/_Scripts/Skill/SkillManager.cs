@@ -11,7 +11,7 @@ public class SkillManager : MonoSingleton<SkillManager>
     public SkillDataScriptableObject skillData;
 
     public Dictionary<int, SkillStatus> Skills = new();
-    private Dictionary<int, ObjectPool<ActiveSkill>> _skillPools = new();
+    private Dictionary<int, ActiveSkill> _skillObjects = new();
 
     private Dictionary<int, ActiveSkillData> _skillDataCache = new();
 
@@ -24,15 +24,15 @@ public class SkillManager : MonoSingleton<SkillManager>
             Skills.Add(skillData.skillId, skill);
             _skillDataCache.Add(skillData.skillId, skillData);
 
-            var skillPool = new ObjectPool<ActiveSkill>(
-                () => OnCreateSkill(skillData),
-                OnGetSkill,
-                skill => skill.gameObject.SetActive(false),
-                skill => Destroy(skill.gameObject),
-                false,
-                10,
-                50
-            );
+            if (skillData.skillPrefab)
+            {
+                var skillObject = Instantiate(skillData.skillPrefab, PlayerManager.Instance.PlayerObject.transform);
+                _skillObjects.Add(skillData.skillId, skillObject);
+            }
+            else
+            {
+                Debug.LogWarning($"Skill prefab for skill ID {skillData.skillId} is not assigned.");
+            }
         }
 
         foreach (var skillData in skillData.passiveSkills)
@@ -40,34 +40,6 @@ public class SkillManager : MonoSingleton<SkillManager>
             var skill = new SkillStatus(skillData.skillId, skillData.efficiency);
             Skills.Add(skillData.skillId, skill);
         }
-    }
-
-    public ActiveSkill GetSkill(int skillId)
-    {
-        if (!_skillPools.TryGetValue(skillId, out var pool))
-        {
-            return null;
-        }
-
-        return pool.Get();
-    }
-
-    private ActiveSkill OnCreateSkill(ActiveSkillData skillData)
-    {
-        var skill = Instantiate(skillData.skillPrefab);
-        return skill;
-    }
-
-    private void OnGetSkill(ActiveSkill skill)
-    {
-        skill.gameObject.SetActive(true);
-
-        var activeSkillStatus = Skills[skill.SkillId] as ActiveSkillStatus;
-        skill.Init(
-            activeSkillStatus.SkillId,
-            activeSkillStatus.Level,
-            activeSkillStatus.Efficiency,
-            activeSkillStatus.Cooldown);
     }
 
     public ThemeType GetRandomTheme()
@@ -89,13 +61,18 @@ public class SkillManager : MonoSingleton<SkillManager>
     {
         var skillStatus = Skills[skillId];
         skillStatus.UpgradeEfficiency(1);
-        if (skillStatus is ActiveSkillStatus activeStatus &&
-            activeStatus.Cooldown == 0)
+
+        if (skillStatus is ActiveSkillStatus activeSkillStatus)
         {
-            if (_skillPools.TryGetValue(skillId, out var pool))
+            if (activeSkillStatus.Level == 1)
             {
-                var skill = GetSkill(skillId);
-                skill.transform.SetParent(PlayerManager.Instance.PlayerObject.transform);
+                var skill = _skillObjects[skillId];
+                skill.Init(
+                    skillId,
+                    activeSkillStatus.Level,
+                    activeSkillStatus.Efficiency,
+                    activeSkillStatus.Cooldown);
+                skill.StartLifeCycle();
             }
         }
     }

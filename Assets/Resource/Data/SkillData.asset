@@ -16,25 +16,25 @@ MonoBehaviour:
   - skillId: 1001
     efficiency: 0.3
     skillName: "\uD720\uC708\uB4DC"
-    skillIcon: {fileID: 0}
+    skillIcon: {fileID: 21300000, guid: da372b3cf9b45514abd5e09ed6dbdf83, type: 3}
     skillType: 0
-    skillLevel: 0
-    cooldown: 0
-    skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
+    skillLevel: 1
+    cooldown: 1
+    skillPrefab: {fileID: 4727670817506536907, guid: 4e22bdae41185e04d80a448b6bc1c60a, type: 3}
     themeType: 0
   - skillId: 1002
     efficiency: 0.2
     skillName: "\uD5E4\uBE44 \uBA38\uC2E0\uAC74"
-    skillIcon: {fileID: 0}
+    skillIcon: {fileID: 21300000, guid: 63b129cafd9848246ae032f52423d19e, type: 3}
     skillType: 0
-    skillLevel: 0
+    skillLevel: 1
     cooldown: 0.1
     skillPrefab: {fileID: 8612043965713422384, guid: 44e69b9cb6cb0b94795966b5287e2e16, type: 3}
     themeType: 1
   - skillId: 1003
     efficiency: 1
     skillName: "\uC0AC\uC774\uC624\uB2C9 \uC2A4\uD1B0"
-    skillIcon: {fileID: 0}
+    skillIcon: {fileID: 21300000, guid: ab0d206558b917f4dbabee838185c5e6, type: 3}
     skillType: 0
     skillLevel: 1
     cooldown: 3
@@ -44,12 +44,12 @@ MonoBehaviour:
   - skillId: 2001
     efficiency: 0.2
     skillName: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    skillIcon: {fileID: 0}
+    skillIcon: {fileID: 21300000, guid: f0b12383c1012d244a4d6052d95ff544, type: 3}
     skillType: 0
-    skillLevel: 0
+    skillLevel: 1
   - skillId: 2002
     efficiency: 0.2
     skillName: "\uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
-    skillIcon: {fileID: 0}
+    skillIcon: {fileID: 21300000, guid: 28576731b4583ba4d8fb28fe708b5725, type: 3}
     skillType: 0
-    skillLevel: 0
+    skillLevel: 1

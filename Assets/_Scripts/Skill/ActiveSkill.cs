@@ -31,7 +31,8 @@ public class ActiveSkill : MonoBehaviour, ISkill
     {
     }
 
-    public virtual void Use()
+    public virtual void StartLifeCycle()
     {
+        Debug.Log($"Starting lifecycle of {GetType()}");
     }
 }
