@@ -64,10 +64,16 @@ public class PlayerStat : CharacterStat
 
     public int MaxEXP { get; private set; }
     public int CurrentEXP { get; private set; }
+    public int MaxLevel { get; private set; }
+    public int CurrentLevel { get; private set; }
     #endregion
 
     #region << =========== DICTINARY =========== >>
     private readonly Dictionary<StatType, Stat> statDict = new();
+    #endregion
+
+    #region << =========== STAT =========== >>
+    public event Action OnLevelUp;
     #endregion
 
 
@@ -97,6 +103,8 @@ public class PlayerStat : CharacterStat
 
         MaxEXP = 10;
         CurrentEXP = 0;
+        MaxLevel = 100;
+        CurrentLevel = 1;
 
         statDict.Add(StatType.RegenHP, RegenHPStat);
         statDict.Add(StatType.ProjectileDamage, ProjectileDamageStat);
@@ -127,5 +135,22 @@ public class PlayerStat : CharacterStat
         {
             Debug.LogError("PlayerStat -> ChangeStat: statDict.ContainsKey Error");
         }
+    }
+
+    public void AddEXP(int add)
+    {
+        CurrentEXP += add;
+
+        if(CurrentEXP >= MaxEXP)
+        {
+            if(CurrentLevel + 1 <= MaxLevel) LevelUp();
+            else CurrentEXP = MaxEXP;
+        }
+    }
+
+    public void LevelUp()
+    {
+        CurrentEXP = CurrentEXP - MaxEXP;
+        OnLevelUp?.Invoke();
     }
 }
