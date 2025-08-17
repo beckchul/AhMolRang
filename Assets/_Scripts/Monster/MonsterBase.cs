@@ -20,7 +20,6 @@ public class MonsterBase : MonoBehaviour
     public void Set(Action<MonsterBase> onDead, int currentWaveHp, int prevExtraHp)
     {
         var newHp = 100 + currentWaveHp + prevExtraHp;
-        Debug.Log($"HP: {newHp}");
         Stat = new CharacterStat(newHp);
         _collider = GetComponent<Collider2D>();
         _isContacting = false;
