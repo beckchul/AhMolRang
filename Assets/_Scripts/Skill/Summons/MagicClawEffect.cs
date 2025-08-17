@@ -9,16 +9,6 @@ public class MagicClawEffect : MonoBehaviour
 
     private MonsterBase monster;
 
-    private void Update()
-    {
-        if(monster != null)
-        {
-            Vector3 pos = monster.transform.position;
-            pos += new Vector3(0.0f, 0.5f);
-            transform.position = pos;
-        }
-    }
-
     public void Shoot(MonsterBase monster, Action<MagicClawEffect> onHit, Action<MagicClawEffect> onExpired)
     {
         this.monster = monster;
