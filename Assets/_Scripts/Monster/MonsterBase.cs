@@ -19,7 +19,7 @@ public class MonsterBase : MonoBehaviour
 
     public void Set(Action<MonsterBase> onDead)
     {
-        Stat = new CharacterStat();
+        Stat = new CharacterStat(100 + MonsterManager.Instance.IncreaseHP);
         _collider = GetComponent<Collider2D>();
         _isContacting = false;
         Stat.OnDeath = () => onDead?.Invoke(this);

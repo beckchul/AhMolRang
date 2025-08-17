@@ -36,6 +36,10 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     public float minX = 6f;  // X축 최소 반경 (안쪽 타원의 가로 반지름)
     public float minY = 4f;  // Y축 최소 반경 (안쪽 타원의 세로 반지름)
 
+    //public int CurrentWave = 0;
+    public int IncreaseHP = 0;
+
+
     private void Awake()
     {
         _monsterPool = new ObjectPool<MonsterBase>(
@@ -65,6 +69,9 @@ public class MonsterManager : MonoSingleton<MonsterManager>
                 SpawnMonster(OnMonsterDead, GetMonsterPosition());
                 ElapsedTime += _spawnDelay;
                 UIManager.Instance.UpdateTimer();
+
+                if (ElapsedTime % 10 == 0) IncreaseHP += (int)(ElapsedTime * i);
+
                 yield return _waitForSpawnDelay;
             }
 
