@@ -7,49 +7,49 @@ public class UIManager : MonoSingleton<UIManager>
     public TMP_Text waveText;
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î Ã¼·Â¹Ù
+    /// ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Ã¼ï¿½Â¹ï¿½
     /// </summary>
     [SerializeField]
     private SliderBar hpBarUI;
 
     /// <summary>
-    /// ¿þÀÌºê Å¸ÀÌ¸Ó
+    /// ï¿½ï¿½ï¿½Ìºï¿½ Å¸ï¿½Ì¸ï¿½
     /// </summary>
     [SerializeField]
     private WaveTimer waveTimerUI;
 
     /// <summary>
-    /// °æÇèÄ¡ ¹Ù
+    /// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½
     /// </summary>
     [SerializeField]
     private SliderBar expBarUI;
 
     /// <summary>
-    /// ½ºÅ³ ¼±ÅÃ Ã¢
+    /// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ Ã¢
     /// </summary>
     [SerializeField]
     private SkillSelect skillSelectUI;
 
     /// <summary>
-    /// °¡Áø ½ºÅ³ ¾ÆÀÌÄÜ °ü¸®¿ë
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     [SerializeField]
     private HasSkillList hasSkillListUI;
 
     /// <summary>
-    /// ÀÏ½Ã Á¤Áö Ã¢
+    /// ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢
     /// </summary>
     [SerializeField]
     private GameObject pause;
 
     /// <summary>
-    /// ·¹º§ Text
+    /// ï¿½ï¿½ï¿½ï¿½ Text
     /// </summary>
     [SerializeField]
     private TMP_Text levelText;
 
     /// <summary>
-    /// º¸½º Ã¼·Â¹Ù
+    /// ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½Â¹ï¿½
     /// </summary>
     [SerializeField]
     private SliderBar bossHpBarUI;
@@ -57,7 +57,7 @@ public class UIManager : MonoSingleton<UIManager>
     public GameOver GameOverUI;
 
     /// <summary>
-    /// ÀÏ½Ã Á¤Áö Ã¼Å©¿ë
+    /// ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½
     /// </summary>
     [HideInInspector]
     public bool IsPaused = false;
@@ -86,7 +86,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         skillSelectUI.ShowUI();
         skillSelectUI.SetButton();
-        levelText.text = "¸¸ " + PlayerManager.Instance.PlayerScript.Stat.CurrentLevel.ToString() + "¼¼";
+        levelText.text = "ë§Œ " + PlayerManager.Instance.PlayerScript.Stat.CurrentLevel.ToString() + "ì„¸";
     }
 
     public void UpdateSkillListUI()
@@ -125,7 +125,7 @@ public class UIManager : MonoSingleton<UIManager>
     }
     
     /// <summary>
-    /// ÀÏ½Ã Á¤Áö ¹öÆ°
+    /// ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
     /// </summary>
     public void OnClickPauseButton()
     {
@@ -135,7 +135,7 @@ public class UIManager : MonoSingleton<UIManager>
     }
 
     /// <summary>
-    /// °ÔÀÓ Àç°³ ¹öÆ°
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ç°³ ï¿½ï¿½Æ°
     /// </summary>
     public void OnClickPauseEndButton()
     {

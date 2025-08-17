@@ -49,5 +49,5 @@ MonoBehaviour:
   sound_ID_1: 1802
   sound_ID_2: 0
   _projectilePrefab: {fileID: 8845585324173466704, guid: 44363571bec88a94b8b4fbb87dc6e304, type: 3}
-  _range: 6
+  _range: 8
   _duration: 1
