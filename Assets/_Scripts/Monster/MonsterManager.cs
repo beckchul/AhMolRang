@@ -68,7 +68,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             IsBossWave = false;
             while (ElapsedTime < WaveTime)
             {
-                SpawnMonster(OnMonsterDead, GetMonsterPosition(), (int)(ElapsedTime * (i + 1)) / 3, prevWaveHp);
+                SpawnMonster(OnMonsterDead, GetMonsterPosition(), (int)(ElapsedTime * (i + 1)) / 2, prevWaveHp);
                 ElapsedTime += _spawnDelay[i];
                 UIManager.Instance.UpdateTimer();
 
@@ -76,7 +76,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
                 yield return _waitForSpawnDelay;
             }
 
-            prevWaveHp += (WaveTime * (i + 1)) / 3;
+            prevWaveHp += (WaveTime * (i + 1)) / 2;
 
             // BOSS WAVE
             ElapsedTime = 0;
