@@ -17,9 +17,11 @@ public class MonsterBase : MonoBehaviour
     private int _themeIndex;
     private MonsterDeadSound monsterDeadSound;
 
-    public void Set(Action<MonsterBase> onDead)
+    public void Set(Action<MonsterBase> onDead, int currentWaveHp, int prevExtraHp)
     {
-        Stat = new CharacterStat(100 + MonsterManager.Instance.IncreaseHP);
+        var newHp = 100 + currentWaveHp + prevExtraHp;
+        Debug.Log($"HP: {newHp}");
+        Stat = new CharacterStat(newHp);
         _collider = GetComponent<Collider2D>();
         _isContacting = false;
         Stat.OnDeath = () => onDead?.Invoke(this);

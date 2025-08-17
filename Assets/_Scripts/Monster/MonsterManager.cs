@@ -29,6 +29,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     public int WaveTime = 180;
     public int BossWaveTime = 30;
     public float ElapsedTime = 0f;
+    public int prevWaveHp = 0;
 
     [Header("Ellipse Settings")]
     public float maxX = 10f; // X축 최대 반경 (타원의 가로 반지름)
@@ -37,7 +38,6 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     public float minY = 4f;  // Y축 최소 반경 (안쪽 타원의 세로 반지름)
 
     //public int CurrentWave = 0;
-    public int IncreaseHP = 0;
 
 
     private void Awake()
@@ -67,25 +67,26 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             IsBossWave = false;
             while (ElapsedTime < WaveTime)
             {
-                SpawnMonster(OnMonsterDead, GetMonsterPosition());
+                SpawnMonster(OnMonsterDead, GetMonsterPosition(), (int)(ElapsedTime * i), prevWaveHp);
                 ElapsedTime += _spawnDelay;
                 UIManager.Instance.UpdateTimer();
 
-                if (ElapsedTime % 10 == 0) IncreaseHP += (int)(ElapsedTime * i);
 
                 yield return _waitForSpawnDelay;
             }
 
+            prevWaveHp += (int)(ElapsedTime * i + 1);
+
             // BOSS WAVE
             ElapsedTime = 0;
-            CurrentBoss = SpawnBoss(OnBossDead, GetMonsterPosition(), 0);
+            CurrentBoss = SpawnBoss(OnBossDead, GetMonsterPosition(), 0, prevWaveHp);
             UIManager.Instance.SetActiveBossHpBar(true);
             IsBossWave = true;
 
             while (ElapsedTime < BossWaveTime &&
                 CurrentBoss.Stat.CurrentHP > 0)
             {
-                SpawnMonster(OnMonsterDead, GetMonsterPosition());
+                SpawnMonster(OnMonsterDead, GetMonsterPosition(), 0, prevWaveHp);
                 ElapsedTime += _spawnDelay;
                 UIManager.Instance.UpdateTimer();
                 UIManager.Instance.UpdateBossHpBar((float)CurrentBoss.Stat.CurrentHP / CurrentBoss.Stat.MaxHP);
@@ -159,20 +160,20 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         Destroy(monster.gameObject);
     }
 
-    public MonsterBase SpawnBoss(Action<MonsterBase> onDead, Vector3 position, int spriteId)
+    public MonsterBase SpawnBoss(Action<MonsterBase> onDead, Vector3 position, int currentWaveHp, int prevExtraHp)
     {
         var monster = _monsterPool.Get();
         monster.transform.position = position;
-        monster.Set(onDead);
+        monster.Set(onDead, currentWaveHp, prevExtraHp);
 
         return monster;
     }
 
-    public MonsterBase SpawnMonster(Action<MonsterBase> onDead, Vector3 position)
+    public MonsterBase SpawnMonster(Action<MonsterBase> onDead, Vector3 position, int currentWaveHp, int prevExtraHp)
     {
         var monster = _monsterPool.Get();
         monster.transform.position = position;
-        monster.Set(onDead);
+        monster.Set(onDead, currentWaveHp, prevExtraHp);
 
         return monster;
     }
