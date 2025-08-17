@@ -55,9 +55,9 @@ MonoBehaviour:
   - {fileID: -8271159398047802450, guid: bdc1d45514ad8234d80ef0d52f0114ef, type: 3}
   - {fileID: -8271159398047802450, guid: a167451a2223abb4b9db88d89fb0d3bc, type: 3}
   _range: 7
-  _duration: 1
-  yellowDamage: 150
-  bigDamage: 500
+  _duration: 2
+  yellowDamage: 200
+  redDamage: 100
   sound_ID_3_Shot: 1014
   sound_ID_4_Fly: 1021
   sound_ID_5_Fly: 1022
