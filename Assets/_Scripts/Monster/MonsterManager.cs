@@ -17,7 +17,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     private HashSet<MonsterBase> _activeMonsters = new();
 
     [SerializeField]
-    private float _spawnDelay = 0.5f;
+    private float[] _spawnDelay;
     private WaitForSeconds _waitForSpawnDelay;
     private Coroutine _waveCoroutine;
 
@@ -57,18 +57,19 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
     private IEnumerator ProcessWave()
     {
-        _waitForSpawnDelay = new WaitForSeconds(_spawnDelay);
+        var originalSpawnDelay = _spawnDelay;
 
         for (int i = 0; i < _waveCount; ++i)
         {
+            _waitForSpawnDelay = new WaitForSeconds(_spawnDelay[i]);
             Debug.Log($"Wave {i} started!");
-            UIManager.Instance.waveText.text = $"Wave {i + 1}";
+            UIManager.Instance.waveText.text = $"Wave {i + 1}/{_waveCount}";
             ElapsedTime = 0;
             IsBossWave = false;
             while (ElapsedTime < WaveTime)
             {
                 SpawnMonster(OnMonsterDead, GetMonsterPosition(), (int)(ElapsedTime * i), prevWaveHp);
-                ElapsedTime += _spawnDelay;
+                ElapsedTime += _spawnDelay[i];
                 UIManager.Instance.UpdateTimer();
 
 
@@ -87,7 +88,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
                 CurrentBoss.Stat.CurrentHP > 0)
             {
                 SpawnMonster(OnMonsterDead, GetMonsterPosition(), 0, prevWaveHp);
-                ElapsedTime += _spawnDelay;
+                ElapsedTime += _spawnDelay[i];
                 UIManager.Instance.UpdateTimer();
                 UIManager.Instance.UpdateBossHpBar((float)CurrentBoss.Stat.CurrentHP / CurrentBoss.Stat.MaxHP);
                 yield return _waitForSpawnDelay;
