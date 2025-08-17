@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    [SerializeField]
+    public TMP_Text waveText;
+
     /// <summary>
     /// 플레이어 체력바
     /// </summary>
